@@ -8,7 +8,6 @@ import { ExplorePage } from './pages/ExplorePage.jsx'
 import { DirectPage } from './pages/DirectPage.jsx'
 import { ProfilePage } from './pages/ProfilePage.jsx'
 
-
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
     {

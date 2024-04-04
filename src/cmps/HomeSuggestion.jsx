@@ -1,7 +1,6 @@
 import { HomeSuggestionHeader } from "./HomeSuggestionHeader"
 import { SuggestForYou } from "./SuggestForYou"
 import { AboutUs } from "./AboutUs"
-
 export function HomeSuggestion(){
     return (
         <div className="home-suggestion">
@@ -10,5 +9,5 @@ export function HomeSuggestion(){
             <SuggestForYou/>
             <AboutUs/>
         </div>
-    )
+    ) 
 }

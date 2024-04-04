@@ -1,5 +1,6 @@
 .app-header {
     position: sticky;
+    margin-top: 0;
     top: 0;
     left: 0;
     padding: 10px;
@@ -7,6 +8,7 @@
     height: 100vh;
     padding-left: 20px; //a little pudding for beggining init 
     border-right: 0.5px solid black;  // a little border for init
+    padding: 8px 12px 20px;
 
     nav {
         gap: 10px;     // a little gap for beggining init
