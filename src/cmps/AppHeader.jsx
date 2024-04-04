@@ -8,9 +8,6 @@ import { LoginSignup } from './LoginSignup.jsx'
 import { HomePage } from '../pages/HomePage.jsx'
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { ReactComponent as CreateIcon } from '../../public/icons/Create.svg';
-
-console.log(CreateIcon)
 
 export function AppHeader() {
 
@@ -18,15 +15,15 @@ export function AppHeader() {
         <header className="app-header full">
             <h1 className='logo'>Instegram</h1>
             <nav>
-                <>
+                <>  
                     <NavLink to="/" exact={true}>Home</NavLink>
                 </>
                 <>
-                    <SearchOutlinedIcon />
+                    <SearchOutlinedIcon/>
                     <div>Search</div>
                 </>
                 <>
-                    <ExploreOutlinedIcon />
+                    <ExploreOutlinedIcon/>
                     <NavLink to="/explore" exact={true}>Explore</NavLink>
                 </>
                 <>
@@ -36,7 +33,6 @@ export function AppHeader() {
                     <div>Notification</div>
                 </>
                 <>
-                    {/* <CreateIcon /> */}
                     <div>Create</div>
                 </>
                 <>
