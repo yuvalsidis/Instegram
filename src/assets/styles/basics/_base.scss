@@ -7,11 +7,12 @@
 }
 
 html {
-
+    font-family: Sans;
  // line-height: 1.6; We need to adjust line height for all the html
 }
 
 body {
+    background-color: $clr_bg;
     font-size: rem(16px);          // need to look what is the fonr size
     margin: 0;
 }
@@ -30,4 +31,8 @@ a {
 
 a:hover {
     // text-decoration: underline;  // adjust other hover that match to must of the page on links
+}
+
+.logo{
+    font-family:  Sans_Head_Line;
 }

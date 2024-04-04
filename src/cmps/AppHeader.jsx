@@ -9,7 +9,7 @@ export function AppHeader() {
 
     return (
         <header className="app-header full">
-            <h1>Instegram</h1>
+            <h1 className='logo'>Instegram</h1>
             <nav>
                 {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
             </nav>
