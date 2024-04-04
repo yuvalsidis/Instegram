@@ -1,13 +1,12 @@
-import { HomePage } from './pages/HomePage.jsx'
 // import { CarIndex } from './pages/CarIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
 import { AdminApp } from './pages/AdminIndex.jsx'
 
 //Pages
+import { HomePage } from './pages/HomePage.jsx'
 import { ExplorePage } from './pages/ExplorePage.jsx'
 import { DirectPage } from './pages/DirectPage.jsx'
 import { ProfilePage } from './pages/ProfilePage.jsx'
-
 
 
 // Routes accesible from the main navigation (in AppHeader)
@@ -32,7 +31,7 @@ const routes = [
         component: <ProfilePage />,
         label: 'Profile'
     }
-    
+
     // {
     //     path: 'car',
     //     component: <CarIndex />,

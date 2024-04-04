@@ -1,5 +1,13 @@
 import React from 'react'
+import { HomeMainContent } from '../cmps/HomeMainContent'
+import { HomeSuggestion } from '../cmps/HomeSuggestion'
+
 
 export function HomePage() {
-    <h1>Home Page</h1>
+    return (
+        <section className='home-page'>
+            <HomeMainContent />
+            {/* <HomeSuggestion /> */}
+        </section>
+    )
 }
