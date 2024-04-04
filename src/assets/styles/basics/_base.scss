@@ -2,18 +2,16 @@
     box-sizing: border-box;
 }
 
-::selection {
-
-}
+::selection {}
 
 html {
     font-family: Sans;
- // line-height: 1.6; We need to adjust line height for all the html
+    // line-height: 1.6; We need to adjust line height for all the html
 }
 
 body {
     background-color: $clr_bg;
-    font-size: rem(16px);          // need to look what is the fonr size
+    font-size: rem(16px); // need to look what is the fonr size
     margin: 0;
 }
 
@@ -27,12 +25,26 @@ p {
 
 a {
     text-decoration: none;
+    color: $clr1;
 }
 
 a:hover {
-    // text-decoration: underline;  // adjust other hover that match to must of the page on links
+    cursor: pointer;
 }
 
-.logo{
-    font-family:  Sans_Head_Line;
+.logo {
+    font-family: Sans_Head_Line;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+nav *:hover{
+    cursor: pointer;
+    border-radius: $nav-border-radius;
+    background-color: $clr5;
+    transition: background-color 0.5s ease;
+    transition: 0.5;
 }

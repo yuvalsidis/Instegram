@@ -4,15 +4,21 @@
     top: 0;
     left: 0;
     padding: 10px;
-    width: 200px;     // need to adjust real width with media querys
+    width: 244px;   
     height: 100vh;
-    padding-left: 20px; //a little pudding for beggining init 
     border-right: 0.5px solid black;  // a little border for init
     padding: 8px 12px 20px;
 
-    nav {
-        gap: 10px;     // a little gap for beggining init
+    nav {  
         display: flex;
         flex-direction: column;
+    }
+
+    nav > *{  
+        display: flex;
+        padding: 12px;
+        margin: 4px 0px;
+        gap: 15px;  // a little gap for beggining ini  
+        flex-direction: row;
     }
 }
