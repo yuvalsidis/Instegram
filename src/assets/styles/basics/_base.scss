@@ -3,36 +3,22 @@
 }
 
 ::selection {
-    background-color: $clr1;
-    color: $clr6;
+    // background-color: $clr1; //adjust another selection
+    // color: $clr6;
 }
 
 html {
-    font-family: montserrat;
-    line-height: 1.6;
-    color: $clr2;
+
+ // line-height: 1.6; We need to adjust line height for all the html
 }
 
 body {
-    font-size: rem(18px);
+    font-size: rem(16px);          // need to look what is the fonr size
     margin: 0;
-    max-width: 1024px;
-    margin: auto;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: caveat;
-    margin: 0 0 0.6em;
-    line-height: 1;
-}
-
-
-section, main, footer {
-    padding: 5px;
 }
 
 img {
-    width: 100%;
+    width: 100%; //ensure the the image will be pixel perfect
 }
 
 p {
@@ -42,7 +28,7 @@ p {
 a {
     text-decoration: none;
 }
-a:hover {
-    text-decoration: underline;
-}
 
+a:hover {
+    // text-decoration: underline;  // adjust other hover that match to must of the page on links
+}

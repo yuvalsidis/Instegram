@@ -1,36 +1,58 @@
 import { HomePage } from './pages/HomePage.jsx'
-import { CarIndex } from './pages/CarIndex.jsx'
-import { ReviewIndex } from './pages/ReviewIndex.jsx'
+// import { CarIndex } from './pages/CarIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
 import { AdminApp } from './pages/AdminIndex.jsx'
+
+//Pages
+import { ExplorePage } from './pages/ExplorePage.jsx'
+import { DirectPage } from './pages/DirectPage.jsx'
+import { ProfilePage } from './pages/ProfilePage.jsx'
+
+
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
     {
         path: '/',
         component: <HomePage />,
-        label: 'Home 🏠',
+        label: 'Home',
     },
     {
-        path: 'car',
-        component: <CarIndex />,
-        label: 'Cars'
+        path: '/explore',
+        component: <ExplorePage />,
+        label: 'Explore'
     },
     {
-        path: 'review',
-        component: <ReviewIndex />,
-        label: 'Reviews'
+        path: '/direct',
+        component: <DirectPage />,
+        label: 'Direct'
     },
     {
-        path: 'chat',
-        component: <ChatApp />,
-        label: 'Chat'
-    },
-    {
-        path: 'admin',
-        component: <AdminApp />,
-        label: 'Admin Only'
+        path: '/profile',
+        component: <ProfilePage />,
+        label: 'Profile'
     }
+    
+    // {
+    //     path: 'car',
+    //     component: <CarIndex />,
+    //     label: 'Cars'
+    // },
+    // {
+    //     path: 'review',
+    //     component: <ReviewIndex />,
+    //     label: 'Reviews'
+    // },
+    // {
+    //     path: 'chat',
+    //     component: <ChatApp />,
+    //     label: 'Chat'
+    // },
+    // {
+    //     path: 'admin',
+    //     component: <AdminApp />,
+    //     label: 'Admin Only'
+    // }
 ]
 
 export default routes
