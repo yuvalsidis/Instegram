@@ -11,28 +11,29 @@ import { ExploreOutlined } from '@mui/icons-material'
 
 export function AppHeader() {
 
+
     return (
         <header className="app-header full">
             <h1 className='logo'>Instegram</h1>
             <nav>
-                <div>
+
+                <NavLink to="/" exact={true}>
                     <img className='icon' src="../../public/icons/Home.svg" alt="Home Icon" />
-                    <NavLink to="/" exact={true}>Home</NavLink>
-                </div>
+                    <div> Home</div>
+                </NavLink>
                 <div>
                     <img className='icon' src="../../public/icons/Search.svg" alt="Search Icon" />
                     <div>Search</div>
                 </div>
-                <div>
-                    <ExploreOutlined/>
-                    {/* <img className='icon' src="../../public/icons/Explore.svg" alt="Explore Icon" /> */}
-                    <NavLink to="/explore" exact={true}>Explore</NavLink>
-                </div>
-                <div>
+                <NavLink to="/explore" exact={true}>
+                    <ExploreOutlined />
+                    <div>Explore</div>
+                </NavLink>
+                <NavLink to="/direct" exact={true}>
                     <img className='icon' src="../../public/icons/Messenger.svg" alt="Messenger Icon" />
-                    <NavLink to="/direct" exact={true}>Messeges</NavLink>
-                </div>
-                <div>  
+                    <div>Messeges</div>
+                </NavLink>
+                <div>
                     <img className='icon' src="../../public/icons/Like.svg" alt="Nofication Icon" />
                     <div>Notification</div>
                 </div>
@@ -40,10 +41,11 @@ export function AppHeader() {
                     <img className='icon' src="../../public/icons/Create.svg" alt="Create Icon" />
                     <div>Create</div>
                 </div>
-                <div>  <img className='icon' src="../../public/icons/User.svg" alt="Profile Icon" />
-                    <NavLink to="/profile" exact={true}>Profile</NavLink>
-                </div>
+                <NavLink to="/profile" exact={true}>
+                    <img className='icon' src="../../public/icons/User.svg" alt="Profile Icon" />
+                    <div>Profile</div>
+                </NavLink>
             </nav>
-        </header>
+        </header >
     )
 }   
