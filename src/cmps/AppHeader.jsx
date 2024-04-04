@@ -16,7 +16,6 @@ export function AppHeader() {
         <header className="app-header full">
             <h1 className='logo'>Instegram</h1>
             <nav>
-
                 <NavLink to="/" exact={true}>
                     <img className='icon' src="../../public/icons/Home.svg" alt="Home Icon" />
                     <div> Home</div>
@@ -45,7 +44,11 @@ export function AppHeader() {
                     <img className='icon' src="../../public/icons/User.svg" alt="Profile Icon" />
                     <div>Profile</div>
                 </NavLink>
+                <div>
+                    <img className='icon' src="../../public/icons/More.svg" />
+                    <div>More</div>
+                </div>
             </nav>
-        </header >
+        </header>
     )
 }   

@@ -3,22 +3,25 @@
     margin-top: 0;
     top: 0;
     left: 0;
-    padding: 10px;
-    width: 244px;   
+    width: 244px;
     height: 100vh;
-    border-right: 0.5px solid black;  // a little border for init
+    border-right: 0.5px solid black; // a little border for init
     padding: 8px 12px 20px;
 
-    nav {  
+    nav {
         display: flex;
         flex-direction: column;
-    }
+        height: 100%;
+        >* {
+            display: flex;
+            padding: 12px;
+            margin: 4px 0px;
+            gap: 15px; // a little gap for beggining ini  
+            flex-direction: row;
+        }
 
-    nav > *{  
-        display: flex;
-        padding: 12px;
-        margin: 4px 0px;
-        gap: 15px;  // a little gap for beggining ini  
-        flex-direction: row;
+        > :last-child {
+            margin-top: 600px; //For now
+        }
     }
 }
