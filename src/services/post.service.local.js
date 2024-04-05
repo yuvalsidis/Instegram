@@ -65,7 +65,7 @@ function getEmptyPost() {
         _id: "",
         txt: "Best trip ever",
         imgUrl: "http://some-img",
-        createdAt: new Date(),
+
         createdAt: new Date(),
         by: {
             _id: "u101",
