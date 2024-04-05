@@ -8,7 +8,8 @@ export const utilService = {
     loadFromStorage,
     getRandomName,
     getRandomSentence,
-    getTimeSinceCreation
+    generatePostDescription,
+    getTimeSinceCreation,
 }
 
 function makeId(length = 6) {
@@ -125,3 +126,45 @@ function getRandomSentence() {
     return sentence
 }
 
+function generatePostDescription() {
+    const descriptions = [
+        // Three words
+        "Life is beautiful",
+        "Dream big dreams",
+        "Love conquers all",
+
+        // Ten words
+        "Chasing dreams, one step at a time, towards tomorrow.",
+        "Lost in thought, finding solace in the gentle breeze.",
+        "Sunset whispers secrets, painting the sky with hues of gold.",
+
+        // Four words
+        "Chasing dreams, finding happiness.",
+        "Lost in thought, wandering aimlessly.",
+        "Sunsets bring peace.",
+
+        // Fifteen words
+        "Underneath the starlit sky, dreams take flight on wings of hope, reaching for the infinite expanse above.",
+        "Footprints in the sand, traces of a story written by the waves, whispered secrets of the ocean breeze.",
+        "Drifting through the cosmos, chasing stars in the night sky, finding solace in the vastness of the universe.",
+
+        // Twenty words
+        "Reflections on life's twists and turns, finding beauty in imperfections, embracing the journey with an open heart.",
+        "Whispers of the past, echoes of memories long cherished, lingering in the quiet corners of the mind.",
+        "In the dance of shadows and light, beauty finds its true form, revealing the essence of the world around us.",
+
+        // Fifty words
+        "Lost in the magic of a sun-kissed afternoon, chasing dreams through fields of gold, capturing moments that last a lifetime, in the blink of an eye, under the watchful gaze of a thousand stars, painting stories on the canvas of the sky, where dreams come to life.",
+        "Beneath the city lights, shadows dance to the rhythm of life, weaving tales of love and longing, whispers of secrets shared in quiet moments, amidst the hustle and bustle of a vibrant city, where dreams take flight on the wings of imagination.",
+        "Footprints in the sand, traces of a story written by the waves, whispered secrets of the ocean breeze, echoing through the corridors of time, carrying memories of adventures past, into the unknown horizon, where the sea meets the sky, and dreams merge with reality.",
+
+        // Thirty-five words
+        "Lost in a world of books, where every page holds a new adventure, and every word paints a vivid picture, capturing the imagination and sparking dreams, in the quiet moments of solitude, where stories come to life and reality fades away.",
+        "Embracing solitude, finding solace in the silence of the night, where thoughts wander and dreams take flight, amidst the stars that shine brightly in the dark expanse above, guiding the way to new horizons and endless possibilities.",
+        "The rhythm of life: a symphony of moments, each a melody, harmonizing in the grand orchestration of existence, weaving tales of love and loss, hope and despair, laughter and tears, in the tapestry of time, where every thread is a story waiting to be told."
+    ];
+
+    const description = descriptions[getRandomIntInclusive(0, descriptions.length - 1)]
+    console.log( description)
+    return description;
+}
