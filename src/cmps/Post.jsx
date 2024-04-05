@@ -8,13 +8,13 @@ import { PostComments } from "./PostComments"
 export function Post({post}){
     
     return (
-        <div className="post">
+        <>
             <PostHeader post={post}/>
             <PostPhotos/>
             <PostActions/>
             <PostDescription/>
             <PostComments/>
             <PostAddComment/>
-        </div>
+        </>
     )
 }

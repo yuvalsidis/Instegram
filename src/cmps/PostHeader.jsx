@@ -1,10 +1,21 @@
+import { utilService } from "../services/util.service"
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
+export function PostHeader({ post }) {
+    const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
+    console.log(timeSinceCreation)
 
-export function PostHeader({post}){
-    console.log('hi',post)
     return (
         <div className="post-header">
-            <h1>Hi i am Post Header</h1>
+            <img src={post.by.imgUrl} className="profilePreviewImg"></img>
+            <div>
+                <p>{post.by.fullname}</p>
+                <div className="dot">•</div>
+                <p className="passed-time">{timeSinceCreation}</p>
+                <div className="dot">•</div>
+                <button className="follow-btn" >follow</button>
+            </div>
+            <MoreHorizIcon style={{ width: '24px', height: '24px' }} />
         </div>
     )
 }
