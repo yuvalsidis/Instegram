@@ -72,8 +72,11 @@ function getRandomName() {
 }
 
 function getTimeSinceCreation(creationTime) {
+    const creationTimeNumber = new Date(creationTime);
+    console.log(creationTimeNumber)
     const now = new Date();
-    const elapsedTimeInSeconds = Math.floor((now - creationTime) / 1000);
+    const elapsedTimeInSeconds = Math.floor((now - creationTimeNumber ) / 1000);
+    console.log(elapsedTimeInSeconds)
 
     if (elapsedTimeInSeconds < 60) {
         return `${elapsedTimeInSeconds}s`;
