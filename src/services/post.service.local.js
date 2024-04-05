@@ -66,6 +66,7 @@ function getEmptyPost() {
         txt: "Best trip ever",
         imgUrl: "http://some-img",
         createdAt: new Date(),
+        createdAt: new Date(),
         by: {
             _id: "u101",
             fullname: "Ulash Ulashi",
@@ -119,9 +120,6 @@ function getEmptyPost() {
     }
 }
 
-
-
-
 async function _createPosts() {
     let posts = await storageService.query(STORAGE_KEY)
     if (!posts || !posts.length) {
@@ -154,6 +152,7 @@ function _createPost() {
 }
 
 function _createComment() {
+
     var comment = {
         id: utilService.makeId(),
         by: {
