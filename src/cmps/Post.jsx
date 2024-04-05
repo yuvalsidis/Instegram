@@ -12,6 +12,7 @@ export function Post({post}){
             <PostHeader post={post}/>
             <PostPhotos post={post}/>
             <PostActions/>
+            <p className="post-likes"><span>{post.likedBy.length}</span> likes</p>
             <PostDescription/>
             <PostComments/>
             <PostAddComment/>
