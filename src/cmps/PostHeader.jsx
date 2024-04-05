@@ -9,7 +9,7 @@ export function PostHeader({ post }) {
         <div className="post-header">
             <img src={post.by.imgUrl} className="profilePreviewImg"></img>
             <div className="post-header-main">
-                <p>{post.by.fullname}</p>
+                <p className="post-header-name">{post.by.fullname}</p>
                 <div className="dot">•</div>
                 <p className="passed-time">{timeSinceCreation}</p>
                 <div className="dot">•</div>
