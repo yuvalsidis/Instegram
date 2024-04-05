@@ -124,15 +124,11 @@ function getEmptyPost() {
 // FOR DEMO DATA
 
 function _createPosts() {
-    let posts = storageService.get(STORAGE_KEY)
-    if (!posts) {
-        posts = []
-        for (var i = 0; i <= 15; i++) {
-            posts.push(_createPost())
-        }
-        utilService.saveToStorage(STORAGE_KEY, posts)
-        console.log(posts)
+    const posts = []
+    for (var i = 0; i <= 15; i++){
+        posts.push(_createPost())
     }
+    console.log(posts)
 }
 
 function _createPost() {
