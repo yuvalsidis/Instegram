@@ -4,7 +4,6 @@ import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'post'
-console.log('hi i am in post service')
 
 _createPosts()
 
@@ -125,65 +124,61 @@ function getEmptyPost() {
 
 function _createPosts() {
     const posts = []
-    for (var i = 0; i <= 15; i++){
+    for (let i = 0; i < 15; i++){
         posts.push(_createPost())
     }
     console.log(posts)
+
+    return posts
 }
 
 function _createPost() {
-    console.log('hi i am in the create post')
-    const post = getEmptyPost()
-    const randomComments = utilService.getRandomIntInclusive(1, 5)
-    const randomLikes = utilService.getRandomIntInclusive(1, 100)
+    var post = getEmptyPost()
 
     post._id = utilService.makeId()
-    post.txt = utilService.makeLorem(utilService.getRandomIntInclusive(5, 50))
+    post.txt = utilService.getRandomSentence()
     post.imgUrl = "https://api.unsplash.com/photos/random"
 
-    post.by.id = utilService.makeId()
-    post.by.fullname = utilService.makeLorem(2)
+    post.by._id = utilService.makeId()
+    post.by.fullname = utilService.getRandomName()
     post.by.imgUrl = "https://api.unsplash.com/photos/random"
 
     post.comments = []
-    for (var i = 0; i <= randomComments; i++) {
+    for (let i = 0; i < 8; i++) {
         post.comments.push(_createComment())
-    }
-    post.likedBy = []
-    for (var j = 0; j <= randomLikes; j++) {
-        post.likedBy.push(_createLikes)
     }
 
     return post
 }
 
-
-
 function _createComment() {
-    return {
+    var comment =  {
         id: utilService.makeId(),
         by: {
             _id: utilService.makeId(),
-            fullname: utilService.makeLorem(2),
+            fullName: utilService.getRandomName(),
             imgUrl: "https://api.unsplash.com/photos/random"
         },
-        txt: "good one!",
-        likedBy: [
-            {
-                "_id": utilService.makeId(),
-                "fullname": utilService.makeLorem(2),
-                "imgUrl": "https://api.unsplash.com/photos/random"
-            }
-        ]
+        txt: utilService.getRandomSentence(),
+        likedBy: []
+    }
+
+    for (let i = 0; i < 5; i++) {
+        comment.likedBy.push(_createLike())
+    }
+
+    return comment
+}
+
+function _createLike() {
+    return {
+        _id: utilService.makeId(),
+        fullname: utilService.getRandomName(),
+        imgUrl: "https://api.unsplash.com/photos/random"
     }
 }
 
-function _createLikes() {
-    return {
-        _id: utilService.makeId(),
-        fullname: utilService.makeLorem(2),
-        imgUrl: "https://api.unsplash.com/photos/random"
-    }
+function _createDemoUser() {
 
 }
 

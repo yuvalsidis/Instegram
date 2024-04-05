@@ -5,7 +5,9 @@ export const utilService = {
     debounce,
     randomPastTime,
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,
+    getRandomName,
+    getRandomSentence
 }
 
 function makeId(length = 6) {
@@ -60,5 +62,38 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
+}
+
+function getRandomName() {
+    const names = ['John Holland', 'Tomer Ginat', 'Bar Timor', 'Gil Benny', 'Idan Zalmanson', 'Jonathan Rabinovich', 'Gal Shternberg', 'Tomre Bar', 'Shay Zicher', 'Michal Shaked', 'Danny Franco', 'Barak Bachar', 'Guy Barkai', 'Rotem Sela', 'Yonatan Ader', 'Will Cummings', 'Michal Dar', 'Noy Gold', 'Keren Sela', 'Nofar Levy', 'Noam Banai', 'Yael Gil', 'Naama Caseri']
+    const name = names[getRandomIntInclusive(0, names.length - 1)]
+    return name
+}
+
+function getRandomSentence() {
+    const sentences = ['Amazing photo',
+    'Looks wonderful',
+    'Wow!!',
+    'You are the best!',
+    'Miss youuuuu',
+    'What a frame!',
+    'I can look at this all day',
+    'This picture is amazing',
+    'You are talented my friend',
+    'Very inspiring',
+    'This looks great',
+    'I love it!',
+    'Like!',
+    'Wowww!!',
+    'Awesome',
+    'Love this pic!',
+    'Very nice',
+    'Cool pic',
+    '❤️',
+    'Wow! 🚀',
+    'I love it 😍',
+    'Perfect 👍🏽👍🏽👍🏽']
+    const sentence = sentences[getRandomIntInclusive(0, sentences.length - 1)]
+    return sentence
 }
 
