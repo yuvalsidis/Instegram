@@ -14,11 +14,13 @@ export function AppHeader() {
 
     return (
         <header className="app-header full">
-            <h1 className='logo'>Instegram</h1>
             <nav>
+                <NavLink className='logo' to="/" exact={true}>
+                    <h1>Instegram</h1>
+                </NavLink>
                 <NavLink to="/" exact={true}>
                     <img className='icon' src="../../public/icons/Home.svg" alt="Home Icon" />
-                    <div> Home</div>
+                    <div> Home</div>    
                 </NavLink>
                 <div>
                     <img className='icon' src="../../public/icons/Search.svg" alt="Search Icon" />

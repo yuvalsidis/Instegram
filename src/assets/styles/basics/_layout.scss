@@ -1,6 +1,6 @@
 .main-container {
     display: grid;
-    grid-template-columns: 244px 1fr;
+    grid-template-columns: 330px 1fr;
 
     > * {
         grid-column: 2;
@@ -9,7 +9,6 @@
             grid-column: 1;
         }
     }
-
     // @include for-narrow-layout {                                   // adjust what we need later.....
     //     grid-template-columns: 
     //         minmax(20px, 1fr)
