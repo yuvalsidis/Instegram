@@ -25,7 +25,7 @@ export function getActionUpdatePost(post) {
     }
 }
 
-export async function loadposts() {
+export async function loadPosts() {
     try {
         const posts = await postService.query()
         console.log('posts from DB:', posts)
@@ -41,7 +41,7 @@ export async function loadposts() {
 
 }
 
-export async function removepost(postId) {
+export async function removePost(postId) {
     try {
         await postService.remove(postId)
         store.dispatch(getActionRemovePost(postId))
@@ -51,7 +51,7 @@ export async function removepost(postId) {
     }
 }
 
-export async function addpost(post) {
+export async function addPost(post) {
     try {
         const savedpost = await postService.save(post)
         console.log('Added post', savedpost)

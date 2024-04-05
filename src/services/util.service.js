@@ -70,6 +70,30 @@ function getRandomName() {
     return name
 }
 
+function getTimeSinceCreation(creationTime) {
+    const now = new Date();
+    const elapsedTimeInSeconds = Math.floor((now - creationTime) / 1000);
+
+    if (elapsedTimeInSeconds < 60) {
+        return `${elapsedTimeInSeconds}s`;
+    }
+
+    const elapsedTimeInMinutes = Math.floor(elapsedTimeInSeconds / 60);
+    const elapsedTimeInHours = Math.floor(elapsedTimeInSeconds / (60 * 60));
+    const elapsedTimeInDays = Math.floor(elapsedTimeInSeconds / (60 * 60 * 24));
+    const elapsedTimeInWeeks = Math.floor(elapsedTimeInSeconds / (60 * 60 * 24 * 7));
+
+    if (elapsedTimeInMinutes < 60) {
+        return `${elapsedTimeInMinutes}m`;
+    } else if (elapsedTimeInHours < 24) {
+        return `${elapsedTimeInHours}h`;
+    } else if (elapsedTimeInDays < 7) {
+        return `${elapsedTimeInDays}d`;
+    } else {
+        return `${elapsedTimeInWeeks}w`;
+    }
+}
+
 function getRandomSentence() {
     const sentences = ['Amazing photo',
     'Looks wonderful',
