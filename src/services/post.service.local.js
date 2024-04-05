@@ -175,7 +175,7 @@ function _createLike() {
     return {
         _id: utilService.makeId(),
         fullname: utilService.getRandomName(),
-        imgUrl: "https://source.unsplash.com/random"
+        imgUrl: "https://api.unsplash.com/photos/random"
     }
 }
 
