@@ -10,7 +10,7 @@ export function Post({post}){
     return (
         <>
             <PostHeader post={post}/>
-            <PostPhotos/>
+            <PostPhotos post={post}/>
             <PostActions/>
             <PostDescription/>
             <PostComments/>
