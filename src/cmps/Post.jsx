@@ -5,11 +5,11 @@ import { PostPhotos } from "./PostPhotos"
 import { PostActions } from "./PostActions"
 import { PostComments } from "./PostComments"
 
-export function Post(){
+export function Post({post}){
+    
     return (
         <div className="post">
-            <h1>Hi i am Post</h1>
-            <PostHeader/>
+            <PostHeader post={post}/>
             <PostPhotos/>
             <PostActions/>
             <PostDescription/>

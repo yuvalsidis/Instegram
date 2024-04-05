@@ -1,10 +1,15 @@
 import { Post } from "./Post"
 
-export function PostList(){
+export function PostList({ posts }) {
+
     return (
-        <div className="post-list">
-            <h1>Hi i am post list</h1>
-            <Post/>
-        </div>
+        <ul className="post-list">
+            {posts.map(post => (
+                <li key={post._id} id={post.id}>
+                    <Post post={post} />
+                </li>
+
+            ))}
+        </ul>
     )
 }

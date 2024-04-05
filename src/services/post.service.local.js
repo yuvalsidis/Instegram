@@ -65,6 +65,7 @@ function getEmptyPost() {
         _id: "",
         txt: "Best trip ever",
         imgUrl: "http://some-img",
+        createdAt: new Date(),
         by: {
             _id: "u101",
             fullname: "Ulash Ulashi",
@@ -120,16 +121,17 @@ function getEmptyPost() {
 
 
 
-// FOR DEMO DATA
 
-function _createPosts() {
-    const posts = []
-    for (let i = 0; i < 15; i++){
-        posts.push(_createPost())
+async function _createPosts() {
+    let posts = await storageService.query(STORAGE_KEY)
+    if (!posts || !posts.length) {
+        console.log('No posts found, generating some...')
+        for (let i = 0; i < 15; i++) {
+            posts.push(_createPost())
+        }
+        utilService.saveToStorage(STORAGE_KEY,posts)
+        console.log('Done generating posts')
     }
-    console.log(posts)
-
-    return posts
 }
 
 function _createPost() {
@@ -152,7 +154,7 @@ function _createPost() {
 }
 
 function _createComment() {
-    var comment =  {
+    var comment = {
         id: utilService.makeId(),
         by: {
             _id: utilService.makeId(),
