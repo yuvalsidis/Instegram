@@ -1,8 +1,9 @@
 
-export function PostPhotos(){
+export function PostPhotos({post}){
+    
     return (
         <section className="post-photos">
-            <h1>Hi i am Post photos</h1>
+            <img src={post.imgUrl}></img>
         </section>
     )
 }
