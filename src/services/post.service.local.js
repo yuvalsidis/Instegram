@@ -136,7 +136,7 @@ function _createPost() {
     var post = getEmptyPost()
 
     post._id = utilService.makeId()
-    post.txt = utilService.getRandomSentence()
+    post.txt = utilService.generatePostDescription()
     post.imgUrl = "https://source.unsplash.com/random"
 
     post.by._id = utilService.makeId()
