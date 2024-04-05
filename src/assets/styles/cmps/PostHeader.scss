@@ -3,6 +3,7 @@
     text-align: center;
     align-items: center;
     padding: 0px 0px 12px 4px;
+    height: 32px;
     
     img{
         width: 32px;
@@ -11,13 +12,17 @@
     :first-child{
     
     }
-    :nth-child(2){
+    .post-header-main{
+        margin-left: 4px;
         flex-grow: 1;
         justify-content: flex-start;
         display: flex;
         text-align: center;
         align-items: center;
+    }
 
+    .post-header-main > *{
+        margin-left: 4px;
     }
 
     .follow-btn{
