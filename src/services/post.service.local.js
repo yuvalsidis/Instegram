@@ -66,6 +66,7 @@ function getEmptyPost() {
         txt: "Best trip ever",
         imgUrl: "http://some-img",
         createdAt: new Date(),
+        createdAt: new Date(),
         by: {
             _id: "u101",
             fullname: "Ulash Ulashi",
@@ -154,6 +155,7 @@ function _createPost() {
 }
 
 function _createComment() {
+    var comment = {
     var comment = {
         id: utilService.makeId(),
         by: {
