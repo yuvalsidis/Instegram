@@ -1,8 +1,24 @@
+import { useState } from "react"
+import { utilService } from "../services/util.service";
 
-export function PostDescription(){
+export function PostDescription({ post }) {
+    const [expanded, setExpanded] = useState(false)
+    const maxChars = utilService.getRandomIntInclusive(70, 100)
+
+    const toggleExpanded = () => {
+        setExpanded(!expanded);
+    };
+
     return (
         <div className="post-description">
-            <h1>Hi i am post description</h1>
+            <p>
+                {expanded ? post.txt : `${post.txt.slice(0, maxChars)}${post.txt.length > maxChars ? '...' : ''}`}
+            </p>
+            {!expanded && post.txt.length > maxChars && (
+                <button onClick={toggleExpanded}>
+                    More
+                </button>
+            )}
         </div>
     )
 }

@@ -13,7 +13,7 @@ export function Post({post}){
             <PostPhotos post={post}/>
             <PostActions/>
             <p className="post-likes"><span>{post.likedBy.length}</span> likes</p>
-            <PostDescription/>
+            <PostDescription post={post}/>
             <PostComments/>
             <PostAddComment/>
         </>
