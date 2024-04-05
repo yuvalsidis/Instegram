@@ -7,7 +7,8 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     getRandomName,
-    getRandomSentence
+    getRandomSentence,
+    getTimeSinceCreation
 }
 
 function makeId(length = 6) {
