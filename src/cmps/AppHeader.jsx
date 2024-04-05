@@ -15,10 +15,10 @@ export function AppHeader() {
     return (
         <header className="app-header full">
             <nav>
-                <NavLink className='logo' to="/" exact={true}>
+                <NavLink className='logo' to="/" exact="true">
                     <h1>Instegram</h1>
                 </NavLink>
-                <NavLink to="/" exact={true}>
+                <NavLink to="/" exact="true">
                     <img className='icon' src="../../public/icons/Home.svg" alt="Home Icon" />
                     <div> Home</div>    
                 </NavLink>
@@ -26,11 +26,11 @@ export function AppHeader() {
                     <img className='icon' src="../../public/icons/Search.svg" alt="Search Icon" />
                     <div>Search</div>
                 </div>
-                <NavLink to="/explore" exact={true}>
+                <NavLink to="/explore" exact="true">
                     <ExploreOutlined />
                     <div>Explore</div>
                 </NavLink>
-                <NavLink to="/direct" exact={true}>
+                <NavLink to="/direct" exact="true">
                     <img className='icon' src="../../public/icons/Messenger.svg" alt="Messenger Icon" />
                     <div>Messeges</div>
                 </NavLink>
@@ -42,7 +42,7 @@ export function AppHeader() {
                     <img className='icon' src="../../public/icons/Create.svg" alt="Create Icon" />
                     <div>Create</div>
                 </div>
-                <NavLink to="/profile" exact={true}>
+                <NavLink to="/profile" exact="true">
                     <img className='icon' src="../../public/icons/User.svg" alt="Profile Icon" />
                     <div>Profile</div>
                 </NavLink>
