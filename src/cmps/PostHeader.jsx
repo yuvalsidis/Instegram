@@ -9,11 +9,11 @@ export function PostHeader({ post }) {
         <div className="post-header">
             <img src={post.by.imgUrl} className="profilePreviewImg"></img>
             <div className="post-header-main">
-                <p className="post-header-name">{post.by.fullname}</p>
+                <button className="post-header-name">{post.by.fullname}</button>
                 <div className="dot">•</div>
                 <p className="passed-time">{timeSinceCreation}</p>
                 <div className="dot">•</div>
-                <button className="follow-btn" >follow</button>
+                <button className="follow-btn" >Follow</button>
             </div>
             <MoreHorizIcon style={{ width: '24px', height: '24px' }} />
         </div>
