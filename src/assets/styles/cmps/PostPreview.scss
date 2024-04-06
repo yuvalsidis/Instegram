@@ -4,14 +4,16 @@
     padding: 0;
     list-style: none;
 
-    img {
-        transition: filter 0.2s ease;
+    transition: filter 0.2s ease;
 
-        &:hover {
-            cursor: pointer;
+    &:hover {
+        cursor: pointer;
+        img{
             filter: brightness(80%);
+        }   
+        .post-preview-stats{
+            opacity: 1;
         }
-
     }
 
     .post-preview-stats {
@@ -22,6 +24,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        opacity: 0;
     }
 
 }
