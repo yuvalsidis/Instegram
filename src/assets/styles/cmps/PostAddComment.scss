@@ -1,5 +1,17 @@
 .post-add-comment {
+    font-size: rem($system-14-font-size);
+    line-height: rem($system-14-line-height);
+    display: flex;
     .post-add-comment-textarea {
-        
+        flex-grow: 1;
+        font-size: rem($system-14-font-size);
+        line-height: rem($system-14-line-height);    
+        padding: 0px;
+    }
+
+    .post-comment-btn{
+        padding: 0px;
+        font-size: rem($system-14-font-size);
+        line-height: rem($system-14-line-height);
     }
 }
