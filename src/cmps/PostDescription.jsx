@@ -13,7 +13,7 @@ export function PostDescription({ post }) {
                 const targetLanguage = isTranslatedToHebrew ? 'iw' : 'en';
                 const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(post.txt)}`);
                 const data = await response.json();
-                const translatedText = data[0][0][0]; 
+                const translatedText = data[0][0][0];
                 setTranslatedText(translatedText);
             } catch (error) {
                 console.error('Translation error:', error);
@@ -36,6 +36,7 @@ export function PostDescription({ post }) {
     return (
         <div className="post-description">
             <p>
+                <span className="post-description-fullname">{post.by.fullname} </span>
                 {loading ? 'Loading...' : (expanded ? translatedText : `${translatedText.slice(0, 100)}${translatedText.length > 100 ? '...' : ''}`)}
                 <span> {!expanded && translatedText.length > 100 && (
                     <button className="more-btn" onClick={toggleExpanded}>
