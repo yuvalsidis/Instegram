@@ -1,10 +1,12 @@
 import { ExplorePostList } from "../cmps/ExplorePostList"
+import { useSelector } from "react-redux"
 
 export function ExplorePage(){
+    const posts = useSelector(storeState => storeState.postModule.posts)
+
     return (
         <section className="explore-page">
-            <h1>Hi i am the explore page</h1>
-            <ExplorePostList/>
+            <ExplorePostList posts={posts}/>
         </section>
     )
 }
