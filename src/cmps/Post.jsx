@@ -12,7 +12,7 @@ export function Post({post}){
         <>
             <PostHeader post={post}/>
             <PostPhotos post={post}/>
-            <PostActions/>
+            <PostActions post={post}/>
             <PostLikes post={post}/>
             <PostDescription post={post}/>
             <PostComments/>
