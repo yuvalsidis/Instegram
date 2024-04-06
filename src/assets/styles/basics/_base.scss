@@ -10,7 +10,8 @@ html {
 
 body {
     background-color: $clr_bg;
-    font-size: rem(16px); // need to look what is the fonr size
+    font-size: rem($system-14-font-size);
+    line-height: rem($system-14-line-height);
     margin: 0;
 }
 
