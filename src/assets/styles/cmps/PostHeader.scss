@@ -10,6 +10,9 @@
     img {
         width: 32px;
         height: 32px;
+        &:hover{
+            cursor: pointer;
+        }
     }
 
     .post-header-main {
@@ -38,6 +41,11 @@
         }
     }
 
+    .more-horiz-icon{
+        &:hover{
+            cursor: pointer;
+        }
+    }
     .passed-time {
         color: $clr4;
     }
