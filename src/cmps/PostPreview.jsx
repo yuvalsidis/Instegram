@@ -3,7 +3,7 @@
 export function PostPreview({ post }) {
     return (
         <>
-            <img src={post.imgUrl}></img>
+            <img className="post-preview-img" src={post.imgUrl}></img>
             <div className="post-preview-stats">
                 <div className="post-preview-stats-likes">
                     <img className='icon' src="../../public/icons/WhiteLike.svg" alt="WhiteLike Icon" />
