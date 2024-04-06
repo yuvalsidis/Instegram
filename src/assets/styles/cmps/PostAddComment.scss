@@ -2,6 +2,7 @@
     font-size: rem($system-14-font-size);
     line-height: rem($system-14-line-height);
     display: flex;
+    align-items: center;
     .post-add-comment-textarea {
         flex-grow: 1;
         font-size: rem($system-14-font-size);
@@ -13,5 +14,11 @@
         padding: 0px;
         font-size: rem($system-14-font-size);
         line-height: rem($system-14-line-height);
+    }
+
+    .emoji-icon{
+        color: $clr4;
+        width: 13px;
+        height: 13px;
     }
 }

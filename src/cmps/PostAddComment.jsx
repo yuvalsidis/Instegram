@@ -1,3 +1,5 @@
+import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined';
+
 export function PostAddComment({ post }) {
 
     return (
@@ -7,6 +9,10 @@ export function PostAddComment({ post }) {
             >
             </textarea>
             <button className="post-comment-btn">Post</button>
+
+            <SentimentSatisfiedOutlinedIcon className='emoji-icon'/>
+
+
         </dev>
     )
 }
