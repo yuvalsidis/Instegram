@@ -6,17 +6,17 @@ import { PostActions } from "./PostActions"
 import { PostComments } from "./PostComments"
 import { PostLikes } from "./PostLikes"
 
-export function Post({post}){
-    
+export function Post({ post }) {
+
     return (
         <>
-            <PostHeader post={post}/>
-            <PostPhotos post={post}/>
-            <PostActions post={post}/>
-            <PostLikes post={post}/>
-            <PostDescription post={post}/>
-            <PostComments/>
-            <PostAddComment/>
+            <PostHeader post={post} />
+            <PostPhotos post={post} />
+            <PostActions post={post} />
+            <PostLikes post={post} />
+            <PostDescription post={post} />
+            <PostComments />
+            <PostAddComment />
         </>
     )
 }
