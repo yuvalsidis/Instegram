@@ -1,9 +1,10 @@
 
 
-export function PostComments(){
+export function PostComments({post}){
+    
     return (
         <div className="post-comments">
-            <h1>Hi i am Post comments</h1>
+          <button className="view-comments-btn">View all {post.comments.length} comments</button>
         </div>
     )
 }

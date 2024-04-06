@@ -15,7 +15,7 @@ export function Post({ post }) {
             <PostActions post={post} />
             <PostLikes post={post} />
             <PostDescription post={post} />
-            <PostComments />
+            <PostComments post={post} />
             <PostAddComment />
         </>
     )
