@@ -6,7 +6,8 @@
     width: 300px; //need to adjust size
     height: 100vh;
     border-right: 1px solid rgba(0, 0, 0, 0.1); 
-    
+    font-size: rem($system-16-font-size);
+    line-height: rem($system-16-line-height);
 
     nav {
         padding: 8px 12px 10px;   // padding: 8px 12px 10px;
