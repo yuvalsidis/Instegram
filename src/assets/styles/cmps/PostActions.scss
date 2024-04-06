@@ -1,17 +1,23 @@
-.post-actions{
+.post-actions {
     margin: 4px 0px;
     display: flex;
     justify-content: space-between;
 
-    .post-actions-btns{
-        display: flex;
-    }
-
-    .post-actions-btns  > *{
-       padding: 8px;
-    }
-    .post-actions-secondary-btns{
+    .post-actions-btns {
         display: flex;
         align-items: center;
-    }  
+
+        *:not(:first-child) {
+            padding: 8px;
+        }
+
+        >:first-child {
+            padding-right: 8px;
+        }
+    }
+
+    .post-actions-secondary-btns {
+        display: flex;
+        align-items: center;
+    }
 }
