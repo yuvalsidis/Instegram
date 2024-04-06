@@ -1,12 +1,17 @@
 import { PostPreview } from "./PostPreview"
 
-export function ExplorePostList({posts}){
+export function ExplorePostList({ posts }) {
     console.log('asd', posts)
-    
+
     return (
-        <div className="explore-post-list">
-            <h1>Hi i am explore post list</h1>
-            <PostPreview/>
-        </div>
+        <ul className="explore-post-list">
+            {
+                posts.map(post => (
+                    <li key={post._id} className="post-preview">
+                        <PostPreview post={post}/>
+                    </li>
+                ))
+            }
+        </ul>
     )
 }
