@@ -3,11 +3,19 @@
     line-height: rem($system-14-line-height);
     display: flex;
     align-items: center;
+
     .post-add-comment-textarea {
+        margin-top: 8px;
         flex-grow: 1;
         font-size: rem($system-14-font-size);
         line-height: rem($system-14-line-height);    
-        padding: 0px;
+        border: none;
+        outline: none;
+        height: auto;
+        overflow-y: auto;
+        max-height: 80px;
+        resize: none;
+      
     }
 
     .post-comment-btn{
