@@ -124,7 +124,7 @@ async function _createPosts() {
     let posts = await storageService.query(STORAGE_KEY)
     if (!posts || !posts.length) {
         console.log('No posts found, generating some...')
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 25; i++) {
             posts.push(_createPost())
         }
         utilService.saveToStorage(STORAGE_KEY,posts)

@@ -1,3 +1,15 @@
-.explore-post-list{
+.explore-post-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 316px)); 
+    gap: 3px;
     
+    > :nth-child(6n + 3), /* Start with the second item and then every sixth item after that */
+    > :nth-child(6n + 6) { /* Start with the third item and then every sixth item after that */
+        grid-row: span 2; /* Make these items span two rows */
+    }
+
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
 }
