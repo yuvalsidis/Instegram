@@ -52,3 +52,9 @@ nav :not(.logo):hover{
 .profilePreviewImg{
     border-radius: 50%;
 }
+
+button {
+    border:0;
+    color:transparent;
+    cursor: pointer;
+}
