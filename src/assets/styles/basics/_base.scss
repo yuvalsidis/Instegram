@@ -19,9 +19,6 @@ img {
     width: 100%; //ensure the the image will be pixel perfect
 }
 
-p {
-    // margin: 0 0 1em; // adjust what we need
-}
 
 a {
     text-decoration: none;
@@ -56,5 +53,6 @@ nav :not(.logo):hover{
 button {
     border:0;
     color:transparent;
+    background-color: transparent;
     cursor: pointer;
 }
