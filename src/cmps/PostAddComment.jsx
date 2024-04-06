@@ -1,8 +1,11 @@
-export function PostAddComment({post}){
-    
+export function PostAddComment({ post }) {
+
     return (
         <section className="post-add-comment">
-            <h1>Hi i am Post add comment</h1>
+            <textarea className="post-add-comment-textarea"
+                placeholder="Add a comment"
+            >
+            </textarea>
         </section>
     )
 }
