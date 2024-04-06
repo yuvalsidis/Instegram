@@ -1,9 +1,10 @@
-.post-likes{
-    font-size: rem(14px);
-    font-family: Sans_Bold;
+.post-likes {
+    font-size: rem($system-14-font-size);
+    line-height: rem($system-14-line-height);
+    
 }
 
-.post-likes p{
+.post-likes p {
     margin: 0;
-    padding:0;
+    padding: 0;
 }
