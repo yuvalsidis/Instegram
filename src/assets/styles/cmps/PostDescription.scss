@@ -10,13 +10,10 @@
     
 
     .post-description-fullname{
-        font-family: Sans_Bold;
+        font-weight: $font-weight-system-semibold;
     }
 
     button{
-        background-color: transparent;
-        padding: 0px;
-        margin: 0px;
         color: $clr4;
     }
 }
