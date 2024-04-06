@@ -17,10 +17,25 @@
     .post-preview-stats {
         position: absolute;
         display: flex;
+        gap: 30px;
         flex-direction: row;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
 
+}
+
+.post-preview-stats-comments,
+.post-preview-stats-likes {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    div {
+        color: $clr_bg;
+        font-weight: $font-weight-system-bold;
+        font-size: rem($system-18-font-size);
+        line-height: rem($system-18-line-height);
+    }
 }

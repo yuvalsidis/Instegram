@@ -7,11 +7,11 @@ export function PostPreview({ post }) {
             <div className="post-preview-stats">
                 <div className="post-preview-stats-likes">
                     <img className='icon' src="../../public/icons/WhiteLike.svg" alt="WhiteLike Icon" />
-                    <p>{post.likedBy.length}</p>
+                    <div>{post.likedBy.length}</div>
                 </div>
-                <div>
-                    <img className='post-preview-stats-comments' src="../../public/icons/WhiteComment.svg" alt="WhiteComment Icon" />
-                    <p>{post.comments.length}</p>
+                <div className='post-preview-stats-comments'>
+                    <img className='icon'  src="../../public/icons/WhiteComment.svg" alt="WhiteComment Icon" />
+                     <div>{post.comments.length}</div> 
                 </div>
             </div>
         </>
