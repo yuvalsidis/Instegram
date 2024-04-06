@@ -12,6 +12,7 @@ export function PostDescription({ post }) {
     return (
         <div className="post-description">
             <p>
+                <span className="post-description-fullname">{post.by.fullname}</span>
                 {expanded ? post.txt : `${post.txt.slice(0, maxChars)}${post.txt.length > maxChars ? '...' : ''}`}
                 <span> {!expanded && post.txt.length > maxChars && (
                     <button onClick={toggleExpanded}>
