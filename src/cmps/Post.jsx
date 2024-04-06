@@ -4,6 +4,7 @@ import { PostDescription } from "./PostDescription"
 import { PostPhotos } from "./PostPhotos"
 import { PostActions } from "./PostActions"
 import { PostComments } from "./PostComments"
+import { PostLikes } from "./PostLikes"
 
 export function Post({post}){
     
@@ -12,7 +13,7 @@ export function Post({post}){
             <PostHeader post={post}/>
             <PostPhotos post={post}/>
             <PostActions/>
-            <p className="post-likes"><span>{post.likedBy.length}</span> likes</p>
+            <PostLikes post={post}/>
             <PostDescription post={post}/>
             <PostComments/>
             <PostAddComment/>
