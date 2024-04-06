@@ -15,7 +15,7 @@ export function PostHeader({ post }) {
                 <div className="dot">•</div>
                 <button className="follow-btn" >Follow</button>
             </div>
-            <MoreHorizIcon style={{ width: '20px', height: '20px' }} />
+            <MoreHorizIcon className="more-horiz-icon" style={{ width: '20px', height: '20px' }} />
         </div>
     )
 }

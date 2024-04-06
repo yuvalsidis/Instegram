@@ -8,25 +8,36 @@
         margin-top: 8px;
         flex-grow: 1;
         font-size: rem($system-14-font-size);
-        line-height: rem($system-14-line-height);    
+        line-height: rem($system-14-line-height);
         border: none;
         outline: none;
         height: auto;
         overflow-y: auto;
         max-height: 80px;
         resize: none;
-      
+
     }
 
-    .post-comment-btn{
-        padding: 0px;
+    .post-comment-btn {
+        padding: 4px;
         font-size: rem($system-14-font-size);
         line-height: rem($system-14-line-height);
+        font-weight: $font-weight-system-semibold;
+        background-color: transparent;
+        color: $clr12;
+
+        &:hover {
+            color: $clr11;
+        }
     }
 
-    .emoji-icon{
+    .emoji-icon {
         color: $clr4;
         width: 13px;
         height: 13px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

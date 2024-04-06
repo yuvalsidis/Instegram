@@ -2,9 +2,12 @@
     font-size: rem($system-14-font-size);
     line-height: rem($system-14-line-height); 
     font-weight: $font-weight-system-semibold;
-}
 
-.post-likes p {
-    margin: 0;
-    padding: 0;
+    p {
+        margin: 0;
+        padding: 0;
+        &:hover{
+            cursor: pointer;
+        }
+    }
 }

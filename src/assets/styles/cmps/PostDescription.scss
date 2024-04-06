@@ -12,6 +12,9 @@
 
     .post-description-fullname {
         font-weight: $font-weight-system-semibold;
+        &:hover{
+            cursor: pointer;
+        }
     }
 
     .more-btn {

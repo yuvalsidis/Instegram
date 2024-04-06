@@ -1,5 +1,9 @@
 .post-photos{
     img{
         border-radius: 0.2rem;
+
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
