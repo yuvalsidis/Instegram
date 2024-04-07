@@ -11,7 +11,6 @@ export function PostIndex() {
     const posts = useSelector(storeState => storeState.postModule.posts)
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
     
-    console.log(isLoading)
     useEffect(() => {
         onLoadPosts()
     }, [])
@@ -29,10 +28,6 @@ export function PostIndex() {
             })
 
     }
-
-    // function OnAddComment(params) {
-        
-    // }
 
     if (isLoading) return <div>Loading</div>
     return (

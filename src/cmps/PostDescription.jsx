@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { utilService } from "../services/util.service";
 
 export function PostDescription({ post }) {
     const [expanded, setExpanded] = useState(false);
     const [translatedText, setTranslatedText] = useState('');
     const [isTranslatedToHebrew, setIsTranslatedToHebrew] = useState(false);
     const [loading, setLoading] = useState(false);
+    const maxChars = utilService.getRandomIntInclusive(40,100)
 
     useEffect(() => {
         async function translateText() {
@@ -38,7 +40,7 @@ export function PostDescription({ post }) {
             <p>
                 <span className="post-description-fullname">{post.by.fullname} </span>
                 {loading ? 'Loading...' : (expanded ? translatedText : `${translatedText.slice(0, 100)}${translatedText.length > 100 ? '...' : ''}`)}
-                <span> {!expanded && translatedText.length > 100 && (
+                <span> {!expanded && translatedText.length > maxChars && (
                     <button className="more-btn" onClick={toggleExpanded}>
                         More
                     </button>

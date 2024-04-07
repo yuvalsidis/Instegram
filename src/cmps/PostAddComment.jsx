@@ -3,6 +3,7 @@ import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfi
 
 export function PostAddComment({ post }) {
     const [text, setText] = useState('');
+    
 
     const handleChange = (event) => {
         const textarea = event.target;

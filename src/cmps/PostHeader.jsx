@@ -3,7 +3,6 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 export function PostHeader({ post }) {
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
-    console.log(timeSinceCreation)
 
     return (
         <div className="post-header">

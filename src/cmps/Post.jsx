@@ -7,7 +7,7 @@ import { PostComments } from "./PostComments"
 import { PostLikes } from "./PostLikes"
 
 export function Post({ post }) {
-
+    
     return (
         <>
             <PostHeader post={post} />
