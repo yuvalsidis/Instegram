@@ -1,15 +1,22 @@
+import React from "react"
+import {useNavigate} from "react-router-dom"
 import { PostShare } from "./PostShare"
 import { PostDetails } from "./PostDetails"
 
-export function PostActions({ post }) {
 
+export function PostActions({ post }) {
+    const navigate = useNavigate()
+
+    function handleClickOnComment(){
+        navigate(`/p/${post._id}`)
+    }
     return (
         <div className="post-actions">
             <div className="post-actions-btns">
                 <div>
                     <img className='icon' src="../../public/icons/Like.svg" alt="Like Icon" />
                 </div>
-                <div>
+                <div onClick={handleClickOnComment}>
                     <img className='icon' src="../../public/icons/Comment.svg" alt="Comment Icon" />
                 </div>
                 <div>
