@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Outlet } from 'react-router'
+import { Routes, Route} from 'react-router'
 import routes from './routes'
 import { AppHeader } from './cmps/AppHeader'
 import { PostDetailsPage } from './pages/PostDetailsPage'
@@ -11,19 +11,15 @@ export function App() {
             <AppHeader />
             <main className='main'>
                 <Routes>
-                    {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
+                    {routes.map(route => <Route
+                        key={route.path}
+                        exact={true}
+                        element={route.component}
+                        path={route.path} />)
+                    }
+                    <Route path="/p/:postId" element={<PostDetailsPage />}></Route>
                 </Routes>
-                <route path="/p/:postId" element={<OutletWithPostDetailsPage />}></route>
             </main>
         </div>
-    )
-}
-
-function OutletWithPostDetailsPage() {
-    return (
-        <>
-            <Outlet />
-            <PostDetailsPage />
-        </>
     )
 }
