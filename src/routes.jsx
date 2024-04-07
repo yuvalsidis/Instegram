@@ -1,4 +1,4 @@
-// import { CarIndex } from './pages/CarIndex.jsx'
+
 import { ChatApp } from './pages/Chat.jsx'
 import { AdminApp } from './pages/AdminIndex.jsx'
 
@@ -30,27 +30,6 @@ const routes = [
         component: <ProfilePage />,
         label: 'Profile'
     }
-
-    // {
-    //     path: 'car',
-    //     component: <CarIndex />,
-    //     label: 'Cars'
-    // },
-    // {
-    //     path: 'review',
-    //     component: <ReviewIndex />,
-    //     label: 'Reviews'
-    // },
-    // {
-    //     path: 'chat',
-    //     component: <ChatApp />,
-    //     label: 'Chat'
-    // },
-    // {
-    //     path: 'admin',
-    //     component: <AdminApp />,
-    //     label: 'Admin Only'
-    // }
 ]
 
 export default routes
