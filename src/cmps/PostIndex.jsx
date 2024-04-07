@@ -30,6 +30,10 @@ export function PostIndex() {
 
     }
 
+    // function OnAddComment(params) {
+        
+    // }
+
     if (isLoading) return <div>Loading</div>
     return (
         <div className="post-index">

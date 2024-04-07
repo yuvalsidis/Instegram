@@ -61,7 +61,7 @@ export async function addPost(post) {
         console.log('Cannot add post', err)
         throw err
     }
-}
+}t
 
 export function updatePost(post) {
     return postService.save(post)
