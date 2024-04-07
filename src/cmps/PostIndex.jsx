@@ -28,6 +28,8 @@ export function PostIndex() {
             })
 
     }
+   
+
 
     if (isLoading) return <div>Loading</div>
     return (
