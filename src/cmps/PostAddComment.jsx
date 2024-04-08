@@ -1,10 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined';
 
-export function PostAddComment({ post }) {
-    const [text, setText] = useState('');
+import { postService } from '../services/post.service.local';
 
-    
+export function PostAddComment({ post, onUpdatePost }) {
+    const [text, setText] = useState('');
+    const [comment, setComment] = useState(postService.getEmptyComment())
+    const [editedPost, setEditedPost] = useState(post)
+
+    useEffect(() => {
+        if (comment.txt) {
+        setEditedPost(prevEditedPost => ({...prevEditedPost, comments: [...prevEditedPost.comments, comment]}))
+        }
+    }, [comment])
+
+    useEffect(() => {
+        onUpdatePost(editedPost)
+    }, [editedPost])
+
     const handleChange = (event) => {
         const textarea = event.target;
         textarea.style.height = 'auto'; // Reset height to auto
@@ -16,8 +29,16 @@ export function PostAddComment({ post }) {
             textarea.style.height = `${textarea.scrollHeight}px`;
         }
 
-        setText(textarea.value);
-    };
+        setText(textarea.value)
+    }
+
+    function handleClickPostBtn() {
+       
+        setComment({...comment, txt: text})
+        setText('')
+    } 
+
+
 
     return (
         <div className="post-add-comment">
@@ -27,7 +48,7 @@ export function PostAddComment({ post }) {
                 onChange={handleChange}
                 placeholder="Add a comment..."
             />
-            <button className="post-comment-btn">Post</button>
+            {text && <button className="post-comment-btn" onClick={() => handleClickPostBtn()}>Post</button>}
             <SentimentSatisfiedOutlinedIcon className="emoji-icon" />
         </div>
     );

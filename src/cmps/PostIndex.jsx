@@ -7,6 +7,7 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { LOADING_DONE, LOADING_START } from "../store/system.reducer"
 import { store } from "../store/store"
 
+
 export function PostIndex() {
     const posts = useSelector(storeState => storeState.postModule.posts)
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
@@ -28,13 +29,25 @@ export function PostIndex() {
             })
 
     }
+
+    function onUpdatePost(post) {
+        updatePost(post)
+            .then(() => {
+                showSuccessMsg('Post updated successfully')
+            })
+            .catch ((err) => {
+                showErrorMsg('Error occured when updating posts', err)
+            })
+    }
+
+
    
 
 
     if (isLoading) return <div>Loading</div>
     return (
         <div className="post-index">
-            <PostList posts={posts} />
+            <PostList posts={posts} onUpdatePost={onUpdatePost} />
         </div>
     )
 }
