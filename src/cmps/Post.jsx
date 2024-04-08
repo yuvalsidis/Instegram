@@ -15,7 +15,7 @@ export function Post({ post, onUpdatePost }) {
             <PostActions post={post} />
             <PostLikes post={post} />
             <PostDescription post={post} />
-            <PostComments post={post} />
+            <button className="view-comments-btn">View all {post.comments.length} comments</button>
             <PostAddComment post={post} onUpdatePost={onUpdatePost} />
         </>
     )
