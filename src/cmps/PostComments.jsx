@@ -1,11 +1,11 @@
 
-import { CommentPreview } from "./CommentPreview"
+import { CommentsList } from "./CommentsList"
 
 export function PostComments({ post }) {
 
   return (
     <div className="post-comments">
-          <CommentPreview />
+          <CommentsList />
     </div>
   )
 }
