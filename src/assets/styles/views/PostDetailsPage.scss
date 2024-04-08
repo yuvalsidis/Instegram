@@ -1,3 +1,12 @@
 .post-details-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
+    background-color: transparent !important;
+    top: 0px !important;
+    left: 0px !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 4000 !important;
 }
