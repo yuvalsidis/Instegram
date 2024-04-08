@@ -1,6 +1,6 @@
 
 export function PostDetails(){
     return (
-       <div>Hi i am post details</div>
+       <div className="post-details">Hi i am post details</div>
     )
 }
