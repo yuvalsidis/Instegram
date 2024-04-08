@@ -12,6 +12,8 @@ import { removePost, addPost, updatePost, loadPosts } from "../store/post.action
 export function PostDetailsPage() {
     const [post, SetPost] = useState(null)
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
+    const posts = useSelector(storeState => storeState.postModule.posts)
+
     const { postId } = useParams()
 
     useEffect(() => {

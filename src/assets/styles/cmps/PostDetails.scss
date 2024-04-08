@@ -1,8 +1,21 @@
 .post-details {
-    background-color: $clr_bg;
-    width: 110vh;
-    height: 95%;
-    border-radius: 3px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    transform: translate(-1%, -1%);
+  position: relative;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: $clr_bg;
+  width: 110vh;
+  height: 95%;
+  border-radius: 3px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transform: translate(-1%, -1%);
+
+  .post-details-photo {
+    grid-column: 1;
   }
+
+  .post-details-info {
+    grid-column: 2;
+  }
+
+ overflow: hidden;
+}

@@ -7,13 +7,14 @@ import { PostComments } from "./PostComments"
 import { PostLikes } from "./PostLikes"
 
 export function PostDetails({ post, onUpdatePost}) {
-    console.log('Post', post)
+
+    if(!post) return
     return (
         <div className="post-details">
-            <div>
+            <div className="post-details-photo">
                 <PostPhotos post={post} />
             </div>
-            <div>
+            <div className="post-details-info">
                 <PostHeader post={post} />
                 <PostDescription post={post} />
                 <PostComments post={post} />
