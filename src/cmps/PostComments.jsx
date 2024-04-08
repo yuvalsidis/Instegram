@@ -5,7 +5,7 @@ export function PostComments({ post }) {
 
   return (
     <div className="post-comments">
-          <CommentsList />
+          <CommentsList post={post} />
     </div>
   )
 }
