@@ -1,9 +1,9 @@
-.post-details-page{
+.post-details-page {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    background-color: transparent !important;
+    background-color: $page-details-bg;
     top: 0px !important;
     left: 0px !important;
     width: 100% !important;
