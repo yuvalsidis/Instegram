@@ -13,6 +13,7 @@ export const postService = {
     save,
     remove,
     getEmptyPost,
+    getEmptyComment,
     addPostMsg
 }
 window.cs = postService
@@ -179,7 +180,27 @@ function _createLike() {
     }
 }
 
-function _createDemoUser() {
-
+function getEmptyComment() {
+    return {
+        id: utilService.makeId(),
+        by: {
+            _id: "",
+            fullname: "",
+            imgUrl: "https://api.unsplash.com/photos/random"
+        },
+        txt: "",
+        likedBy: [ // Optional
+            {
+                _id: "",
+                fullname: "",
+                imgUrl: "https://api.unsplash.com/photos/random"
+            }
+        ]
+    }
 }
+
+
+// function _createDemoUser() {
+
+// }
 

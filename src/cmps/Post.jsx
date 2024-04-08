@@ -6,8 +6,8 @@ import { PostActions } from "./PostActions"
 import { PostComments } from "./PostComments"
 import { PostLikes } from "./PostLikes"
 
-export function Post({ post }) {
-    
+export function Post({ post, onUpdatePost }) {
+
     return (
         <>
             <PostHeader post={post} />
@@ -16,7 +16,7 @@ export function Post({ post }) {
             <PostLikes post={post} />
             <PostDescription post={post} />
             <PostComments post={post} />
-            <PostAddComment post={post}/>
+            <PostAddComment post={post} onUpdatePost={onUpdatePost} />
         </>
     )
 }
