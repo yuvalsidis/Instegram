@@ -5,7 +5,13 @@ export function PostComments({ post }) {
 
   return (
     <div className="post-comments">
-          <CommentPreview post={post} />
+      {
+        post.comments.map(comment => (
+          <div key={`comment-${comment.id}`} className="comment-preview">
+               <CommentPreview comment={comment} />
+          </div>
+        ))
+      }
     </div>
   )
 } 

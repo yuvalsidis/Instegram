@@ -41,9 +41,6 @@ export function PostIndex() {
     }
 
 
-   
-
-
     if (isLoading) return <div>Loading</div>
     return (
         <div className="post-index">

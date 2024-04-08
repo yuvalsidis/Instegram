@@ -1,7 +1,8 @@
-export function CommentPreview({post}){
+export function CommentPreview({comment}){
+  
     return (
-        <div className="comment-preview">
-            i am comment preview
-        </div>
+        <>
+            <button>{comment.by.fullName}</button>
+        </>
     )
 }
