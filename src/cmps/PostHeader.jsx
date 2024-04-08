@@ -1,6 +1,6 @@
 import { utilService } from "../services/util.service"
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-
+    
 export function PostHeader({ post }) {
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
 
