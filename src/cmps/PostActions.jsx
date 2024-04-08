@@ -8,8 +8,9 @@ export function PostActions({ post }) {
     const navigate = useNavigate()
 
     function handleClickOnComment(){
-        navigate(`/p/${post._id}`)
+        navigate(`p/${post._id}`)
     }
+
     return (
         <div className="post-actions">
             <div className="post-actions-btns">
