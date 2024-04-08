@@ -1,7 +1,6 @@
 import { PostPreview } from "./PostPreview"
 
 export function ExplorePostList({ posts }) {
-    console.log('asd', posts)
 
     return (
         <ul className="explore-post-list">
