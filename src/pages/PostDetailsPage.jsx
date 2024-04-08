@@ -34,11 +34,11 @@ export function PostDetailsPage(){
 
     }
 
-    console.log('post is ', post)
+   
     if(isLoading) return <div>Loading</div>
     return(
         <section className="post-details-page">
-            <PostDetails/>
+            <PostDetails post={post}/>
         </section>
     )
 }
