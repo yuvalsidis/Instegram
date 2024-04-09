@@ -1,4 +1,73 @@
+//POST HEADER
 .post-header {
+    font-size: rem($system-14-font-size);
+    line-height: rem($system-14-line-height);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 0px 0px 12px 4px;
+    height: 32px;
+
+    img {
+        width: 32px;
+        height: 32px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    .post-header-main {
+        margin-left: 4px;
+        flex-grow: 1;
+        justify-content: flex-start;
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+
+    .post-header-main>* {
+        margin-left: 4px;
+    }
+
+    .follow-btn {
+        font-size: rem($system-14-font-size);
+        line-height: rem($system-14-line-height);
+        font-weight: $font-weight-system-semibold;
+        background-color: transparent;
+        color: $clr12;
+        padding: 0px;
+
+        &:hover {
+            color: $clr11;
+        }
+    }
+
+    .more-horiz-icon{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .passed-time {
+        color: $clr4;
+    }
+
+    .dot {
+        color: $clr4;
+    }
+
+    .post-header-name {
+        font-size: rem($system-14-font-size);
+        line-height: rem($system-14-line-height);
+        color: $clr1;
+        font-weight: $font-weight-system-semibold;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+}
+
+// PAGE POST HEADER
+.page-post-header{
     font-size: rem($system-14-font-size);
     line-height: rem($system-14-line-height);
     display: flex;

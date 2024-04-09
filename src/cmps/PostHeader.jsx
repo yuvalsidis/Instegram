@@ -1,14 +1,17 @@
 import { utilService } from "../services/util.service"
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-    
+import {useLocation} from 'react-router-dom'
+
 export function PostHeader({ post }) {
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
+    const location = useLocation(/p/)
+
 
     return (
-        <div className="post-header">
+        <div className={location ? "page-post-header" : "post-header"}>
             <img src={post.by.imgUrl} className="profilePreviewImg"></img>
             <div className="post-header-main">
-                <button className="post-header-name">{post.by.fullname}</button>
+                <button className="post-header-name">{post.by.fullName}</button>
                 <div className="dot">•</div>
                 <p className="passed-time">{timeSinceCreation}</p>
                 <div className="dot">•</div>
