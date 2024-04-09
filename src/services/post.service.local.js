@@ -147,7 +147,7 @@ function _createPost() {
     post.by.imgUrl = "https://source.unsplash.com/random"
 
     post.comments = []
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 10; i++) {
         post.comments.push(_createComment())
     }
 
@@ -168,7 +168,7 @@ function _createComment() {
         likedBy: []
     }
 
-    for (let i = 0; i < utilService.getRandomIntInclusive(1,100); i++) {
+    for (let i = 0; i < utilService.getRandomIntInclusive(1,200); i++) {
         comment.likedBy.push(_createLike())
     }
 
@@ -202,9 +202,3 @@ function getEmptyComment() {
         ]
     }
 }
-
-
-// function _createDemoUser() {
-
-// }
-
