@@ -33,11 +33,25 @@
 
 .page-post-description {
     display: flex;
-    flex-direction: column;
-    margin: 8px 0px 0px;
+    margin: 5px 16px 16px 0px;
     font-size: rem($system-14-font-size);
     line-height: rem($system-14-line-height);
 
+    :nth-child(2){
+        margin: 0px 0px 0px 14px;
+        :nth-child(2){
+            margin-left: 0px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            .translate-btn{
+                margin-top: 0px;
+                margin-left: 12px;
+            }
+           
+        }
+    }
+    
     p {
         padding: 0;
         margin: 0;
@@ -54,12 +68,23 @@
         color: $clr4;
     }
 
+    img{
+        height: 32px;
+        width: 32px;
+    }
+
     .translate-btn {
         font-size: rem($system-12-font-size);
         line-height: rem($system-12-line-height);
         font-weight: $font-weight-system-semibold;
-        padding: 8px 0px 0px;
-        align-self: start;
+        color: $clr4;
+        padding: 0px 0px 0px;
+    }
+
+    .passed-time{
+        font-size: rem($system-12-font-size);
+        line-height: rem($system-12-line-height);
+        color: $clr4;
     }
 }
 
