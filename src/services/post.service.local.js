@@ -158,6 +158,7 @@ function _createComment() {
 
     var comment = {
         id: utilService.makeId(),
+        createdAt: "3h",
         by: {
             _id: utilService.makeId(),
             fullName: utilService.getRandomName(),
@@ -167,7 +168,7 @@ function _createComment() {
         likedBy: []
     }
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < utilService.getRandomIntInclusive(1,100); i++) {
         comment.likedBy.push(_createLike())
     }
 

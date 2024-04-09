@@ -35,15 +35,17 @@ export function CommentPreview({ comment }) {
             <div>
                 <img src={comment.by.imgUrl} className="profilePreviewImg"></img>
             </div>
-            <p>
-                <span className="post-comment-fullname">{comment.by.fullName} </span>
-                {loading ? 'Loading...' : translatedText}
-            </p>
             <div>
-                <p className="passed-time">{comment.createdAt}</p>
-                <button className="translate-btn" onClick={toggleTranslation}>
-                    {isTranslatedToHebrew ? "See orginal" : "See translation"}
-                </button>
+                <p>
+                    <span className="post-comment-fullname">{comment.by.fullName} </span>
+                    {loading ? 'Loading...' : translatedText}
+                </p>
+                <div>
+                    <p className="passed-time">{comment.createdAt}</p>
+                    <button className="translate-btn" onClick={toggleTranslation}>
+                        {isTranslatedToHebrew ? "See orginal" : "See translation"}
+                    </button>
+                </div>
             </div>
         </>
     )

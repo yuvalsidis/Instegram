@@ -21,7 +21,7 @@ export function PostDescription({ post, isPostDetailsPage }) {
             } catch (error) {
                 console.error('Translation error:', error);
             } finally {
-                setLoading(false); // Set loading state to false after fetching translation
+                setLoading(false); 
             }
         }
 
