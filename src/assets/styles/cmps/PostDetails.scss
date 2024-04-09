@@ -26,6 +26,11 @@
       .post-details-content{
         flex-grow: 1;
         padding: 16px;
+        overflow: auto;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
       }
   }
 }
