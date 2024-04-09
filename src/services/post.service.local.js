@@ -70,7 +70,7 @@ function getEmptyPost() {
         createdAt: new Date(),
         by: {
             _id: "u101",
-            fullname: "Ulash Ulashi",
+            fullName: "Ulash Ulashi",
             imgUrl: "http://some-img"
         },
         loc: { // Optional
@@ -83,14 +83,14 @@ function getEmptyPost() {
                 id: "c1001",
                 by: {
                     _id: "u105",
-                    fullname: "Bob",
+                    fullName: "Bob",
                     imgUrl: "http://some-img"
                 },
                 txt: "good one!",
                 likedBy: [ // Optional
                     {
                         "_id": "u105",
-                        "fullname": "Bob",
+                        "fullName": "Bob",
                         "imgUrl": "http://some-img"
                     }
                 ]
@@ -99,7 +99,7 @@ function getEmptyPost() {
                 id: "c1002",
                 by: {
                     _id: "u106",
-                    fullname: "Dob",
+                    fullName: "Dob",
                     imgUrl: "http://some-img"
                 },
                 txt: "not good!",
@@ -108,12 +108,12 @@ function getEmptyPost() {
         likedBy: [
             {
                 _id: "u105",
-                fullname: "Bob",
+                fullName: "Bob",
                 imgUrl: "http://some-img"
             },
             {
                 _id: "u106",
-                fullname: "Dob",
+                fullName: "Dob",
                 imgUrl: "http://some-img"
             }
         ],
@@ -141,7 +141,7 @@ function _createPost() {
     post.imgUrl = "https://source.unsplash.com/random"
 
     post.by._id = utilService.makeId()
-    post.by.fullname = utilService.getRandomName()
+    post.by.fullName = utilService.getRandomName()
     post.by.imgUrl = "https://source.unsplash.com/random"
 
     post.comments = []
@@ -175,7 +175,7 @@ function _createComment() {
 function _createLike() {
     return {
         _id: utilService.makeId(),
-        fullname: utilService.getRandomName(),
+        fullName: utilService.getRandomName(),
         imgUrl: "https://api.unsplash.com/photos/random"
     }
 }
@@ -185,14 +185,14 @@ function getEmptyComment() {
         id: utilService.makeId(),
         by: {
             _id: "",
-            fullname: "",
+            fullName: "",
             imgUrl: "https://api.unsplash.com/photos/random"
         },
         txt: "",
         likedBy: [ // Optional
             {
                 _id: "",
-                fullname: "",
+                fullName: "",
                 imgUrl: "https://api.unsplash.com/photos/random"
             }
         ]
