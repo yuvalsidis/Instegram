@@ -112,9 +112,10 @@
     }
 
     .more-horiz-icon{
+        margin-right: 8px;
         &:hover{
             cursor: pointer;
-        }
+        }       
     }
     .passed-time {
         color: $clr4;

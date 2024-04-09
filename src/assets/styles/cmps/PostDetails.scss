@@ -27,6 +27,14 @@
         flex-grow: 1;
         padding: 16px;
         overflow: auto;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .passed-time{
+        margin: 0px 0px 16px;
+        padding: 0px 0px 0px 16px;
+        font-size: rem($system-12-font-size);
+        line-height: rem($system-12-line-height);
+        color: $clr4;
       }
 
       ::-webkit-scrollbar {

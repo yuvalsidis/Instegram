@@ -14,8 +14,8 @@ export function PostDetailsPage() {
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
     const posts = useSelector(storeState => storeState.postModule.posts)
     const isPostDetailsPage = true
-
     const { postId } = useParams()
+
 
     useEffect(() => {
         onGetPost()
@@ -50,9 +50,12 @@ export function PostDetailsPage() {
     }
 
 if (isLoading) return <div>Loading</div>
-    return (
-        <section className="post-details-page">
-            <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage } />
-        </section>
-    )
+if (post)   return (
+    <section className="post-details-page">
+        <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage } />
+    </section>
+)
+else{
+    return <div>Content Unavailable</div>
+}
 }

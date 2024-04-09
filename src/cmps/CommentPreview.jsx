@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { utilService } from "../services/util.service";
 
 export function CommentPreview({ comment }) {
     const [translatedText, setTranslatedText] = useState('');
     const [isTranslatedToHebrew, setIsTranslatedToHebrew] = useState(false);
+    const timeSinceCreation = utilService.getTimeSinceCreation(comment.createdAt)
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -41,7 +43,7 @@ export function CommentPreview({ comment }) {
                     {loading ? 'Loading...' : translatedText}
                 </p>
                 <div>
-                    <p className="passed-time">{comment.createdAt}</p>
+                    <p className="passed-time">{timeSinceCreation}</p>
                     <button className="translate-btn" onClick={toggleTranslation}>
                         {isTranslatedToHebrew ? "See orginal" : "See translation"}
                     </button>
