@@ -8,7 +8,7 @@ import { PostLikes } from "./PostLikes"
 import { useLocation } from 'react-router-dom'
 
 
-export function PostDetails({ post, onUpdatePost }) {
+export function PostDetails({ post, onUpdatePost, isPostDetailsPage }) {
     const location = useLocation(/p/)
 
 
@@ -19,7 +19,7 @@ export function PostDetails({ post, onUpdatePost }) {
                 <PostPhotos post={post} />
             </div>
             <div className="post-details-info">
-                <PostHeader post={post} />
+                <PostHeader post={post} isPostDetailsPage={isPostDetailsPage} />
                 <div className={location? "post-details-content" : null}>
                     <PostDescription post={post} />
                     <PostComments post={post} />

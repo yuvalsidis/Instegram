@@ -13,6 +13,7 @@ export function PostDetailsPage() {
     const [post, SetPost] = useState(null)
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
     const posts = useSelector(storeState => storeState.postModule.posts)
+    const isPostDetailsPage = true
 
     const { postId } = useParams()
 
@@ -51,7 +52,7 @@ export function PostDetailsPage() {
 if (isLoading) return <div>Loading</div>
     return (
         <section className="post-details-page">
-            <PostDetails post={post} onUpdatePost={onUpdatePost} />
+            <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage } />
         </section>
     )
 }
