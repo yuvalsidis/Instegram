@@ -158,7 +158,7 @@ function _createComment() {
 
     var comment = {
         id: utilService.makeId(),
-        createdAt: "3h",
+        createdAt: new Date(),
         by: {
             _id: utilService.makeId(),
             fullName: utilService.getRandomName(),
