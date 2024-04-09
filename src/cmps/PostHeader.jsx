@@ -1,12 +1,15 @@
 import { utilService } from "../services/util.service"
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
-export function PostHeader({ post, isPostDetailsPage}) {
+
+export function PostHeader({ post, isPostDetailsPage }) {
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
 
     return (
         <div className={isPostDetailsPage ? "page-post-header" : "post-header"}>
-            <img src={post.by.imgUrl} className="profilePreviewImg"></img>
+            <div>
+                <img src={post.by.imgUrl} className="profilePreviewImg"></img>
+            </div>
             <div className="post-header-main">
                 <button className="post-header-name">{post.by.fullName}</button>
                 <div className="dot">•</div>
