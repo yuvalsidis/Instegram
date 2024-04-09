@@ -16,6 +16,17 @@ export function PostDetailsPage() {
     const isPostDetailsPage = true
     const { postId } = useParams()
 
+    function handleWheel(event) {
+        event.preventDefault();
+    }
+
+    useEffect(() => {
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+        }
+    }, [])
+
     useEffect(() => {
         onGetPost()
     }, [])
