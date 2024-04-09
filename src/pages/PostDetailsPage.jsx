@@ -48,7 +48,7 @@ export function PostDetailsPage() {
             })
     }
 
-    if (isLoading) return <div>Loading</div>
+if (isLoading) return <div>Loading</div>
     return (
         <section className="post-details-page">
             <PostDetails post={post} onUpdatePost={onUpdatePost} />

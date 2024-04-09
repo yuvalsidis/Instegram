@@ -5,10 +5,14 @@ import { PostPhotos } from "./PostPhotos"
 import { PostActions } from "./PostActions"
 import { PostComments } from "./PostComments"
 import { PostLikes } from "./PostLikes"
+import { useLocation } from 'react-router-dom'
 
-export function PostDetails({ post, onUpdatePost}) {
 
-    if(!post) return
+export function PostDetails({ post, onUpdatePost }) {
+    const location = useLocation(/p/)
+
+
+    if (!post) return
     return (
         <div className="post-details">
             <div className="post-details-photo">
@@ -16,9 +20,11 @@ export function PostDetails({ post, onUpdatePost}) {
             </div>
             <div className="post-details-info">
                 <PostHeader post={post} />
-                <PostDescription post={post} />
-                <PostComments post={post} />
-                <PostActions post={post} onUpdatePost={onUpdatePost}/>
+                <div className={location? "post-details-content" : null}>
+                    <PostDescription post={post} />
+                    <PostComments post={post} />
+                </div>
+                <PostActions post={post} onUpdatePost={onUpdatePost} />
                 <PostLikes post={post} />
                 <PostAddComment post={post} onUpdatePost={onUpdatePost} />
             </div>
