@@ -44,7 +44,7 @@ export function PostActions({ post, onUpdatePost }) {
             <div className="post-actions-btns">
                 <div onClick={onLikePost}>
                     {isLiked ? (
-                        <img className='icon' src="../../public/icons/Share.svg" alt="Share Icon" />
+                        <img className='icon' src="../../public/icons/RedLike.svg" alt="Liked Icon" />
                     ) : (
                         <img className='icon' src="../../public/icons/Like.svg" alt="Like Icon" />
                     )}
