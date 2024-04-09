@@ -1,7 +1,7 @@
 .post-details {
   position: relative;
   display: grid;
-  grid-template-columns: 2fr 14px 1fr;
+  grid-template-columns: 2fr  1fr;
   background-color: $clr_bg;
   width: 110vh;
   height: 95%;
@@ -14,7 +14,7 @@
   }
 
   .post-details-info {
-    grid-column: 3;
+    grid-column: 2;
   }
 
  overflow: hidden;
