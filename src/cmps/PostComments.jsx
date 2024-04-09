@@ -1,7 +1,7 @@
 
 import { CommentPreview } from "./CommentPreview"
 
-export function PostComments({ post }) {
+export function PostComments({ post, isPostDetailsPage}) {
 
   return (
     <div className="post-comments">
