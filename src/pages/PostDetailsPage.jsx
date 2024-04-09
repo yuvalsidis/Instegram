@@ -16,10 +16,20 @@ export function PostDetailsPage() {
     const isPostDetailsPage = true
     const { postId } = useParams()
 
+    function handleWheel(event) {
+        event.preventDefault();
+    }
+
+    useEffect(() => {
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+        }
+    }, [])
 
     useEffect(() => {
         onGetPost()
-    },[])
+    }, [])
 
     function onGetPost() {
         console.log('Trying get post')
@@ -49,13 +59,13 @@ export function PostDetailsPage() {
             })
     }
 
-if (isLoading) return <div>Loading</div>
-if (post)   return (
-    <section className="post-details-page">
-        <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage } />
-    </section>
-)
-else{
-    return <div>Content Unavailable</div>
-}
+    if (isLoading) return <div>Loading</div>
+    if (post) return (
+        <section className="post-details-page">
+            <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} />
+        </section>
+    )
+    else {
+        return <div>Content Unavailable</div>
+    }
 }
