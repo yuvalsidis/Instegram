@@ -188,7 +188,7 @@ function getEmptyComment() {
         createdAt: "",
         by: {
             _id: "",
-            fullName: "",
+            fullName: "lior yo",
             imgUrl: "https://api.unsplash.com/photos/random"
         },
         txt: "",
