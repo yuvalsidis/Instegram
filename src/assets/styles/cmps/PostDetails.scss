@@ -10,12 +10,17 @@
   transform: translate(-1%, -1%);
 
   .post-details-photo {
+    overflow: hidden;
     grid-column: 1;
   }
 
   .post-details-info {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
     grid-column: 2;
+      .post-details-content{
+        flex-grow: 1;
+      }
   }
-
- overflow: hidden;
 }
