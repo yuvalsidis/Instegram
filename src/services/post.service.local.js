@@ -81,6 +81,7 @@ function getEmptyPost() {
         comments: [
             {
                 id: "c1001",
+                createdAt: new Date(),
                 by: {
                     _id: "u105",
                     fullName: "Bob",
@@ -97,6 +98,7 @@ function getEmptyPost() {
             },
             {
                 id: "c1002",
+                createdAt: new Date(),
                 by: {
                     _id: "u106",
                     fullName: "Dob",
@@ -183,6 +185,7 @@ function _createLike() {
 function getEmptyComment() {
     return {
         id: utilService.makeId(),
+        createdAt: "",
         by: {
             _id: "",
             fullName: "",
