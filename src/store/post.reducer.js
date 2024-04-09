@@ -4,9 +4,10 @@ export const ADD_POST = 'ADD_POST'
 export const UPDATE_POST = 'UPDATE_POST'
 export const UNDO_REMOVE_POST = 'UNDO_REMOVE_POST'
 
+
 const initialState = {
     posts: [],
-    lastRemovedpost: null
+    lastRemovedpost: null,
 }
 
 export function postReducer(state = initialState, action) {

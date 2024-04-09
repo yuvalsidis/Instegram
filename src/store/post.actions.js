@@ -2,7 +2,7 @@ import { postService } from '../services/post.service.local.js'
 import { userService } from '../services/user.service.js'
 import { store } from '../store/store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { ADD_POST, REMOVE_POST, UPDATE_POST, SET_POSTS, UNDO_REMOVE_POST } from './post.reducer.js'
+import { ADD_POST, REMOVE_POST, UPDATE_POST, SET_POSTS, UNDO_REMOVE_POST} from './post.reducer.js'
 
 
 // Action Creators:
@@ -25,6 +25,7 @@ export function getActionUpdatePost(post) {
     }
 }
 
+
 export async function loadPosts() {
     try {
         const posts = await postService.query()
@@ -41,6 +42,7 @@ export async function loadPosts() {
 
 }
 
+
 export async function removePost(postId) {
     try {
         await postService.remove(postId)
@@ -50,6 +52,7 @@ export async function removePost(postId) {
         throw err
     }
 }
+
 
 export async function addPost(post) {
     try {
@@ -66,7 +69,6 @@ export async function addPost(post) {
 export function updatePost(post) {
     return postService.save(post)
         .then(savedPost => {
-            console.log('Updated post:', savedPost)
             store.dispatch(getActionUpdatePost(savedPost))
             return savedPost
         })
@@ -75,6 +77,7 @@ export function updatePost(post) {
             throw err
         })
 }
+
 
 // Demo for Optimistic Mutation 
 // (IOW - Assuming the server call will work, so updating the UI first)

@@ -18,7 +18,7 @@ export function PostDetails({ post, onUpdatePost}) {
                 <PostHeader post={post} />
                 <PostDescription post={post} />
                 <PostComments post={post} />
-                <PostActions post={post} />
+                <PostActions post={post} onUpdatePost={onUpdatePost}/>
                 <PostLikes post={post} />
                 <PostAddComment post={post} onUpdatePost={onUpdatePost} />
             </div>

@@ -26,6 +26,7 @@ export function PostDetailsPage() {
         postService.getById(postId)
             .then((matchedPost) => {
                 SetPost(matchedPost)
+                console.log(updatePost)
                 showSuccessMsg('Post load successfully')
                 store.dispatch({ type: LOADING_DONE, }
                 )
@@ -38,16 +39,14 @@ export function PostDetailsPage() {
 
     function onUpdatePost(post) {
         updatePost(post)
-            .then(() => {
+            .then((updatedPost) => {
                 showSuccessMsg('Post updated successfully')
+                SetPost(updatedPost)
             })
             .catch((err) => {
                 showErrorMsg('Error occured when updating posts', err)
             })
     }
-
-
-    console.log('post in page', post)
 
     if (isLoading) return <div>Loading</div>
     return (
