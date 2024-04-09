@@ -22,7 +22,7 @@ export function PostDetails({ post, onUpdatePost, isPostDetailsPage }) {
                 <PostHeader post={post} isPostDetailsPage={isPostDetailsPage} />
                 <div className={location? "post-details-content" : null}>
                     <PostDescription post={post} isPostDetailsPage={isPostDetailsPage}/>
-                    <PostComments post={post} isPostDetailsPage={isPostDetailsPage}/>
+                    <PostComments post={post}/>
                 </div>
                 <PostActions post={post} onUpdatePost={onUpdatePost} />
                 <PostLikes post={post} />
