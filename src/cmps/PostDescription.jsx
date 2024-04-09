@@ -7,7 +7,7 @@ export function PostDescription({ post, isPostDetailsPage }) {
     const [isTranslatedToHebrew, setIsTranslatedToHebrew] = useState(false);
     const [loading, setLoading] = useState(false);
     const maxChars = utilService.getRandomIntInclusive(40, 100)
-
+    const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
 
     useEffect(() => {
         async function translateText() {
@@ -39,16 +39,23 @@ export function PostDescription({ post, isPostDetailsPage }) {
     return (
         <div className={isPostDetailsPage ? "page-post-description" : "post-description"}>
             {isPostDetailsPage ?
-                <div>                      
-                    <img src={post.by.imgUrl} className="profilePreviewImg"></img>
+                <>
                     <div>
-                        <span className="post-description-fullname">{post.by.fullName} </span>
-                        {loading ? 'Loading...' : translatedText}
-                        <button className="translate-btn" onClick={toggleTranslation}>
-                            {isTranslatedToHebrew ? "See orginal" : "See translation"}
-                        </button>
+                        <img src={post.by.imgUrl} className="profilePreviewImg"></img>
                     </div>
-                </div>
+                    <div>
+                        <p>
+                            <span className="post-description-fullname">{post.by.fullName} </span>
+                            {loading ? 'Loading...' : translatedText}
+                        </p>
+                        <div>
+                            <p className="passed-time">{timeSinceCreation}</p>
+                            <button className="translate-btn" onClick={toggleTranslation}>
+                                {isTranslatedToHebrew ? "See orginal" : "See translation"}
+                            </button>
+                        </div>
+                    </div>
+                </>
                 :
                 <p>
                     <span className="post-description-fullname">{post.by.fullName} </span>
