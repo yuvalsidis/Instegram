@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined';
 
 import { postService } from '../services/post.service.local';
+import { utilService } from '../services/util.service';
 
 export function PostAddComment({ post, onUpdatePost }) {
     const [text, setText] = useState('');
@@ -19,10 +20,10 @@ export function PostAddComment({ post, onUpdatePost }) {
     }, [editedPost])
 
     const handleChange = (event) => {
-        const textarea = event.target;
-        textarea.style.height = 'auto'; // Reset height to auto
-        const newHeight = `${textarea.scrollHeight}px`;
-        textarea.style.height = newHeight;
+        const textarea = event.target
+        textarea.style.height = 'auto'
+        const newHeight = `${textarea.scrollHeight}px`
+        textarea.style.height = newHeight
 
         // Check if the scroll height decreased
         if (textarea.scrollHeight < textarea.offsetHeight) {
@@ -34,11 +35,9 @@ export function PostAddComment({ post, onUpdatePost }) {
 
     function handleClickPostBtn() {
        
-        setComment({...comment, txt: text})
+        setComment({...comment, txt: text, createdAt: utilService.getTimeSinceCreation(new Date())})
         setText('')
     } 
-
-
 
     return (
         <div className="post-add-comment">
