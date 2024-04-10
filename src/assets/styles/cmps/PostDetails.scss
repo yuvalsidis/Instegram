@@ -1,7 +1,7 @@
 .post-details {
   position: relative;
   display: grid;
-  grid-template-columns: 2fr  1fr;
+  grid-template-columns: 2fr 1fr;
   background-color: $clr_bg;
   width: 110vh;
   height: 95%;
@@ -13,9 +13,17 @@
     position: relative;
     overflow: hidden;
     grid-column: 1;
-    img{
-      height: 100vh;   //OPTIONAL!
+   
+    img {
+      height: 100vh; //OPTIONAL!
     }
+  }
+
+  .post-details-passed-time{
+    margin: 0px 0px 16px 16px;
+    font-size: rem($system-12-font-size);
+    line-height: rem($system-12-line-height);
+    color: $clr4;
   }
 
   .post-details-info {
@@ -23,21 +31,23 @@
     display: flex;
     flex-direction: column;
     grid-column: 2;
-      .post-details-content{
-        flex-grow: 1;
-        padding: 16px;
-        overflow: auto;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      }
-      .passed-time{
-        margin: 0px 0px 16px;
-        font-size: rem($system-12-font-size);
-        line-height: rem($system-12-line-height);
-        color: $clr4;
-      }
+  
+    .post-details-content {
+      flex-grow: 1;
+      padding: 16px;
+      overflow: auto;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
 
-      ::-webkit-scrollbar {
-        display: none;
-      }
+    .passed-time {
+      margin: 0px 0px 16px;
+      font-size: rem($system-12-font-size);
+      line-height: rem($system-12-line-height);
+      color: $clr4;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

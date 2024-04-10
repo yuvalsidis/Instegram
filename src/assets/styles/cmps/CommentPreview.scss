@@ -13,12 +13,21 @@
 
     :nth-child(2){
         margin: 0px 0px 0px 14px;
-        :nth-child(2){
+        .post-comment-under-details{
             margin-left: 0px;
             margin-top: 8px;
             display: flex;
          
             .translate-btn{
+                margin-top: 0px;
+                margin-bottom: 16px;
+                margin-left: 12px;
+            }
+            .comment-likes{
+                font-size: rem($system-12-font-size);
+                line-height: rem($system-12-line-height);
+                font-weight: $font-weight-system-semibold;
+                color: $clr4;
                 margin-top: 0px;
                 margin-left: 12px;
             }
@@ -58,6 +67,10 @@
         font-size: rem($system-12-font-size);
         line-height: rem($system-12-line-height);
         color: $clr4;
+    }
+
+    .comment-likes{
+        margin: 0px;
     }
 }
 

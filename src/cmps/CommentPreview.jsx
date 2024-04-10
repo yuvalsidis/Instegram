@@ -42,8 +42,10 @@ export function CommentPreview({ comment }) {
                     <span className="post-comment-fullname">{comment.by.fullName} </span>
                     {loading ? 'Loading...' : translatedText}
                 </p>
-                <div>
-                    <p className="passed-time">{timeSinceCreation}</p>
+                <div className="post-comment-under-details">
+                    <p className="passed-time post-details-passed-time">{timeSinceCreation}</p>
+                    {(comment.likedBy.length > 0 && comment.likedBy.length < 10) ? <p className="comment-likes">{comment.likedBy.length} like</p> : null}
+                    {(comment.likedBy.length > 10 ) ? <p className="comment-likes" >{comment.likedBy.length} likes</p> : null}
                     <button className="translate-btn" onClick={toggleTranslation}>
                         {isTranslatedToHebrew ? "See orginal" : "See translation"}
                     </button>
