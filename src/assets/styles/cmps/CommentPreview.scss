@@ -31,7 +31,6 @@
                 margin-top: 0px;
                 margin-left: 12px;
             }
-           
         }
     }
     p {
@@ -72,6 +71,19 @@
     .comment-likes{
         margin: 0px;
     }
+
+    .comment-like-container{
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .comment-like-icon{
+        margin-top: 6px;
+        width: 12px;
+        height: 12px;
+    }
+   
 }
 
 

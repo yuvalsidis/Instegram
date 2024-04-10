@@ -45,11 +45,14 @@ export function CommentPreview({ comment }) {
                 <div className="post-comment-under-details">
                     <p className="passed-time post-details-passed-time">{timeSinceCreation}</p>
                     {(comment.likedBy.length > 0 && comment.likedBy.length < 10) ? <p className="comment-likes">{comment.likedBy.length} like</p> : null}
-                    {(comment.likedBy.length > 10 ) ? <p className="comment-likes" >{comment.likedBy.length} likes</p> : null}
+                    {(comment.likedBy.length > 10) ? <p className="comment-likes" >{comment.likedBy.length} likes</p> : null}
                     <button className="translate-btn" onClick={toggleTranslation}>
                         {isTranslatedToHebrew ? "See orginal" : "See translation"}
                     </button>
                 </div>
+            </div>
+            <div className="comment-like-container">
+                <img className="comment-like-icon" src="../../public/icons/Like.svg" alt="Like Icon" />
             </div>
         </>
     )
