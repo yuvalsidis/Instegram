@@ -28,7 +28,7 @@ export function getActionUpdatePost(post) {
 export async function loadPosts() {
     try {
         const posts = await postService.query()
-        console.log('posts from DB:', posts)
+        // console.log('posts from DB:', posts)
         store.dispatch({
             type: SET_POSTS,
             posts
@@ -66,7 +66,7 @@ export async function addPost(post) {
 export function updatePost(post) {
     return postService.save(post)
         .then(savedPost => {
-            console.log('Updated post:', savedPost)
+            // console.log('Updated post:', savedPost)
             store.dispatch(getActionUpdatePost(savedPost))
             return savedPost
         })

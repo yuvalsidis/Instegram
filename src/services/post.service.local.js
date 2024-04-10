@@ -3,7 +3,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-const STORAGE_KEY = 'post'
+const STORAGE_KEY = 'postsDB'
 
 _createPosts()
 
@@ -14,6 +14,7 @@ export const postService = {
     remove,
     getEmptyPost,
     getEmptyComment,
+    getRandomImage,
     addPostMsg
 }
 window.cs = postService
@@ -138,11 +139,12 @@ function _createPost() {
 
     post._id = utilService.makeId()
     post.txt = utilService.generatePostDescription()
-    post.imgUrl = "https://source.unsplash.com/random"
+    post.imgUrl = getRandomImage()
 
     post.by._id = utilService.makeId()
     post.by.fullName = utilService.getRandomName()
-    post.by.imgUrl = "https://source.unsplash.com/random"
+    // post.by.imgUrl = "https://source.unsplash.com/random"
+    post.by.imgUrl = getRandomImage()
 
     post.comments = []
     for (let i = 0; i < 8; i++) {
@@ -159,7 +161,8 @@ function _createComment() {
         by: {
             _id: utilService.makeId(),
             fullName: utilService.getRandomName(),
-            imgUrl: "https://source.unsplash.com/random"
+            // imgUrl: "https://source.unsplash.com/random"
+            imgUrl: getRandomImage()
         },
         txt: utilService.getRandomSentence(),
         likedBy: []
@@ -176,7 +179,8 @@ function _createLike() {
     return {
         _id: utilService.makeId(),
         fullName: utilService.getRandomName(),
-        imgUrl: "https://api.unsplash.com/photos/random"
+        // imgUrl: "https://api.unsplash.com/photos/random"
+        imgUrl: getRandomImage()
     }
 }
 
@@ -186,14 +190,16 @@ function getEmptyComment() {
         by: {
             _id: "",
             fullName: "",
-            imgUrl: "https://api.unsplash.com/photos/random"
+            // imgUrl: "https://api.unsplash.com/photos/random"
+            imgUrl: getRandomImage()
         },
         txt: "",
         likedBy: [ // Optional
             {
                 _id: "",
                 fullName: "",
-                imgUrl: "https://api.unsplash.com/photos/random"
+                // imgUrl: "https://api.unsplash.com/photos/random"
+                imgUrl: getRandomImage()
             }
         ]
     }
@@ -203,4 +209,55 @@ function getEmptyComment() {
 // function _createDemoUser() {
 
 // }
+
+const images = [
+    '../../public/img/1.png',
+    '../../public/img/2.png',
+    '../../public/img/3.png',
+    '../../public/img/4.png',
+    '../../public/img/5.png',
+    '../../public/img/6.png',
+    '../../public/img/7.png',
+    '../../public/img/8.png',
+    '../../public/img/9.png',
+    '../../public/img/10.png',
+    '../../public/img/11.png',
+    '../../public/img/12.png',
+    '../../public/img/13.png',
+    '../../public/img/14.png',
+    '../../public/img/15.png',
+    '../../public/img/16.png',
+    '../../public/img/17.png',
+    '../../public/img/18.png',
+    '../../public/img/19.png',
+    '../../public/img/20.png',
+    '../../public/img/21.png',
+    '../../public/img/22.png',
+    '../../public/img/23.png',
+    '../../public/img/24.png',
+    '../../public/img/25.png',
+    '../../public/img/26.png',
+    '../../public/img/27.png',
+    '../../public/img/28.png',
+    '../../public/img/29.png',
+    '../../public/img/30.png',
+    '../../public/img/31.png',
+    '../../public/img/32.png',
+    '../../public/img/33.png',
+    '../../public/img/34.png',
+    '../../public/img/35.png',
+    '../../public/img/36.png',
+    '../../public/img/37.png',
+    '../../public/img/38.png',
+    '../../public/img/39.png',
+    '../../public/img/40.png',
+    '../../public/img/41.png',
+    '../../public/img/42.png',
+    '../../public/img/43.png',
+]
+
+function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+  }
 
