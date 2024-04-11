@@ -4,7 +4,7 @@ export function UserInfo({ watchedUser, loggedInUser }) {
     return (
         <div className="user-info">
             {watchedUser ?
-                <div >
+                <div className="img-container">
                     <img className="user-info-img profilePreviewImg" src={watchedUser.imgUrl}></img>
                 </div>
                 :
