@@ -5,6 +5,7 @@ import { AppHeader } from './cmps/AppHeader';
 import { HomePage } from './pages/HomePage';
 import { ExplorePage } from './pages/ExplorePage';
 import { PostDetailsPage } from './pages/PostDetailsPage';
+import { ProfilePage } from './pages/ProfilePage';
 
 export function App() {
     return (
@@ -14,7 +15,7 @@ export function App() {
                 <Routes>
 
                     {routes.map(route => (
-                        <Route key={route.path} path={route.path}  element={route.component} />
+                        <Route key={route.path} path={route.path} element={route.component} />
                     ))}
 
                     <Route path='/explore' element={<ExplorePage />}>
@@ -23,6 +24,8 @@ export function App() {
                     <Route path='/' element={<HomePage />}>
                         <Route path='p/:postId' element={<PostDetailsPage />} />
                     </Route>
+                    <Route path='/profile/:userId' element={<ProfilePage />}> </Route>
+                    
                 </Routes>
 
             </main>
