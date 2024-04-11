@@ -4,8 +4,9 @@ import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'postsDB'
-
+const USER_KEY = 'userDB'
 _createPosts()
+
 
 export const postService = {
     query,
@@ -125,28 +126,34 @@ function getEmptyPost() {
 }
 
 async function _createPosts() {
+    let users = await storageService.query('user')
     let posts = await storageService.query(STORAGE_KEY)
+
+    console.log('asdasdasdUSERS', users)
+
     if (!posts || !posts.length) {
         console.log('No posts found, generating some...')
         for (let i = 0; i < 25; i++) {
-            posts.push(_createPost())
+             posts.push(_createPost(users))
         }
         utilService.saveToStorage(STORAGE_KEY,posts)
         console.log('Done generating posts')
     }
 }
 
-function _createPost() {
+function _createPost(users) {
     var post = getEmptyPost()
-
+    var user = users[utilService.getRandomIntInclusive(0,users.length - 1)]
+    console.log('user', user)
     post._id = utilService.makeId()
     post.txt = utilService.generatePostDescription()
     post.imgUrl = getRandomImage()
+    
 
-    post.by._id = utilService.makeId()
-    post.by.fullName = utilService.getRandomName()
-    // post.by.imgUrl = "https://source.unsplash.com/random"
-    post.by.imgUrl = getRandomImage()
+    post.by._id = user._id
+    post.by.fullName = user.username
+    post.by.imgUrl = user.imgUrl
+
 
     post.comments = []
     for (let i = 0; i < 10; i++) {
