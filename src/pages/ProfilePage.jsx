@@ -41,13 +41,10 @@ export function ProfilePage() {
 
     if (isLoading) return <div>Loading</div>
 
-    if (watchedUser) return <div>watchedUser </div>
-    if (!watchedUser) return <div>no watchedUser</div>
-
     return (
         <section className="profile-page">
-            <UserInfo />
-            <UserContent />
+            <UserInfo watchedUser ={watchedUser} loggedInUser = {loggedInUser}/>
+            <UserContent watchedUser ={watchedUser} loggedInUser = {loggedInUser}/>
         </section>
     )
 }

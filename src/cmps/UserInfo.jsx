@@ -1,12 +1,17 @@
 
-export function UserInfo(){
+export function UserInfo({ watchedUser, loggedInUser }) {
 
     return (
         <div className="user-info">
-            <div className="user-info-img">Image</div>
-            <div className="user-info-details">
-            </div>
-            <h1>User Info</h1>
+            {watchedUser ?
+                <div >
+                    <img className="user-info-img profilePreviewImg" src={watchedUser.imgUrl}></img>
+                </div>
+                :
+                <div >
+                    <img className="user-info-img profilePreviewImg" src={loggedInUser.imgUrl}></img>
+                </div>
+            }
         </div>
     )
 }
