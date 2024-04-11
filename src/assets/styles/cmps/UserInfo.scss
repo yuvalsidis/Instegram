@@ -1,6 +1,9 @@
 .user-info{
+     display: flex;
+
     .img-container{
         display: flex;
+        align-items: center;
         justify-content: center;
         width: 291px;
         margin: 0px 30px 0px 0px;

@@ -39,8 +39,11 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({ _id }) {
-    const user = await storageService.get('user', _id)
+async function update(_id, updateUser) {
+    let user = await storageService.get('user', _id)
+    console.log('asdasdddddddddddddddddddddddddddddddddddddddddddd', user)
+    user = updateUser
+    console.log('asdasdddddddddddddddddddddddddddddddddddddddddddd', user)
     await storageService.put('user', user)
 
     // const user = await httpService.put(`user/${_id}`, {_id, score})
@@ -98,20 +101,42 @@ function getLoggedinUser() {
 }
 
 
-_createUsers()
+
+
+
+
+
 //DEMO DATA CREATE USER
+_createUsers()
+
 async function _createUsers() {
+
     try {
         let users = await storageService.query('user')
         if (!users || !users.length) {
             ; (async () => {
                 await userService.signup(_createUser('Adi', 'Sidis', '123', false, 'adisidis', 'adisidis@gmail.com', '../../public/img/1.png'))
                 await userService.signup(_createUser('Admin', 'Admin', '123', true, 'adminadmin', 'adminadmin@gmail.com', '../../public/img/2.png'))
-                await userService.signup(_createUser('Sagi', 'Aivas', '123', false, 'sagiaivas', 'sagiaivas@gmail.com', '../../public/img/3.png'))
+                await userService.signup(_createUser('Lidor', 'Cohen', '123', false, 'lidorchoen', 'lidorcohen@gmail.com', '../../public/img/3.png'))
+                await userService.signup(_createUser('Lior', 'Former', '123', false, 'liorformer', 'liorformer@gmail.com', '../../public/img/4.png'))
+                await userService.signup(_createUser('Yotam', 'Levi', '123', false, 'yotamlevi', 'sagiaivas@gmail.com', '../../public/img/5.png'))
+                await userService.signup(_createUser('Elad', 'Mizrahi', '123', false, 'eladmizrahi', 'eladmizrahi@gmail.com', '../../public/img/6.png'))
+                await userService.signup(_createUser('Eyal', 'Sabah', '123', false, 'eyalsabah', 'eyalsabah@gmail.com', '../../public/img/7.png'))
+                await userService.signup(_createUser('Noa', 'Cohen', '123', false, 'noacohen', 'noacohen@gmail.com', '../../public/img/8.png'))
+                await userService.signup(_createUser('Amir', 'Yomtov', '123', false, 'amiryomtov', 'amiryomtov@gmail.com', '../../public/img/9.png'))
+                await userService.signup(_createUser('Doron', 'Peretz', '123', false, 'doronperetz', 'doronperetz@gmail.com', '../../public/img/10.png'))
             })()
         }
+        try {
+            let updatedUsers = await storageService.query('user');
+            updatedUsers.forEach(user => {
+                createFollows(user, updatedUsers);
+            });
+        } catch (err) {
+            console.log('cannot create followers in userService', err);
+        }
     }
-    catch(err){
+    catch (err) {
         console.log('Error by trying to get user in post service', err)
         throw err
     }
@@ -131,9 +156,46 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
         imgUrl,
         info: {
             posts: '13',
-            followers: '1233',
-            following: '6754'
+            followers: [
+
+            ],
+            following: [
+
+            ]
         }
     }
 }
+
+async function createFollows(userToUpdate, updatedUsers) {
+    const updatedUser = { ...userToUpdate };
+    const randomIteration = utilService.getRandomIntInclusive(0, updatedUsers.length - 1)
+    console.log('asdasd???????????????????????????asdasdasdas', updatedUsers)
+    for (var i = 0; i <= randomIteration; i++) {
+        if (updatedUsers[i]._id != updatedUser._id) {
+            const updateUserFollowing = { ...updatedUsers[i] }
+            updatedUser.info.followers.push(
+                {
+                    _id: updatedUsers[i]._id,
+                    username: updatedUsers[i].username,
+                    firstname: updatedUsers[i].firstname,
+                    lastname: updatedUsers[i].lastname,
+                    imgUrl: updatedUsers[i].imgUrl
+                }
+            )
+            updateUserFollowing.info.following.push(
+                {
+                    _id: updatedUser._id,
+                    username: updatedUser.username,
+                    firstname: updatedUser.firstname,
+                    lastname: updatedUser.lastname,
+                    imgUrl: updatedUser.imgUrl
+                }
+            )
+
+            await update(updatedUser._id, updatedUser)
+            await update(updateUserFollowing._id, updateUserFollowing)
+        }
+    }
+}
+
 

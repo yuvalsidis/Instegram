@@ -129,15 +129,15 @@ async function _createPosts() {
     let users = await storageService.query('user')
     let posts = await storageService.query(STORAGE_KEY)
 
-    console.log('asdasdasdUSERS', users)
-
-    if (!posts || !posts.length) {
-        console.log('No posts found, generating some...')
-        for (let i = 0; i < 25; i++) {
-             posts.push( _createPost(users))
+    if(users.length > 0){
+        if (!posts || !posts.length) {
+            console.log('No posts found, generating some...')
+            for (let i = 0; i < 25; i++) {
+                 posts.push( _createPost(users))
+            }
+            utilService.saveToStorage(STORAGE_KEY,posts)
+            console.log('Done generating posts')
         }
-        utilService.saveToStorage(STORAGE_KEY,posts)
-        console.log('Done generating posts')
     }
 }
 
