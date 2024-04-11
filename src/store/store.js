@@ -7,7 +7,7 @@ import { systemReducer } from './system.reducer'
 const rootReducer = combineReducers({
     postModule: postReducer,
     systemModule: systemReducer,
-    // userModule: userReducer,
+    userModule: userReducer,
     // reviewModule: reviewReducer,
 })
 
