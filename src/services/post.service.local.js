@@ -134,7 +134,7 @@ async function _createPosts() {
     if (!posts || !posts.length) {
         console.log('No posts found, generating some...')
         for (let i = 0; i < 25; i++) {
-             posts.push(_createPost(users))
+             posts.push( _createPost(users))
         }
         utilService.saveToStorage(STORAGE_KEY,posts)
         console.log('Done generating posts')
@@ -142,8 +142,8 @@ async function _createPosts() {
 }
 
 function _createPost(users) {
-    var post = getEmptyPost()
-    var user = users[utilService.getRandomIntInclusive(0,users.length - 1)]
+    let post = getEmptyPost()
+    let user = users[utilService.getRandomIntInclusive(0,users.length - 1)]
     console.log('user', user)
     post._id = utilService.makeId()
     post.txt = utilService.generatePostDescription()

@@ -4,6 +4,7 @@ import { httpService } from './http.service'
 import { utilService } from './util.service'
 import { info } from 'sass'
 
+
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
 export const userService = {
@@ -56,7 +57,7 @@ async function login(userCred) {
     if (user) return saveLocalUser(user)
 }
 
-async function signup(userCred) {          
+async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = "../../public/img/default-user-img.png"
     const user = await storageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
@@ -84,7 +85,8 @@ function saveLocalUser(user) {
         lastname: user.lastname,
         username: user.username,
         isAdmin: user.isAdmin,
-        info: user.info
+        info: user.info,
+        imgUrl: user.imgUrl
     }
 
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
@@ -96,12 +98,24 @@ function getLoggedinUser() {
 }
 
 
+_createUsers()
 //DEMO DATA CREATE USER
-;(async ()=>{
-    await userService.signup(_createUser('Adi', 'Sidis', '123', false, 'adisidis', 'adisidis@gmail.com', '../../public/img/1.png'))
-    await userService.signup(_createUser('Admin', 'Admin', '123', true, 'adminadmin', 'adminadmin@gmail.com', '../../public/img/2.png'))
-    await userService.signup(_createUser('Sagi', 'Aivas', '123', false, 'sagiaivas', 'sagiaivas@gmail.com', '../../public/img/3.png'))
-})()
+async function _createUsers() {
+    try {
+        let users = await storageService.query('user')
+        if (!users || !users.length) {
+            ; (async () => {
+                await userService.signup(_createUser('Adi', 'Sidis', '123', false, 'adisidis', 'adisidis@gmail.com', '../../public/img/1.png'))
+                await userService.signup(_createUser('Admin', 'Admin', '123', true, 'adminadmin', 'adminadmin@gmail.com', '../../public/img/2.png'))
+                await userService.signup(_createUser('Sagi', 'Aivas', '123', false, 'sagiaivas', 'sagiaivas@gmail.com', '../../public/img/3.png'))
+            })()
+        }
+    }
+    catch(err){
+        console.log('Error by trying to get user in post service', err)
+        throw err
+    }
+}
 
 //DEMO DATA USER
 
@@ -117,8 +131,8 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
         imgUrl,
         info: {
             posts: '13',
-            followers : '1233',
-            following : '6754'
+            followers: '1233',
+            following: '6754'
         }
     }
 }
