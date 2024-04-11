@@ -56,7 +56,7 @@ async function login(userCred) {
     if (user) return saveLocalUser(user)
 }
 
-async function signup(userCred) {
+async function signup(userCred) {          
     if (!userCred.imgUrl) userCred.imgUrl = "../../public/img/default-user-img.png"
     const user = await storageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
@@ -96,18 +96,16 @@ function getLoggedinUser() {
 }
 
 
+//DEMO DATA CREATE USER
 ;(async ()=>{
-    await userService.signup(_createUser('Adi', 'Sidis', '123', false, 'adisidis', 'adisidis@gmail.com'))
-    await userService.signup(_createUser('Admin', 'Admin', '123', true, 'adminadmin', 'adminadmin@gmail.com'))
-    await userService.signup(_createUser('Sagi', 'Aivas', '123', false, 'sagiaivas', 'sagiaivas@gmail.com'))
+    await userService.signup(_createUser('Adi', 'Sidis', '123', false, 'adisidis', 'adisidis@gmail.com', '../../public/img/1.png'))
+    await userService.signup(_createUser('Admin', 'Admin', '123', true, 'adminadmin', 'adminadmin@gmail.com', '../../public/img/2.png'))
+    await userService.signup(_createUser('Sagi', 'Aivas', '123', false, 'sagiaivas', 'sagiaivas@gmail.com', '../../public/img/3.png'))
 })()
-
-
-
 
 //DEMO DATA USER
 
-function _createUser(firstname, lastname, password, isAdmin = false, username, email) {
+function _createUser(firstname, lastname, password, isAdmin = false, username, email, imgUrl) {
     return {
         _id: utilService.makeId(),
         email,
@@ -116,6 +114,7 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
         username,
         password,
         isAdmin,
+        imgUrl,
         info: {
             posts: '13',
             followers : '1233',
