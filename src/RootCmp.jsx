@@ -25,7 +25,6 @@ export function App() {
                         <Route path='p/:postId' element={<PostDetailsPage />} />
                     </Route>
                     <Route path='/profile/:userId' element={<ProfilePage />}> </Route>
-                    
                 </Routes>
 
             </main>
