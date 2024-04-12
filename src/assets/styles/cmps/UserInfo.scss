@@ -1,6 +1,11 @@
 .user-info{
      display: flex;
-
+    
+     .user-details{
+        display: flex;
+        flex-direction: column;
+    }
+    
     .img-container{
         display: flex;
         align-items: center;

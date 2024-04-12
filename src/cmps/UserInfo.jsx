@@ -1,4 +1,7 @@
 import { UserAction } from "./UserActions"
+import { UserStats } from "./UserStats"
+
+
 export function UserInfo({ watchedUser, loggedInUser }) {
 
     return (
@@ -10,9 +13,7 @@ export function UserInfo({ watchedUser, loggedInUser }) {
                     </div>
                     <div className="user-details">
                         <UserAction  watchedUser={ watchedUser} loggedInUser={loggedInUser} />
-                        <div className="user-stats">
-
-                        </div>
+                        <UserStats/>
                     </div>
                 </>
                 :
@@ -22,9 +23,7 @@ export function UserInfo({ watchedUser, loggedInUser }) {
                     </div>
                     <div className="user-details">
                         <UserAction loggedInUser={loggedInUser} watchedUser={watchedUser}/>
-                        <div className="user-stats">
-
-                        </div>
+                        <UserStats/>
                     </div>
                 </>
             }
