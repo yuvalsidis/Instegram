@@ -18,10 +18,13 @@ export function ProfilePage() {
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
 
     const { userId } = useParams()
-    const defaultUserId = userId || null;
+    let defaultUserId = userId || null;
 
+    if(userId === loggedInUser._id){
+        defaultUserId = null
+    }
     useEffect(() => {
-        onLoadUser(userId)
+        onLoadUser(defaultUserId)
     }, [defaultUserId])
 
     function onLoadUser(userId) {
