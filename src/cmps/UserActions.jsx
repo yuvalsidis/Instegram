@@ -33,12 +33,12 @@ export function UserAction({ loggedInUser, watchedUser }) {
                     <p>{watchedUser.username}</p>
                     {isFollow ?
                         <>
-                            <button className="user-info-btn"> Following </button>
-                            <button className="user-info-btn"> Messege</button>
+                            <button className="following-btn user-info-btn"> Following </button>
+                            <button className="messege-btn user-info-btn"> Messege</button>
                         </>
                         :
                         <>
-                            <button className="user-info-follow-btn"> Following </button>
+                            <button className="user-info-follow-btn"> Follow </button>
                         </>
                     }
                     <img className='icon' src="../../public/icons/OptionsWatchedUser.svg" alt="Options Watched user Icon" />
