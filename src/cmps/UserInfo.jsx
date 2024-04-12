@@ -1,4 +1,4 @@
-
+import { UserAction } from "./UserActions"
 export function UserInfo({ watchedUser, loggedInUser }) {
 
     return (
@@ -9,10 +9,7 @@ export function UserInfo({ watchedUser, loggedInUser }) {
                         <img className="user-info-img profilePreviewImg" src={watchedUser.imgUrl}></img>
                     </div>
                     <div className="user-details">
-                        <div className="user-actions">
-                            <p>{watchedUser.username}</p>
-                            <a></a>
-                        </div>
+                        <UserAction  watchedUser={ watchedUser} />
                         <div className="user-stats">
 
                         </div>
@@ -24,9 +21,7 @@ export function UserInfo({ watchedUser, loggedInUser }) {
                         <img className="user-info-img profilePreviewImg" src={loggedInUser.imgUrl}></img>
                     </div>
                     <div className="user-details">
-                        <div className="user-actions">
-                            <p>{loggedInUser.username}</p>
-                        </div>
+                        <UserAction loggedInUser={loggedInUser} />
                         <div className="user-stats">
 
                         </div>

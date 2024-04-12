@@ -40,7 +40,6 @@ export function ProfilePage() {
     console.log('watched user choosed: ', watchedUser)
 
     if (isLoading) return <div>Loading</div>
-
     return (
         <section className="profile-page">
             <UserInfo watchedUser ={watchedUser} loggedInUser = {loggedInUser}/>

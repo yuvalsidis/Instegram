@@ -41,9 +41,7 @@ function remove(userId) {
 
 async function update(_id, updateUser) {
     let user = await storageService.get('user', _id)
-    console.log('asdasdddddddddddddddddddddddddddddddddddddddddddd', user)
     user = updateUser
-    console.log('asdasdddddddddddddddddddddddddddddddddddddddddddd', user)
     await storageService.put('user', user)
 
     // const user = await httpService.put(`user/${_id}`, {_id, score})
@@ -126,14 +124,14 @@ async function _createUsers() {
                 await userService.signup(_createUser('Amir', 'Yomtov', '123', false, 'amiryomtov', 'amiryomtov@gmail.com', '../../public/img/9.png'))
                 await userService.signup(_createUser('Doron', 'Peretz', '123', false, 'doronperetz', 'doronperetz@gmail.com', '../../public/img/10.png'))
             })()
-        }
-        try {
-            let updatedUsers = await storageService.query('user');
-            updatedUsers.forEach(user => {
-                createFollows(user, updatedUsers);
-            });
-        } catch (err) {
-            console.log('cannot create followers in userService', err);
+            try {
+                let updatedUsers = await storageService.query('user');
+                updatedUsers.forEach(user => {
+                    createFollows(user, updatedUsers);
+                });
+            } catch (err) {
+                console.log('cannot create followers in userService', err);
+            }
         }
     }
     catch (err) {
