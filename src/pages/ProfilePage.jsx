@@ -46,7 +46,7 @@ export function ProfilePage() {
     if (!loggedInUser) return <div>Logged in to continue</div>
 
     return (
-        <section className="profile-page">
+        <section className="profile-page main">
             <div className="profile-main-content-container">
                 <UserInfo watchedUser={watchedUser} loggedInUser={loggedInUser} />
                 <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser}/>
