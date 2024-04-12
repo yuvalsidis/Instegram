@@ -5,23 +5,23 @@ import { useState, useEffect } from "react"
 export function UserAction({ loggedInUser, watchedUser }) {
     const [isFollow, setIsFollow] = useState(false)
 
-    useEffect(()=>{
-        if(loggedInUser && watchedUser){
+    useEffect(() => {
+        if (loggedInUser && watchedUser) {
             checkIfFollow()
         }
-    },[isFollow])
+    }, [isFollow])
 
     function checkIfFollow() {
-        const following =  loggedInUser.info.following
-        console.log('asdasdasdasd',loggedInUser.info.following)
+        const following = loggedInUser.info.following
+        console.log('asdasdasdasd', loggedInUser.info.following)
         const isFollowing = following.some((following) => {
             console.log('following', following)
             if (following._id === watchedUser._id) {
-                return true; 
+                return true;
             }
         });
-        console.log('asd',isFollowing)
-        setIsFollow(isFollowing); 
+        console.log('asd', isFollowing)
+        setIsFollow(isFollowing);
     }
 
 
@@ -31,8 +31,17 @@ export function UserAction({ loggedInUser, watchedUser }) {
             {watchedUser ?
                 <>
                     <p>{watchedUser.username}</p>
-
-                    <img className='icon' src="../../public/icons/OptionsUser.svg" alt="Options user Icon" />
+                    {isFollow ?
+                        <>
+                            <button className="user-info-btn"> Following </button>
+                            <button className="user-info-btn"> Messege</button>
+                        </>
+                        :
+                        <>
+                            <button className="user-info-follow-btn"> Following </button>
+                        </>
+                    }
+                    <img className='icon' src="../../public/icons/OptionsWatchedUser.svg" alt="Options Watched user Icon" />
 
                 </>
                 :
