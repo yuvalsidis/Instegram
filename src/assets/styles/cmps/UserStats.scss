@@ -1,3 +1,16 @@
-.user-stats{
-    
+.user-stats {
+    display: flex;
+    .post-stats-container {
+     
+        .post-stat,
+        .followers-stat,
+        .following-stat {
+            margin: 0px 40px 0px 0px;
+            font-size: $system-16-font-size;
+            line-height: $system-16-line-height;
+            span{
+                font-weight: $font-weight-system-semibold;
+            }    
+        }
+    }
 }
