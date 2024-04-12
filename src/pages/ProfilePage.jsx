@@ -10,7 +10,7 @@ import { utilService } from "../services/util.service"
 import { store } from "../store/store"
 import { loadUser } from "../store/user.actions"
 import { userService } from "../services/user.service"
-
+import { ProfileContentFilter } from "../cmps/ProfileContentFilter"
 
 export function ProfilePage() {
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
@@ -18,7 +18,7 @@ export function ProfilePage() {
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
 
     const { userId } = useParams()
-    const defaultUserId = userId || null; 
+    const defaultUserId = userId || null;
 
     useEffect(() => {
         onLoadUser(userId)
@@ -44,8 +44,11 @@ export function ProfilePage() {
 
     return (
         <section className="profile-page">
-            <UserInfo watchedUser ={watchedUser} loggedInUser = {loggedInUser}/>
-            <UserContent watchedUser ={watchedUser} loggedInUser = {loggedInUser}/>
+            <div className="profile-main-content-container">
+                <UserInfo watchedUser={watchedUser} loggedInUser={loggedInUser} />
+                <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser}/>
+                <UserContent watchedUser={watchedUser} loggedInUser={loggedInUser} />
+            </div>
         </section>
     )
 }
