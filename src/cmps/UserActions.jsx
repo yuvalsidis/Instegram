@@ -30,15 +30,20 @@ export function UserAction({ loggedInUser, watchedUser }) {
         <div className="user-action">
             {watchedUser ?
                 <>
-                    <p>{watchedUser.username}</p>
+                    <p className="info-username">{watchedUser.username}</p>
                     {isFollow ?
                         <>
-                            <button className="following-btn user-info-btn"> Following </button>
-                            <button className="messege-btn user-info-btn"> Messege</button>
+                            <div className="user-info-btns">
+                                <button className="following-btn user-info-btn"> Following </button>
+                                <button className="messege-btn user-info-btn"> Messege</button>
+                            </div>
                         </>
                         :
                         <>
-                            <button className="user-info-follow-btn"> Follow </button>
+                            <div className="user-info-btns">
+                                <button className="user-info-follow-btn"> Follow </button>
+                            </div>
+
                         </>
                     }
                     <img className='icon' src="../../public/icons/OptionsWatchedUser.svg" alt="Options Watched user Icon" />
@@ -46,7 +51,7 @@ export function UserAction({ loggedInUser, watchedUser }) {
                 </>
                 :
                 <>
-                    <p>{loggedInUser.username}</p>
+                    <p className="info-username">{loggedInUser.username}</p>
                     <a className="user-info-link">Edit Profile</a>
                     <a className="user-info-link">View Archive</a>
                     <img className='icon' src="../../public/icons/OptionsUser.svg" alt="Options user Icon" />

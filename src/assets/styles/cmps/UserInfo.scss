@@ -24,6 +24,12 @@
         font-weight: $font-weight-system-semibold;
     }
 
+    .info-username{
+        font-size: $system-20-font-size;
+        line-height: $system-20-line-height;
+        color: $clr1 ;
+    }
+
     .following-btn{
         background-color: $clr5;
         color: $clr1 ;
