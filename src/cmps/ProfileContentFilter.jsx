@@ -7,7 +7,7 @@ export function ProfileContentFilter({ watchedUser, loggedInUser }) {
                 <>
                     <div className="posts-filter">
                         <div>
-                            <p>POSTS</p>
+                            <button>POSTS</button>
                         </div>
                     </div>
                 </>
@@ -15,12 +15,12 @@ export function ProfileContentFilter({ watchedUser, loggedInUser }) {
                 <>
                     <div className="posts-filter">
                         <div>
-                            <p>POSTS</p>
+                            <button>POSTS</button>
                         </div>
                     </div>
                     <div className="posts-save-filter">
                         <div>
-                            <p>SAVED</p>
+                            <button>SAVED</button>
                         </div>
                     </div>
                 </>
