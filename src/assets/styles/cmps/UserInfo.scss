@@ -16,29 +16,4 @@
         display: flex;
         width: 613px;
     }
-
-    .user-info-btn{
-        border-radius: 8px;
-        font-size: $system-14-font-size;
-        line-height: $system-14-line-height;
-        font-weight: $font-weight-system-semibold;
-    }
-
-    .info-username{
-        font-size: $system-20-font-size;
-        line-height: $system-20-line-height;
-        color: $clr1 ;
-    }
-
-    .following-btn{
-        background-color: $clr5;
-        color: $clr1 ;
-        padding: 7px 16px;
-    }
-
-    .messege-btn{
-        color: $clr1;
-        background-color: $clr5;
-        padding: 7px 16px;
-    }
 }

@@ -30,31 +30,41 @@ export function UserAction({ loggedInUser, watchedUser }) {
         <div className="user-action">
             {watchedUser ?
                 <>
-                    <p className="info-username">{watchedUser.username}</p>
+                    <div className="info-username-container">
+                        <p className="info-username">{watchedUser.username}</p>
+                    </div>
                     {isFollow ?
                         <>
                             <div className="user-info-btns">
                                 <button className="following-btn user-info-btn"> Following </button>
-                                <button className="messege-btn user-info-btn"> Messege</button>
+                                <a className=" user-info-link messege-link "> Messege</a>
                             </div>
                         </>
                         :
                         <>
                             <div className="user-info-btns">
-                                <button className="user-info-follow-btn"> Follow </button>
+                                <button className="user-info-follow-btn  user-info-btn"> Follow </button>
                             </div>
 
                         </>
                     }
-                    <img className='icon' src="../../public/icons/OptionsWatchedUser.svg" alt="Options Watched user Icon" />
+                    <div className=" user-info-icon-container">
+                        <img className='icon user-info-icon' src="../../public/icons/OptionsWatchedUser.svg" alt="Options Watched user Icon" />
+                    </div>
 
                 </>
                 :
                 <>
-                    <p className="info-username">{loggedInUser.username}</p>
-                    <a className="user-info-link">Edit Profile</a>
-                    <a className="user-info-link">View Archive</a>
-                    <img className='icon' src="../../public/icons/OptionsUser.svg" alt="Options user Icon" />
+                    <div className="info-username-container">
+                        <p className="info-username">{loggedInUser.username}</p>
+                    </div>
+                    <div className="logged-in-user-links">
+                        <a className="user-info-link">Edit Profile</a>
+                        <a className="user-info-link">View Archive</a>
+                    </div>
+                    <div className=" user-info-icon-container">
+                        <img className='icon' src="../../public/icons/OptionsUser.svg" alt="Options user Icon" />
+                    </div>
                 </>
             }
         </div>

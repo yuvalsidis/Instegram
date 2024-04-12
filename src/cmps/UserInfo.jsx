@@ -17,7 +17,7 @@ export function UserInfo({ watchedUser, loggedInUser }) {
                 </>
                 :
                 <>
-                    <div >
+                    <div className="img-container" >
                         <img className="user-info-img profilePreviewImg" src={loggedInUser.imgUrl}></img>
                     </div>
                     <div className="user-details">

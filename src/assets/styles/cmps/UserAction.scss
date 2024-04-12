@@ -2,4 +2,63 @@
     display:flex;
     align-content: center;
     align-items: center;
+
+
+    .info-username-container{
+        padding-right: 20px;
+    }
+
+    .logged-in-user-links,
+    .user-info-btns{
+        display: flex;
+        gap: 10px;
+    }
+  
+    .user-info-btn{
+        border-radius: 8px;
+        font-size: $system-14-font-size;
+        line-height: $system-14-line-height;
+        font-weight: $font-weight-system-semibold;
+    }
+
+    .user-info-link{
+        border-radius: 8px;
+        font-size: $system-14-font-size;
+        line-height: $system-14-line-height;
+        font-weight: $font-weight-system-semibold;
+    }
+
+    .info-username{
+        font-size: $system-20-font-size;
+        line-height: $system-20-line-height;
+        color: $clr1 ;
+    }
+
+    .following-btn{
+        background-color: $clr5;
+        color: $clr1 ;
+        padding: 7px 16px;
+    }
+
+    .user-info-follow-btn{
+        background-color: $clr12;
+        color: $clr_bg ;
+        padding: 7px 16px;
+    }
+
+    .messege-link{
+        color: $clr1;
+        background-color: $clr5;
+        padding: 7px 16px;
+    }
+
+    .logged-in-user-links > *{
+        background-color: $clr5;
+        color: $clr1 ;
+        padding: 7px 16px;
+    }
+
+    .user-info-icon-container{
+        padding: 8px;
+    }
 }
