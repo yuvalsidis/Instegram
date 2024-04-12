@@ -14,6 +14,9 @@ export function UserInfo({ watchedUser, loggedInUser }) {
                     <div className="user-details">
                         <UserAction watchedUser={watchedUser} loggedInUser={loggedInUser} />
                         <UserStats watchedUser={watchedUser} loggedInUser={loggedInUser} />
+                        <div>
+                            <p className="user-fullname" >{watchedUser.firstname} {watchedUser.lastname} </p>
+                        </div>
                     </div>
                 </>
                 :
@@ -24,6 +27,9 @@ export function UserInfo({ watchedUser, loggedInUser }) {
                     <div className="user-details">
                         <UserAction loggedInUser={loggedInUser} watchedUser={watchedUser} />
                         <UserStats watchedUser={watchedUser} loggedInUser={loggedInUser} />
+                        <div>
+                            <p className="user-fullname" >{loggedInUser.firstname} {loggedInUser.lastname} </p>
+                        </div>
                     </div>
                 </>
             }
