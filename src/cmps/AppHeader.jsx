@@ -9,14 +9,14 @@ import { HomePage } from '../pages/HomePage.jsx'
 import { ExploreOutlined } from '@mui/icons-material'
 
 
-export function AppHeader() {
-
+export function AppHeader( {handleOpenCreatePost } ) {
+    
 
     return (
         <header className="app-header full">
             <nav>
                 <NavLink className='logo' to="/" exact="true">
-                    <h1>Instegram</h1>
+                    <h1>Instalike</h1>
                 </NavLink>
                 <NavLink to="/" exact="true">
                     <img className='icon' src="../../public/icons/Home.svg" alt="Home Icon" />
@@ -38,7 +38,7 @@ export function AppHeader() {
                     <img className='icon' src="../../public/icons/Like.svg" alt="Nofication Icon" />
                     <div>Notification</div>
                 </div>
-                <div>
+                <div onClick={handleOpenCreatePost}>
                     <img className='icon' src="../../public/icons/Create.svg" alt="Create Icon" />
                     <div>Create</div>
                 </div>

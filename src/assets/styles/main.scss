@@ -44,3 +44,8 @@
 
 @import "cmps/PostDetails.scss";
 @import "cmps/CommentPreview.scss";
+
+// Create post Cmps
+@import "cmps/CreatePostModal.scss"; 
+@import "cmps/CreateModalHeader.scss";
+@import "cmps/CreateModalContent.scss";
