@@ -1,19 +1,26 @@
 
+import { FloodOutlined } from "@mui/icons-material"
 import { useState, useEffect } from "react"
 
 export function UserAction({ loggedInUser, watchedUser }) {
     const [isFollow, setIsFollow] = useState(false)
 
     useEffect(()=>{
-        checkIfFollow()
-    },[])
+        if(loggedInUser && watchedUser){
+            checkIfFollow()
+        }
+    },[isFollow])
 
     function checkIfFollow() {
-        const isFollowing = loggedInUser.info.following.some((following) => {
-            if (following._id === watchedUser.id) {
+        const following =  loggedInUser.info.following
+        console.log('asdasdasdasd',loggedInUser.info.following)
+        const isFollowing = following.some((following) => {
+            console.log('following', following)
+            if (following._id === watchedUser._id) {
                 return true; 
             }
         });
+        console.log('asd',isFollowing)
         setIsFollow(isFollowing); 
     }
 
