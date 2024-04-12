@@ -78,7 +78,6 @@ export async function loadUser(userId) {
             store.dispatch({ type: SET_WATCHED_USER, user: null });
             return
         }
-
         const user = await userService.getById(userId)
         store.dispatch({ type: SET_WATCHED_USER, user })
     } catch (err) {
