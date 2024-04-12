@@ -12,8 +12,8 @@ export function UserInfo({ watchedUser, loggedInUser }) {
                         <img className="user-info-img profilePreviewImg" src={watchedUser.imgUrl}></img>
                     </div>
                     <div className="user-details">
-                        <UserAction  watchedUser={ watchedUser} loggedInUser={loggedInUser} />
-                        <UserStats/>
+                        <UserAction watchedUser={watchedUser} loggedInUser={loggedInUser} />
+                        <UserStats watchedUser={watchedUser} loggedInUser={loggedInUser} />
                     </div>
                 </>
                 :
@@ -22,8 +22,8 @@ export function UserInfo({ watchedUser, loggedInUser }) {
                         <img className="user-info-img profilePreviewImg" src={loggedInUser.imgUrl}></img>
                     </div>
                     <div className="user-details">
-                        <UserAction loggedInUser={loggedInUser} watchedUser={watchedUser}/>
-                        <UserStats/>
+                        <UserAction loggedInUser={loggedInUser} watchedUser={watchedUser} />
+                        <UserStats watchedUser={watchedUser} loggedInUser={loggedInUser} />
                     </div>
                 </>
             }
