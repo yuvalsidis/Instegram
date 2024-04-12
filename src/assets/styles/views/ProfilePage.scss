@@ -1,6 +1,12 @@
 .profile-page{
     margin-top: $page-margin;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+
+    .profile-main-content-container{
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px 0px;
+        width: 975px;
+    }
 }
