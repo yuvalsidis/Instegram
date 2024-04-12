@@ -4,8 +4,15 @@
      .user-details{
         display: flex;
         flex-direction: column;
+
+        .user-fullname{
+            color: $clr1;
+            font-size: $system-14-font-size;
+            line-height: $system-14-line-height;
+            font-weight: $font-weight-system-semibold;
+        }   
     }
-    
+
     .img-container{
         display: flex;
         align-items: center;
