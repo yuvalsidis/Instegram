@@ -27,7 +27,7 @@ export function UserAction({ loggedInUser, watchedUser }) {
 
     console.log('isFollow', isFollow)
     return (
-        <div className="user-actions">
+        <div className="user-action">
             {watchedUser ?
                 <>
                     <p>{watchedUser.username}</p>
