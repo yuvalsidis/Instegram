@@ -12,11 +12,11 @@ import { removePost, addPost, updatePost, loadPosts } from "../store/post.action
 export function PostDetailsPage() {
     const [post, SetPost] = useState(null)
     const [postLoading, setPostLoading] = useState(true);
+    const loggedInUser = useSelector(storeState => storeState.userModule.user)
     const isPostDetailsPage = true
-    const { postId } = useParams()
+    const { postId, userId} = useParams()
 
 
-    console.log('POSTIID>??????????????????????',postId)
     useEffect(() => {
         onGetPost()
     }, [])
@@ -51,7 +51,7 @@ export function PostDetailsPage() {
     if (postLoading) return <div>Loading</div>
     if (post) return (
         <section className="post-details-page">
-            <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} />
+            <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} isPostIdProfile={loggedInUser._id === userId ? true : false}/>
         </section>
     )
     else {
