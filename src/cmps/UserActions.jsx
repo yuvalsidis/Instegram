@@ -13,9 +13,7 @@ export function UserAction({ loggedInUser, watchedUser }) {
 
     function checkIfFollow() {
         const following = loggedInUser.info.following
-        console.log('asdasdasdasd', loggedInUser.info.following)
         const isFollowing = following.some((following) => {
-            console.log('following', following)
             if (following._id === watchedUser._id) {
                 return true;
             }

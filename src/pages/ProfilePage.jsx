@@ -11,11 +11,16 @@ import { store } from "../store/store"
 import { loadUser } from "../store/user.actions"
 import { userService } from "../services/user.service"
 import { ProfileContentFilter } from "../cmps/ProfileContentFilter"
+import { postService } from "../services/post.service.local"
+import { loadPosts } from "../store/post.actions"
+
 
 export function ProfilePage() {
+    const posts = useSelector(storeState => storeState.postModule.posts)
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
+    const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
 
     const { userId } = useParams()
     let defaultUserId = userId || null;
@@ -26,6 +31,31 @@ export function ProfilePage() {
     useEffect(() => {
         onLoadUser(defaultUserId)
     }, [defaultUserId])
+
+    useEffect(() =>{
+        if (watchedUser) setFilterBy((prevFilterBy) => ({...prevFilterBy, _id: watchedUser._id }))
+        else setFilterBy((prevFilterBy) => ({...prevFilterBy, _id: loggedInUser._id }))
+    },[watchedUser,loggedInUser])
+    
+    useEffect(() => {
+        console.log('im here')
+        onLoadPosts()
+    }, [filterBy])
+
+    
+    function onLoadPosts() {
+        store.dispatch({ type: LOADING_START, })
+        loadPosts(filterBy)
+            .then(() => {
+                showSuccessMsg('Posts loaded successfully')
+                store.dispatch({ type: LOADING_DONE, }
+                )
+            })
+            .catch((err) => {
+                showErrorMsg('Error occured by loading posts', err)
+            })
+
+    }
 
     function onLoadUser(userId) {
         store.dispatch({ type: LOADING_START, })
@@ -41,6 +71,8 @@ export function ProfilePage() {
 
     console.log('Logged in user : ', loggedInUser)
     console.log('watched user choosed: ', watchedUser)
+    console.log('fitlerBy in profile', filterBy)
+    console.log('posts', posts)
 
     if (isLoading) return <div>Loading User</div>
     if (!loggedInUser) return <div>Logged in to continue</div>
