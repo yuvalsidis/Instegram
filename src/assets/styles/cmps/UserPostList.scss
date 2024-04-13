@@ -1,0 +1,12 @@
+.user-post-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 316px));
+    gap: 3px;
+    padding: 0px;
+
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
