@@ -145,7 +145,7 @@ async function _createPosts() {
     if (users.length > 0) {
         if (!posts || !posts.length) {
             console.log('No posts found, generating some...')
-            for (let i = 0; i < 25; i++) {
+            for (let i = 0; i < 140; i++) {
                 posts.push(_createPost(users))
             }
             utilService.saveToStorage(STORAGE_KEY, posts)

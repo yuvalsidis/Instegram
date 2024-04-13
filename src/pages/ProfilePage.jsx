@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 
 import { UserInfo } from "../cmps/UserInfo"
 import { UserContent } from "../cmps/UserContent"
@@ -25,23 +26,23 @@ export function ProfilePage() {
     const { userId } = useParams()
     let defaultUserId = userId || null;
 
-    if(userId === loggedInUser._id){
+    if (userId === loggedInUser._id) {
         defaultUserId = null
     }
     useEffect(() => {
         onLoadUser(defaultUserId)
     }, [defaultUserId])
 
-    useEffect(() =>{
-        if (watchedUser) setFilterBy((prevFilterBy) => ({...prevFilterBy, _id: watchedUser._id }))
-        else setFilterBy((prevFilterBy) => ({...prevFilterBy, _id: loggedInUser._id }))
-    },[watchedUser,loggedInUser])
-    
+    useEffect(() => {
+        if (watchedUser) setFilterBy((prevFilterBy) => ({ ...prevFilterBy, _id: watchedUser._id }))
+        else setFilterBy((prevFilterBy) => ({ ...prevFilterBy, _id: loggedInUser._id }))
+    }, [watchedUser, loggedInUser])
+
     useEffect(() => {
         onLoadPosts()
     }, [filterBy])
 
-    
+
     function onLoadPosts() {
         store.dispatch({ type: LOADING_START, })
         loadPosts(filterBy)
@@ -68,6 +69,7 @@ export function ProfilePage() {
             })
     }
 
+
     console.log('Logged in user : ', loggedInUser)
     console.log('watched user choosed: ', watchedUser)
     console.log('fitlerBy in profile', filterBy)
@@ -75,14 +77,15 @@ export function ProfilePage() {
 
     if (isLoading) return <div>Loading User</div>
     if (!loggedInUser) return <div>Logged in to continue</div>
-
+    if(!posts) return <div>Loading</div>
     return (
         <section className="profile-page main">
             <div className="profile-main-content-container">
                 <UserInfo watchedUser={watchedUser} loggedInUser={loggedInUser} />
-                <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser}/>
-                <UserContent posts={posts}/>
+                <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser} />
+                <UserContent posts={posts} watchedUser={watchedUser} loggedInUser={loggedInUser} />
             </div>
+            <Outlet />
         </section>
     )
 }

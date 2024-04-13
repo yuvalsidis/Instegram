@@ -11,27 +11,25 @@ import { removePost, addPost, updatePost, loadPosts } from "../store/post.action
 
 export function PostDetailsPage() {
     const [post, SetPost] = useState(null)
-    const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
-    const posts = useSelector(storeState => storeState.postModule.posts)
+    const [postLoading, setPostLoading] = useState(true);
     const isPostDetailsPage = true
     const { postId } = useParams()
 
 
-
+    console.log('POSTIID>??????????????????????',postId)
     useEffect(() => {
         onGetPost()
     }, [])
 
     function onGetPost() {
         console.log('Trying get post')
-        store.dispatch({ type: LOADING_START, })
+        setPostLoading(true)
         postService.getById(postId)
             .then((matchedPost) => {
                 SetPost(matchedPost)
-                console.log(updatePost)
+                console.log('asdasdasdasd',matchedPost)
                 showSuccessMsg('Post load successfully')
-                store.dispatch({ type: LOADING_DONE, }
-                )
+                setPostLoading(false)
             })
             .catch((err) => {
                 showErrorMsg('Error occured by load post', err)
@@ -50,7 +48,7 @@ export function PostDetailsPage() {
             })
     }
 
-    if (isLoading) return <div>Loading</div>
+    if (postLoading) return <div>Loading</div>
     if (post) return (
         <section className="post-details-page">
             <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} />

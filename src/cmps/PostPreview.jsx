@@ -1,6 +1,8 @@
 import {useLocation,useNavigate} from "react-router-dom"
 
-export function PostPreview({ post }) {
+export function PostPreview({ post, user_id}) {
+
+    console.log('asdasdasddddddd!@#!@#!@#!@#!@#!@#',user_id)
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -9,7 +11,7 @@ export function PostPreview({ post }) {
             navigate(`/explore/p/${post._id}`);  
         }
         if(location.pathname.includes('profile')){
-            navigate(`/profile/p/:postId${post._id}`);  
+            navigate(`/profile/${user_id}/p/${post._id}`);  
         }
     }
 
