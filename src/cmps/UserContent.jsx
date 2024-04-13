@@ -1,8 +1,14 @@
-export function UserContent(){
+export function UserContent({ watchedUser, loggedInUser }) {
 
     return (
         <div className="user-content">
-            <h1>User Content</h1>
+            {watchedUser ?
+                <>
+                </>
+                :
+                <>
+                </>
+            }
         </div>
     )
 }

@@ -27,8 +27,8 @@ export function ProfileContentFilter({ watchedUser, loggedInUser }) {
                 <>
                     <div className={`posts-filter ${activeFilter === 'posts' ? 'filterBorder' : ''}`} onClick={() => handleClickOnFilter("posts")}>
                         <div className='filter-container' >
-                            <GridOnIcon className='profile-filter-icon' />
-                            <button className='profile-filter-btn'>POSTS</button>
+                            <GridOnIcon className={`profile-filter-icon ${activeFilter === 'posts' ? 'selectedColor' : ''}`} />
+                            <button className={`profile-filter-btn ${activeFilter === 'posts' ? 'selectedColor' : ''}`}>POSTS</button>
                         </div>
                     </div>
                 </>
@@ -43,7 +43,7 @@ export function ProfileContentFilter({ watchedUser, loggedInUser }) {
                     <div className={`posts-save-filter ${activeFilter === 'saved' ? 'filterBorder' : ''}`} onClick={() => handleClickOnFilter("saved")}>
                         <div className='filter-container'>
                             {activeFilter === 'saved' ?
-                                 <img className=' profile-filter-icon profile-bookmark-icon' src="../../public/icons/Bookmark.svg" alt="Bookmark Icon" />
+                                <img className=' profile-filter-icon profile-bookmark-icon' src="../../public/icons/Bookmark.svg" alt="Bookmark Icon" />
                                 :
                                 <img className=' profile-filter-icon profile-bookmark-icon' src="../../public/icons/GrayBookmark.svg" alt="Gray Bookmark Icon" />
                             }
