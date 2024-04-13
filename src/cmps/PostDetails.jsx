@@ -9,7 +9,6 @@ import { useLocation } from 'react-router-dom'
 import { utilService } from "../services/util.service"
 
 export function PostDetails({ post, onUpdatePost, isPostDetailsPage }) {
-    const location = useLocation(/p/)
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
 
     if (!post) return
