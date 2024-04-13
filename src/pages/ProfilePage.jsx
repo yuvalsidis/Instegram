@@ -38,7 +38,6 @@ export function ProfilePage() {
     },[watchedUser,loggedInUser])
     
     useEffect(() => {
-        console.log('im here')
         onLoadPosts()
     }, [filterBy])
 
@@ -82,7 +81,7 @@ export function ProfilePage() {
             <div className="profile-main-content-container">
                 <UserInfo watchedUser={watchedUser} loggedInUser={loggedInUser} />
                 <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser}/>
-                <UserContent watchedUser={watchedUser} loggedInUser={loggedInUser} />
+                <UserContent posts={posts}/>
             </div>
         </section>
     )

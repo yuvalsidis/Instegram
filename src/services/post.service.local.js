@@ -23,7 +23,7 @@ window.cs = postService
 
 
 async function query(filterBy) {
-    console.log(filterBy)
+    console.log('filterByInQUERY',filterBy)
     let posts = await storageService.query(STORAGE_KEY)
     if(!filterBy._id){
         posts = posts.filter(post => post.by._id != filterBy.loggedInUser_id)
