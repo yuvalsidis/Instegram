@@ -24,7 +24,9 @@ export function App() {
                     <Route path='/' element={<HomePage />}>
                         <Route path='p/:postId' element={<PostDetailsPage />} />
                     </Route>
-                    <Route path='/profile/:userId' element={<ProfilePage />}> </Route>
+                    <Route path='/profile/:userId' element={<ProfilePage />}>
+                        <Route path='p/:postId' element={<PostDetailsPage />} />
+                    </Route>
                 </Routes>
 
             </main>

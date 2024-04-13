@@ -2,9 +2,15 @@ import {useLocation,useNavigate} from "react-router-dom"
 
 export function PostPreview({ post }) {
     const navigate = useNavigate()
+    const location = useLocation()
 
     function handleClickOnImg() {
-        navigate(`/explore/p/${post._id}`);  
+        if(location.pathname.includes('explore')){
+            navigate(`/explore/p/${post._id}`);  
+        }
+        if(location.pathname.includes('profile')){
+            navigate(`/profile/p/:postId${post._id}`);  
+        }
     }
 
     return (
