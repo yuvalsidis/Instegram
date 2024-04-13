@@ -47,6 +47,10 @@ async function save(post) {
     return savedPost
 }
 
+function getDefualtFilterBy(){
+    return {_id: '', saved: '' }
+}
+
 async function addPostMsg(postId, txt) {
     // Later, this is all done by the backend
     const post = await getById(postId)
