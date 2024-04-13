@@ -24,8 +24,11 @@ window.cs = postService
 
 async function query(filterBy) {
     console.log(filterBy)
-    var posts = await storageService.query(STORAGE_KEY)
-    return posts
+    let posts = await storageService.query(STORAGE_KEY)
+    if(!filterBy._id){
+        posts = posts.filter(post => post.by._id != filterBy.loggedInUser_id)
+        return posts
+    } 
 }
 
 function getById(postId) {
@@ -50,7 +53,7 @@ async function save(post) {
 }
 
 function getDefualtFilterBy() {
-    return { _id: '', saved: '' }
+    return { _id: '', saved: '', loggedInUser_id: ''}
 }
 
 async function addPostMsg(postId, txt) {

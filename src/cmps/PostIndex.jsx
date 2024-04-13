@@ -12,11 +12,16 @@ export function PostIndex() {
     const posts = useSelector(storeState => storeState.postModule.posts)
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
+    const loggedInUser = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
         onLoadPosts()
-    }, [])
+    }, [filterBy])
 
+    useEffect(() =>{
+        setFilterBy((prevFilterBy) => ({...prevFilterBy, loggedInUser_id: loggedInUser._id }))
+    },[loggedInUser])
+    
     function onLoadPosts() {
         store.dispatch({ type: LOADING_START, })
         loadPosts(filterBy)
@@ -41,6 +46,7 @@ export function PostIndex() {
             })
     }
 
+    console.log('posts in PostIndex',posts)
 
     if (isLoading) return <div>Loading</div>
     return (
