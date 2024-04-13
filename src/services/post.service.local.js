@@ -16,12 +16,14 @@ export const postService = {
     getEmptyPost,
     getEmptyComment,
     getRandomImage,
+    getDefualtFilterBy,
     addPostMsg
 }
 window.cs = postService
 
 
-async function query() {
+async function query(filterBy) {
+    console.log(filterBy)
     var posts = await storageService.query(STORAGE_KEY)
     return posts
 }
@@ -47,8 +49,8 @@ async function save(post) {
     return savedPost
 }
 
-function getDefualtFilterBy(){
-    return {_id: '', saved: '' }
+function getDefualtFilterBy() {
+    return { _id: '', saved: '' }
 }
 
 async function addPostMsg(postId, txt) {
@@ -133,13 +135,13 @@ async function _createPosts() {
     let users = await storageService.query('user')
     let posts = await storageService.query(STORAGE_KEY)
 
-    if(users.length > 0){
+    if (users.length > 0) {
         if (!posts || !posts.length) {
             console.log('No posts found, generating some...')
             for (let i = 0; i < 25; i++) {
-                 posts.push( _createPost(users))
+                posts.push(_createPost(users))
             }
-            utilService.saveToStorage(STORAGE_KEY,posts)
+            utilService.saveToStorage(STORAGE_KEY, posts)
             console.log('Done generating posts')
         }
     }
@@ -147,12 +149,12 @@ async function _createPosts() {
 
 function _createPost(users) {
     let post = getEmptyPost()
-    let user = users[utilService.getRandomIntInclusive(0,users.length - 1)]
+    let user = users[utilService.getRandomIntInclusive(0, users.length - 1)]
     console.log('user', user)
     post._id = utilService.makeId()
     post.txt = utilService.generatePostDescription()
     post.imgUrl = getRandomImage()
-    
+
 
     post.by._id = user._id
     post.by.fullName = user.username
@@ -182,7 +184,7 @@ function _createComment() {
         likedBy: []
     }
 
-    for (let i = 0; i < utilService.getRandomIntInclusive(1,200); i++) {
+    for (let i = 0; i < utilService.getRandomIntInclusive(1, 200); i++) {
         comment.likedBy.push(_createLike())
     }
 
@@ -274,5 +276,5 @@ const images = [
 function getRandomImage() {
     const randomIndex = Math.floor(Math.random() * images.length);
     return images[randomIndex];
-  }
+}
 
