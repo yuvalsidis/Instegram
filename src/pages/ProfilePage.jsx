@@ -17,12 +17,14 @@ import { loadPosts } from "../store/post.actions"
 
 
 export function ProfilePage() {
+    const [postsLoaded, setPostsLoaded] = useState(false);
     const posts = useSelector(storeState => storeState.postModule.posts)
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
 
+    console.log('imgimgimgimg',loggedInUser.imgUrl)
     const { userId } = useParams()
     let defaultUserId = userId || null;
 
@@ -50,6 +52,7 @@ export function ProfilePage() {
                 showSuccessMsg('Posts loaded successfully')
                 store.dispatch({ type: LOADING_DONE, }
                 )
+                setPostsLoaded(true)
             })
             .catch((err) => {
                 showErrorMsg('Error occured by loading posts', err)
@@ -77,7 +80,7 @@ export function ProfilePage() {
 
     if (isLoading) return <div>Loading User</div>
     if (!loggedInUser) return <div>Logged in to continue</div>
-    if(!posts) return <div>Loading</div>
+    if(!postsLoaded) return <div>Loading</div>
     return (
         <section className="profile-page main">
             <div className="profile-main-content-container">
