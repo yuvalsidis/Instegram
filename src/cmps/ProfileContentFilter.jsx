@@ -6,22 +6,23 @@ export function ProfileContentFilter({ watchedUser, loggedInUser }) {
         <div className="profile-content-filter">
             {watchedUser ?
                 <>
-                    <div className="posts-filter">
-                        <div>
-                            <button>POSTS</button>
+                     <div className="posts-filter">
+                        <div className='filter-container' >
+                            <GridOnIcon className='profile-filter-icon' />
+                            <button className='profile-flter-btn'>POSTS</button>
                         </div>
                     </div>
                 </>
                 :
                 <>
                     <div className="posts-filter">
-                        <div>
+                        <div className='filter-container'>
                             <GridOnIcon className='profile-filter-icon' />
                             <button className='profile-flter-btn'>POSTS</button>
                         </div>
                     </div>
                     <div className="posts-save-filter">
-                        <div>
+                        <div className='filter-container'>
                             <img className=' profile-filter-icon profile-bookmark-icon' src="../../public/icons/GrayBookmark.svg" alt="Gray Bookmark Icon" />
                             <button className='profile-flter-btn'>SAVED</button>
                         </div>
