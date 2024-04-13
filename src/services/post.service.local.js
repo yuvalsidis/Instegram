@@ -29,8 +29,9 @@ async function query(filterBy) {
         posts = posts.filter(post => post.by._id != filterBy.loggedInUser_id)
         return posts
     } 
-    if(filterBy){
+    if(filterBy._id){
         posts = posts.filter(post => post.by._id === filterBy._id)
+        return posts
     }
 }
 
