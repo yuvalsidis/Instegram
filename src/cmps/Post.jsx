@@ -5,7 +5,6 @@ import { PostPhotos } from "./PostPhotos"
 import { PostActions } from "./PostActions"
 import { PostComments } from "./PostComments"
 import { PostLikes } from "./PostLikes"
-// import { RandomImage } from "./RandomImage"
 
 export function Post({ post, onUpdatePost }) {
 
@@ -13,7 +12,6 @@ export function Post({ post, onUpdatePost }) {
         <>
             <PostHeader post={post} />
             <PostPhotos post={post} />
-            {/* <RandomImage /> */}
             <PostActions post={post} onUpdatePost={onUpdatePost} />
             <PostLikes post={post} />
             <PostDescription post={post} />

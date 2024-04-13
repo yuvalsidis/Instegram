@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router';
 import ReactModal from 'react-modal';
+// import { translate } from 'react-i18next';
 
 import routes from './routes';
 import { AppHeader } from './cmps/AppHeader';
@@ -8,7 +9,6 @@ import { HomePage } from './pages/HomePage';
 import { ExplorePage } from './pages/ExplorePage';
 import { PostDetailsPage } from './pages/PostDetailsPage';
 import { CreatePostModal } from './cmps/CreatePostModal';
-// import { translate } from 'react-i18next';
 
 
 export function App() {
@@ -42,7 +42,7 @@ export function App() {
                         }
                     }}
             >
-                <CreatePostModal isOpen={isModalOpen} onClose={handleCloseCreatePost} />
+                <CreatePostModal />
             </ReactModal>
 
             <main className='main'>
@@ -62,3 +62,6 @@ export function App() {
         </div>
     );
 }
+
+// style={{ display: isOpen ? 'block' : 'none'}}
+// isOpen={isModalOpen} onClose={handleCloseCreatePost}

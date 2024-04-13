@@ -3,11 +3,11 @@ import { ImgUploader } from './ImgUploader';
 import { CreateModalHeader } from './CreateModalHeader';
 import { CreateModalContent } from './CreateModalContent';
 
-export function CreatePostModal({ isOpen }) {
+export function CreatePostModal() {
 
 
   return (
-      <div className="create-modal-container" style={{ display: isOpen ? 'block' : 'none'}}>
+      <div className="create-modal-container" >
         
           <CreateModalHeader />
           <CreateModalContent /> 
