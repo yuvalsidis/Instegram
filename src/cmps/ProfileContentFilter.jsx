@@ -43,9 +43,9 @@ export function ProfileContentFilter({ watchedUser, loggedInUser }) {
                     <div className={`posts-save-filter ${activeFilter === 'saved' ? 'filterBorder' : ''}`} onClick={() => handleClickOnFilter("saved")}>
                         <div className='filter-container'>
                             {activeFilter === 'saved' ?
-                                <img className=' profile-filter-icon profile-bookmark-icon' src="../../public/icons/Bookmark.svg" alt="Bookmark Icon" />
+                                <img className=' profile-filter-icon profile-bookmark-icon' src="/public/icons/Bookmark.svg" alt="Bookmark Icon" />
                                 :
-                                <img className=' profile-filter-icon profile-bookmark-icon' src="../../public/icons/GrayBookmark.svg" alt="Gray Bookmark Icon" />
+                                <img className=' profile-filter-icon profile-bookmark-icon' src="/public/icons/GrayBookmark.svg" alt="Gray Bookmark Icon" />
                             }
                             <button className={`profile-filter-btn ${activeFilter === 'saved' ? 'selectedColor' : ''}`}>SAVED</button>
                         </div>

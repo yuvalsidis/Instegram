@@ -52,7 +52,7 @@ export function CommentPreview({ comment }) {
                 </div>
             </div>
             <div className="comment-like-container">
-                <img className="comment-like-icon" src="../../public/icons/Like.svg" alt="Like Icon" />
+                <img className="comment-like-icon" src="/public/icons/Like.svg" alt="Like Icon" />
             </div>
         </>
     )

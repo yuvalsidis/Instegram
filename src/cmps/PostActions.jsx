@@ -45,20 +45,20 @@ export function PostActions({ post, onUpdatePost, isPostDetailsPage }) {
             <div className="post-actions-btns">
                 <div onClick={onLikePost}>
                     {isLiked ? (
-                        <img className='icon' src="../../public/icons/RedLike.svg" alt="Liked Icon" />
+                        <img className='icon' src="/public/icons/RedLike.svg" alt="Liked Icon" />
                     ) : (
-                        <img className='icon' src="../../public/icons/Like.svg" alt="Like Icon" />
+                        <img className='icon' src="/public/icons/Like.svg" alt="Like Icon" />
                     )}
                 </div>
-                <div onClick={handleClickOnComment}>
-                    <img className='icon' src="../../public/icons/Comment.svg" alt="Comment Icon" />
+                <div onClick={isPostDetailsPage? handleClickOnComment : null}>
+                    <img className='icon' src="/public/icons/Comment.svg" alt="Comment Icon" />
                 </div>
                 <div onClick={handleClickOnSharePost}>
-                    <img className='icon' src="../../public/icons/Share.svg" alt="Share Icon" />
+                    <img className='icon' src="/public/icons/Share.svg" alt="Share Icon" />
                 </div>
             </div>
             <div className="post-actions-secondary-btns" onClick={handleClickOnSavePost}>
-                <img className='icon' src="../../public/icons/Bookmark.svg" alt="Bookmark Icon" />
+                <img className='icon' src="/public/icons/Bookmark.svg" alt="Bookmark Icon" />
             </div>
             {/* <PostShare/>  will be the in modal*/}
             {/* <PostDetails/> opptional with nav link*/}

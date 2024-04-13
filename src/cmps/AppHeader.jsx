@@ -19,11 +19,11 @@ export function AppHeader() {
                     <h1>Instegram</h1>
                 </NavLink>
                 <NavLink to="/" exact="true">
-                    <img className='icon' src="../../public/icons/Home.svg" alt="Home Icon" />
+                    <img className='icon' src="/public/icons/Home.svg" alt="Home Icon" />
                     <div> Home</div>    
                 </NavLink>
                 <div>
-                    <img className='icon' src="../../public/icons/Search.svg" alt="Search Icon" />
+                    <img className='icon' src="/public/icons/Search.svg" alt="Search Icon" />
                     <div>Search</div>
                 </div>
                 <NavLink to="/explore" exact="true">
@@ -31,23 +31,23 @@ export function AppHeader() {
                     <div>Explore</div>
                 </NavLink>
                 <NavLink to="/direct" exact="true">
-                    <img className='icon' src="../../public/icons/Messenger.svg" alt="Messenger Icon" />
+                    <img className='icon' src="/public/icons/Messenger.svg" alt="Messenger Icon" />
                     <div>Messeges</div>
                 </NavLink>
                 <div>
-                    <img className='icon' src="../../public/icons/Like.svg" alt="Nofication Icon" />
+                    <img className='icon' src="/public/icons/Like.svg" alt="Nofication Icon" />
                     <div>Notification</div>
                 </div>
                 <div>
-                    <img className='icon' src="../../public/icons/Create.svg" alt="Create Icon" />
+                    <img className='icon' src="/public/icons/Create.svg" alt="Create Icon" />
                     <div>Create</div>
                 </div>
                 <NavLink to="/profile" exact="true">
-                    <img className='icon' src="../../public/icons/User.svg" alt="Profile Icon" />
+                    <img className='icon' src="/public/icons/User.svg" alt="Profile Icon" />
                     <div>Profile</div>
                 </NavLink>
                 <div>
-                    <img className='icon' src="../../public/icons/More.svg" />
+                    <img className='icon' src="/public/icons/More.svg" />
                     <div>More</div>
                 </div>
             </nav>

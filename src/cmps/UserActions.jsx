@@ -47,7 +47,7 @@ export function UserAction({ loggedInUser, watchedUser }) {
                         </>
                     }
                     <div className=" user-info-icon-container">
-                        <img className='icon user-info-icon' src="../../public/icons/OptionsWatchedUser.svg" alt="Options Watched user Icon" />
+                        <img className='icon user-info-icon' src="/public/icons/OptionsWatchedUser.svg" alt="Options Watched user Icon" />
                     </div>
 
                 </>
@@ -61,7 +61,7 @@ export function UserAction({ loggedInUser, watchedUser }) {
                         <a className="user-info-link">View Archive</a>
                     </div>
                     <div className=" user-info-icon-container">
-                        <img className='icon' src="../../public/icons/OptionsUser.svg" alt="Options user Icon" />
+                        <img className='icon' src="/public/icons/OptionsUser.svg" alt="Options user Icon" />
                     </div>
                 </>
             }
