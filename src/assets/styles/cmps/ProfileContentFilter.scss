@@ -11,10 +11,18 @@
     }
 
     .posts-filter,
+    .profile-flter-btn,
     .posts-save-filter{
         color: $clr4;
         font-size: $system-12-font-size;
         line-height: $system-12-line-height;
         font-weight: $font-weight-system-semibold;
     }
+
+    .profile-filter-icon{
+        color: $clr4;
+        width: 12px;
+        height: 12px;
+    }
+
 }

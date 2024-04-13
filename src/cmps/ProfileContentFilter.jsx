@@ -1,3 +1,4 @@
+import GridOnIcon from '@mui/icons-material/GridOn';
 
 export function ProfileContentFilter({ watchedUser, loggedInUser }) {
 
@@ -15,12 +16,14 @@ export function ProfileContentFilter({ watchedUser, loggedInUser }) {
                 <>
                     <div className="posts-filter">
                         <div>
-                            <button>POSTS</button>
+                            <GridOnIcon className='profile-filter-icon' />
+                            <button className='profile-flter-btn'>POSTS</button>
                         </div>
                     </div>
                     <div className="posts-save-filter">
                         <div>
-                            <button>SAVED</button>
+                            <img className=' profile-filter-icon profile-bookmark-icon' src="../../public/icons/GrayBookmark.svg" alt="Gray Bookmark Icon" />
+                            <button className='profile-flter-btn'>SAVED</button>
                         </div>
                     </div>
                 </>
