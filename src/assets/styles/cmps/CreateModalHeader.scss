@@ -1,17 +1,17 @@
 .create-modal-header {
     display: flex;
-    
     align-items: center;
     justify-content: space-between;
 
-    height: 42px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 43px;    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     
     .create-modal-title {
         display: flex;
         flex-grow: 1;
         justify-content: center;
-
+        
+        // background-color: pink;
         font-size: rem($system-16-font-size);
         line-height: rem($system-16-line-height);
         font-weight: $font-weight-system-semibold;

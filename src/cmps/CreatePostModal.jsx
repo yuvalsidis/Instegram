@@ -7,16 +7,12 @@ export function CreatePostModal({ isOpen }) {
 
 
   return (
-    // <div className="create-post-modal">
-      <div className="create-modal-container" style={{ display: isOpen ? 'block' : 'none'}}> {/* Conditional CSS class */}
+      <div className="create-modal-container" style={{ display: isOpen ? 'block' : 'none'}}>
         
           <CreateModalHeader />
           <CreateModalContent /> 
          
-        
-        {/* <div className="modal-overlay" onClick={onClose}></div> Optional overlay */}
       </div>
-    // </div>
-  );
+  )
 }
 

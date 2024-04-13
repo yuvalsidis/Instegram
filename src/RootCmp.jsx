@@ -12,53 +12,41 @@ import { CreatePostModal } from './cmps/CreatePostModal';
 
 
 export function App() {
-    // const [isCreatingPost, setIsCreatingPost] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     const handleOpenCreatePost = () => {
-        // setIsCreatingPost(true)
-        // document.body.classList.toggle('modal-open')
             setIsModalOpen(true)
         }
     
     const handleCloseCreatePost = () => {
-        // setIsCreatingPost(false)
-        // document.body.classList.toggle('modal-open')
         setIsModalOpen(false)
       }
     
 
     return (
         <div className='app main-container'>
-            {/* <div className='main-screen' onClick={handleCloseCreatePost}></div> */}
             <AppHeader handleOpenCreatePost={handleOpenCreatePost}/>
-            {/* {isCreatingPost && (
-              <CreatePostModal
-                isOpen={isCreatingPost}
-                onClose={handleCloseCreatePost}
-                // onSubmit={handlePostCreation}
-              />
-            )} */}
+
             <ReactModal  isOpen={isModalOpen}
                     onRequestClose={ handleCloseCreatePost }
                     style={{ 
                         overlay: { backgroundColor: 'rgba(0, 0, 0, 0.75)'},
-                        content: { backgroundColor: 'transparent',
-                                    border: 'none',
-                                   
-                                    position: 'fixed', 
+                        content: { position: 'fixed', 
                                     top: '50%',
                                     left: '50%',
                                     transform: 'translate(-50%, -50%)',
-                                    // overflow: 'hidden'
+                                    backgroundColor: 'transparent',
+                                    border: 'none',
+                                    borderRadius: '20px',
+                                    padding: '0',
                         }
                     }}
             >
                 <CreatePostModal isOpen={isModalOpen} onClose={handleCloseCreatePost} />
             </ReactModal>
+
             <main className='main'>
                 <Routes>
-
                     {routes.map(route => (
                         <Route key={route.path} path={route.path}  element={route.component} />
                     ))}
@@ -70,7 +58,6 @@ export function App() {
                         <Route path='p/:postId' element={<PostDetailsPage />} />
                     </Route>
                 </Routes>
-
             </main>
         </div>
     );
