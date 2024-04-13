@@ -1,31 +1,41 @@
-.profile-content-filter{
+.profile-content-filter {
     display: flex;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     justify-content: center;
     height: 52px;
-    
-    >*{
+
+    >* {
         display: flex;
         align-items: center;
         margin: 0px 60px 0px 0px;
     }
 
     .posts-filter,
-    .profile-flter-btn,
-    .posts-save-filter{
+    .profile-filter-btn,
+    .posts-save-filter {
         color: $clr4;
         font-size: $system-12-font-size;
         line-height: $system-12-line-height;
         font-weight: $font-weight-system-semibold;
     }
 
-    .profile-filter-icon{
+
+    .filterBorder {
+        box-shadow: 0 -1px 0 black;
+    }
+
+
+    .profile-filter-icon {
         color: $clr4;
         width: 12px;
         height: 12px;
     }
 
-    .filter-container{
+    .selectedColor{
+        color: $clr1;
+    }
+
+    .filter-container {
         display: flex;
         align-items: center;
     }
