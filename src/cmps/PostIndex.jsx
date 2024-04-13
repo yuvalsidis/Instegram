@@ -11,14 +11,15 @@ import { store } from "../store/store"
 export function PostIndex() {
     const posts = useSelector(storeState => storeState.postModule.posts)
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
-    
+    const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
+
     useEffect(() => {
         onLoadPosts()
     }, [])
 
     function onLoadPosts() {
         store.dispatch({ type: LOADING_START, })
-        loadPosts()
+        loadPosts(filterBy)
             .then(() => {
                 showSuccessMsg('Posts loaded successfully')
                 store.dispatch({ type: LOADING_DONE, }
