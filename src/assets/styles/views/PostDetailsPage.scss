@@ -1,9 +1,8 @@
 .post-details-page {
-    position: relative;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
     background-color: $page-details-bg;
     top: 0px !important;
     left: 0px !important;

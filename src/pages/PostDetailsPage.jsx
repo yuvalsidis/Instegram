@@ -16,7 +16,19 @@ export function PostDetailsPage() {
     const isPostDetailsPage = true
     const { postId, userId} = useParams()
 
+    useEffect(() => {
+        // Add class to body to disable scrolling
+        document.body.classList.add("no-scroll");
+        onGetPost();
 
+        // Clean up effect
+        return () => {
+            // Remove class from body to enable scrolling
+            document.body.classList.remove("no-scroll");
+        };
+    }, []);
+
+    
     useEffect(() => {
         onGetPost()
     }, [])
