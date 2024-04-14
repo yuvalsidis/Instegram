@@ -1,33 +1,55 @@
-import { useState } from "react"
-import { ImgUploader } from "./ImgUploader"
+import { useState, useRef, useEffect } from "react"
 
-export function CreateModalContent() {
-  const [selectedImage, setSelectedImage] = useState(null)
+export function CreateModalContent({ ImgUploader, handleImageUploaded, uploadedImages }) {
+  
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  // const [selectedImage, setSelectedImage] = useState(null)
+  // const [currentImageIndex, setCurrentImageIndex] = useState(uploadedImages.length > 0 ? 0 : -1)
+  const nextImageButtonRef = useRef(null)
+  const prevImageButtonRef = useRef(null)
 
-  const handleImageUploaded = (url) => {
-    setSelectedImage(url)
-    console.log('handleImageUploaded function was called')
+  useEffect(() => {
+    console.log('Current Index after update:', currentImageIndex)
+    console.log('selected image in index use effect:', uploadedImages[currentImageIndex])
+  }, [currentImageIndex])
+
+  useEffect(() => {
+    console.log('current image after update:', uploadedImages[currentImageIndex])
+  }, [uploadedImages])
+
+  const handleNextImg = () => {
+    setCurrentImageIndex(currIndex => currIndex + 1)
   }
 
+  const handlePrevImg = () => {
+    setCurrentImageIndex(currIndex => currIndex - 1)
+  }
+
+
   return (
-  <div className="create-modal-content" style={{
-    backgroundImage: `url(${selectedImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center', // Center the image
-  }}>
+  <div className="create-modal-content" >
     <div className="upload-image-container">
-      {selectedImage ? null : ( 
+      {uploadedImages.length ? <img src={uploadedImages[currentImageIndex]} style={{ width: '100%' }} /> : ( 
         // <div className="upload-preview">
-          <div className="dropzone">
-            <p style={{ textAlign: 'center' }}>Drag photos and videos here</p>
-            <button className="upload-image-btn" onClick={() => document.getElementById('imgUpload').click()}>
+          <>
+            <div className="image-dropzone">
+              <div className="direction-btns">
+                {(uploadedImages.length > 1 && uploadedImages.length - 1 > currentImageIndex) &&
+                  <button ref={nextImageButtonRef} onClick={handleNextImg}>right</button>
+                }
+                {!uploadedImages.length && 
+                  <p style={{ textAlign: 'center' }}>Drag photos and videos here</p>
+                }
+                {(uploadedImages.length > 1 && currentImageIndex > 0) &&  
+                <button ref={prevImageButtonRef} onClick={handlePrevImg}>left</button>
+                }
+              </div>
+              <button className="upload-image-btn" onClick={() => document.getElementById('imgUpload').click()}>
               Select from computer
-            </button>
-            {/* <input type="file" id="imgUpload" accept="image/*" data-text="Drag photos and videos here" onChange={(e) => handleImageUploaded(e.target.files[0])} /> Hidden file input element */}
-            <ImgUploader onUploaded={handleImageUploaded} />
-          </div>
-          
-        // </div>
+              </button>
+            <ImgUploader onUploaded={handleImageUploaded} style={{ backgroundSize: '300px' }} />
+            </div>
+          </>
       )}
     </div>
   </div>

@@ -37,7 +37,7 @@ export function App() {
                                     transform: 'translate(-50%, -50%)',
                                     backgroundColor: 'transparent',
                                     border: 'none',
-                                    borderRadius: '20px',
+                                    borderRadius: '12px',
                                     padding: '0',
                         }
                     }}
