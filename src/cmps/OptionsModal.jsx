@@ -14,7 +14,7 @@ export function OptionsModal({ setIsOptionsModalOpen }) {
         }
     }, [])
 
-    function handleClickOnCancelBtn(){
+    function handleClickOnCancelBtn() {
         setIsOptionsModalOpen(false)
     }
 
@@ -23,6 +23,11 @@ export function OptionsModal({ setIsOptionsModalOpen }) {
             {locationPathname.includes('profile') && (
                 <>
                     <button className='delete-btn'>Delete</button>
+                    <button className='cancel-btn' onClick={handleClickOnCancelBtn}>Cancel</button>
+                </>
+            )}
+            {locationPathname.includes('explore') && (
+                <>
                     <button className='cancel-btn' onClick={handleClickOnCancelBtn}>Cancel</button>
                 </>
             )}
