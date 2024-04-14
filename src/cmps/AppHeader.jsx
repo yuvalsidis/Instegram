@@ -20,7 +20,8 @@ export function AppHeader() {
         <header className="app-header full">
             <nav>
                 <NavLink className='logo' to="/" exact="true">
-                    <h1>Instegram</h1>
+                    {/* <h1>Instegram</h1> */}
+                    <img className='icon' src="/public/icons/instagramBig.svg" alt="Instagram Big Icon" />
                 </NavLink>
                 <NavLink className={locationPathname === '/' ? "clickedNavWeight" : ""} to="/" exact="true" >
                     {locationPathname === '/' ?
@@ -36,9 +37,9 @@ export function AppHeader() {
                 </div>
                 <NavLink className={locationPathname === '/explore' ? "clickedNavWeight" : ""} to="/explore" exact="true">
                     {locationPathname === '/explore' ?
-                        <img className='icon' src="/public/icons/FilledExplore.svg" alt="Filled Home Icon" />
+                        <img className='icon' src="/public/icons/FilledExplore.svg" alt="Filled Explore Icon" />
                         :
-                        <img className='icon' src="/public/icons/Explore.svg" alt="Home Icon" />
+                        <img className='icon' src="/public/icons/Explore.svg" alt="Explore Icon" />
                     }
                     {/* <ExploreOutlined /> */}
                     <div>Explore</div>
