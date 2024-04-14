@@ -20,17 +20,26 @@ export function OptionsModal({ setIsOptionsModalOpen }) {
 
     return (
         <section className="options-modal">
-            {locationPathname.includes('profile') && (
-                <>
-                    <button className='delete-btn'>Delete</button>
-                    <button className='cancel-btn' onClick={handleClickOnCancelBtn}>Cancel</button>
-                </>
-            )}
-            {locationPathname.includes('explore') && (
-                <>
-                    <button className='cancel-btn' onClick={handleClickOnCancelBtn}>Cancel</button>
-                </>
-            )}
+            
+            <div className="options-modal-container">
+                {locationPathname.includes('profile') && (
+                    <>
+                        <button className='delete-btn'>Delete</button>
+                        <button className='cancel-btn' onClick={handleClickOnCancelBtn}>Cancel</button>
+                    </>
+                )}
+                {locationPathname.includes('explore') && (
+                    <>
+                        <button className='cancel-btn' onClick={handleClickOnCancelBtn}>Cancel</button>
+                    </>
+                )}
+                {locationPathname === '/' && (
+                    <>
+                        <button className='cancel-btn' onClick={handleClickOnCancelBtn}>Cancel</button>
+                    </>
+                )}
+
+            </div>
         </section>
     )
 }
