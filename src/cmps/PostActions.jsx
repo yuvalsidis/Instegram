@@ -3,27 +3,21 @@ import { useNavigate } from "react-router-dom"
 import { PostShare } from "./PostShare"
 import { PostDetails } from "./PostDetails"
 
-export function PostActions({ post, onUpdatePost, isPostDetailsPage }) {
+export function PostActions({ post, onUpdatePost, isPostDetailsPage, loggedInUser }) {
     const navigate = useNavigate()
-    const [isLiked, setIsLiked] = useState(false)
-    const [updatedPost, setUpdatedPost] = useState(post)
-    const exampleUser = { _id: "u116", fullname: "Romeo", imgUrl: "https://source.unsplash.com/random" }
-
-    useEffect(() => {
-        setUpdatedPost(post => ({
-            ...post, likedBy: isLiked ?
-                [...post.likedBy, exampleUser]
-                : post.likedBy.filter((user) => user._id !== exampleUser._id)
-        }))
-    }, [isLiked])
-
-    useEffect(() => {
-        onUpdatePost(updatedPost)
-    }, [updatedPost])
-
-    function onLikePost() {
-        console.log('here is the like function')
-        setIsLiked(!isLiked)
+    const isLiked = post.likedBy.some(likedUser => (likedUser._id === loggedInUser._id))
+  
+    function handleClickOnLikePost(value) {
+        let updatedLikedPost  = []
+        if(value) {
+            updatedLikedPost = {...post, likedBy : [...post.likedBy, {_id : loggedInUser._id, firstname : loggedInUser.firstname, 
+            lastname : loggedInUser.lastname, imgUrl : loggedInUser.imgUrl}]}
+        }
+        else{
+            updatedLikedPost = {...post, likedBy : post.likedBy.filter(likedUser => (likedUser._id != loggedInUser._id))}
+        }
+    
+        onUpdatePost(updatedLikedPost)
     }
 
     function handleClickOnComment() {
@@ -43,11 +37,11 @@ export function PostActions({ post, onUpdatePost, isPostDetailsPage }) {
     return (
         <div className={isPostDetailsPage ? "page-post-actions" : "post-actions"}>
             <div className="post-actions-btns">
-                <div onClick={onLikePost}>
+                <div>
                     {isLiked ? (
-                        <img className='icon' src="/public/icons/RedLike.svg" alt="Liked Icon" />
+                        <img className='icon' src="/public/icons/RedLike.svg" alt="Liked Icon" onClick={()=> handleClickOnLikePost(false)}/>
                     ) : (
-                        <img className='icon' src="/public/icons/Like.svg" alt="Like Icon" />
+                        <img className='icon' src="/public/icons/Like.svg" alt="Like Icon" onClick={()=> handleClickOnLikePost(true)}/>
                     )}
                 </div>
                 <div onClick={isPostDetailsPage? handleClickOnComment : null}>

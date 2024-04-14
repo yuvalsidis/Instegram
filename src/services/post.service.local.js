@@ -125,12 +125,14 @@ function getEmptyPost() {
         likedBy: [
             {
                 _id: "u105",
-                fullName: "Bob",
+                firstname: "Bob",
+                lastname: "habanay",
                 imgUrl: "http://some-img"
             },
             {
                 _id: "u106",
-                fullName: "Dob",
+                firstname: "lior", 
+                lastname: "mory",
                 imgUrl: "http://some-img"
             }
         ],

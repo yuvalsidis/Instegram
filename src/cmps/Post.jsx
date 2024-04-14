@@ -13,7 +13,7 @@ export function Post({ post, onUpdatePost, loggedInUser}) {
         <>
             <PostHeader post={post} />
             <PostPhotos post={post} />
-            {/* <PostActions post={post} onUpdatePost={onUpdatePost} /> */}
+            <PostActions post={post} onUpdatePost={onUpdatePost} loggedInUser={loggedInUser}/>
             <PostLikes post={post} />
             <PostDescription post={post} />
             <button className="view-comments-btn">View all {post.comments.length} comments</button>

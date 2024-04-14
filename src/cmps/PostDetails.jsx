@@ -23,7 +23,7 @@ export function PostDetails({ post, onUpdatePost, isPostDetailsPage, isPostIdPro
                     <PostDescription post={post} isPostDetailsPage={isPostDetailsPage} />
                     <PostComments post={post} />
                 </div>
-                <PostActions post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} />
+                <PostActions post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage}  loggedInUser={ loggedInUser} />
                 <PostLikes post={post} isPostDetailsPage={isPostDetailsPage} />
                 {isPostDetailsPage ? <p className="post-details-passed-time">{timeSinceCreation} ago</p> : null}
                 <PostAddComment post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} loggedInUser={loggedInUser}/>
