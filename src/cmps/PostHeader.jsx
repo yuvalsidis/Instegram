@@ -2,9 +2,11 @@ import { utilService } from "../services/util.service"
 import { useNavigate } from "react-router-dom"
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useState } from "react";
+import { OptionsModal } from "./OptionsModal";
 
 export function PostHeader({ post, isPostDetailsPage, isPostIdProfile}) {
-    
+    const [isOptionsModalOpen, setIsOptionsModalOpen] = useState(false)
+
     const navigate = useNavigate()
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
 
@@ -12,6 +14,10 @@ export function PostHeader({ post, isPostDetailsPage, isPostIdProfile}) {
         navigate(`/profile/${post.by._id}`)
     }
 
+    function handleClickOnOptions(){
+        setIsOptionsModalOpen(true)
+    }
+    
     return (
         <div className={isPostDetailsPage ? "page-post-header" : "post-header"}>
             <div>
@@ -24,7 +30,8 @@ export function PostHeader({ post, isPostDetailsPage, isPostIdProfile}) {
                 {isPostDetailsPage ? null : <div className="dot">•</div>}
                 {isPostIdProfile ? "" : <button className="follow-btn" >Follow</button>}
             </div>
-            <MoreHorizIcon className="more-horiz-icon" style={{ width: '20px', height: '20px' }} />
+            <MoreHorizIcon className="more-horiz-icon" style={{ width: '20px', height: '20px' }} onClick={handleClickOnOptions} />
+            {isOptionsModalOpen? <OptionsModal setIsOptionsModalOpen={setIsOptionsModalOpen}/> : ""}
         </div>
     )
 }
