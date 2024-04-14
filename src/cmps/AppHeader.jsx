@@ -19,9 +19,11 @@ export function AppHeader() {
     return (
         <header className="app-header full">
             <nav>
-                <NavLink className='logo' to="/" exact="true">
-                    {/* <h1>Instegram</h1> */}
-                    <img className='icon' src="/public/icons/instagramBig.svg" alt="Instagram Big Icon" />
+                <NavLink  to="/" exact="true">
+                    <h1>
+                        <img className='logo'  src="/public/icons/instagramBig.svg" alt="Instagram Big Icon" />
+                    </h1>
+
                 </NavLink>
                 <NavLink className={locationPathname === '/' ? "clickedNavWeight" : ""} to="/" exact="true" >
                     {locationPathname === '/' ?
