@@ -1,1 +1,19 @@
-<svg aria-label="Settings" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Settings</title><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="3" x2="21" y1="4" y2="4"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="3" x2="21" y1="12" y2="12"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="3" x2="21" y1="20" y2="20"></line></svg>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="201.000000pt" height="192.000000pt" viewBox="0 0 201.000000 192.000000"
+ preserveAspectRatio="xMidYMid meet">
+<metadata>
+Created by potrace 1.10, written by Peter Selinger 2001-2011
+</metadata>
+<g transform="translate(0.000000,192.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M109 1731 c-39 -40 -39 -82 0 -122 l29 -29 842 0 842 0 29 29 c39 40
+39 82 0 122 l-29 29 -842 0 -842 0 -29 -29z"/>
+<path d="M109 1011 c-20 -20 -29 -39 -29 -61 0 -22 9 -41 29 -61 l29 -29 842
+0 842 0 29 29 c39 40 39 82 0 122 l-29 29 -842 0 -842 0 -29 -29z"/>
+<path d="M109 291 c-20 -20 -29 -39 -29 -61 0 -22 9 -41 29 -61 l29 -29 842 0
+842 0 29 29 c39 40 39 82 0 122 l-29 29 -842 0 -842 0 -29 -29z"/>
+</g>
+</svg>
