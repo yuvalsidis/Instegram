@@ -8,7 +8,7 @@ import { PostLikes } from "./PostLikes"
 import { useLocation } from 'react-router-dom'
 import { utilService } from "../services/util.service"
 
-export function PostDetails({ post, onUpdatePost, isPostDetailsPage, isPostIdProfile}) {
+export function PostDetails({ post, onUpdatePost, isPostDetailsPage, isPostIdProfile, loggedInUser}) {
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
     
     if (!post) return
@@ -26,7 +26,7 @@ export function PostDetails({ post, onUpdatePost, isPostDetailsPage, isPostIdPro
                 <PostActions post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} />
                 <PostLikes post={post} isPostDetailsPage={isPostDetailsPage} />
                 {isPostDetailsPage ? <p className="post-details-passed-time">{timeSinceCreation} ago</p> : null}
-                <PostAddComment post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} />
+                <PostAddComment post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} loggedInUser={loggedInUser}/>
             </div>
         </div>
     )

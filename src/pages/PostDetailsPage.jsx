@@ -51,7 +51,7 @@ export function PostDetailsPage() {
     if (postLoading) return <div>Loading</div>
     if (post) return (
         <section className="post-details-page">
-            <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} isPostIdProfile={loggedInUser._id === userId ? true : false}/>
+            <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} isPostIdProfile={loggedInUser._id === userId ? true : false} loggedInUser = {loggedInUser} />
         </section>
     )
     else {

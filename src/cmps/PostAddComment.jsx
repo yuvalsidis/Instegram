@@ -4,20 +4,9 @@ import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfi
 import { postService } from '../services/post.service.local';
 import { utilService } from '../services/util.service';
 
-export function PostAddComment({ post, onUpdatePost, isPostDetailsPage }) {
-    const [text, setText] = useState('');
+
+export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedInUser }) {
     const [comment, setComment] = useState(postService.getEmptyComment())
-    const [editedPost, setEditedPost] = useState(post)
-
-    useEffect(() => {
-        if (comment.txt) {
-            setEditedPost(prevEditedPost => ({ ...prevEditedPost, comments: [...prevEditedPost.comments, comment] }))
-        }
-    }, [comment])
-
-    useEffect(() => {
-        onUpdatePost(editedPost)
-    }, [editedPost])
 
     const handleChange = (event) => {
         const textarea = event.target
@@ -30,13 +19,16 @@ export function PostAddComment({ post, onUpdatePost, isPostDetailsPage }) {
             textarea.style.height = `${textarea.scrollHeight}px`;
         }
 
-        setText(textarea.value)
+        setComment({
+            ...comment, txt: textarea.value, createdAt: new Date(),
+            by: { fullName: (loggedInUser.firstname + ' ' + loggedInUser.lastname), imgUrl: loggedInUser.imgUrl, _id: loggedInUser._id, }
+        })
     }
 
     function handleClickPostBtn() {
-
-        setComment({ ...comment, txt: text, createdAt: utilService.getTimeSinceCreation(new Date()) })
-        setText('')
+        const editedPost = { ...post, comments: [...post.comments, comment] }
+        onUpdatePost(editedPost)
+        setComment(postService.getEmptyComment())
     }
 
     return (
@@ -48,21 +40,21 @@ export function PostAddComment({ post, onUpdatePost, isPostDetailsPage }) {
                     </div>
                     <textarea
                         className="post-add-comment-textarea"
-                        value={text}
+                        value={comment.txt}
                         onChange={handleChange}
                         placeholder="Add a comment..."
                     />
-                    <button className={text ? "post-comment-btn" : "post-comment-btn-after"} onClick={() => handleClickPostBtn()}>Post</button>
+                    <button className={comment.txt ? "post-comment-btn" : "post-comment-btn-after"} onClick={() => handleClickPostBtn()}>Post</button>
                 </>
                 :
                 <>
                     <textarea
                         className="post-add-comment-textarea"
-                        value={text}
+                        value={comment.txt}
                         onChange={handleChange}
                         placeholder="Add a comment..."
                     />
-                    {text && <button className="post-comment-btn" onClick={() => handleClickPostBtn()}>Post</button>}
+                    {comment.txt && <button className="post-comment-btn" onClick={() => handleClickPostBtn()}>Post</button>}
                     <SentimentSatisfiedOutlinedIcon className="emoji-icon" />
                 </>
 

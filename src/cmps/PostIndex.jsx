@@ -51,7 +51,7 @@ export function PostIndex() {
     if (isLoading) return <div>Loading</div>
     return (
         <div className="post-index">
-            <PostList posts={posts} onUpdatePost={onUpdatePost} />
+            <PostList posts={posts} onUpdatePost={onUpdatePost} loggedInUser={loggedInUser} />
         </div>
     )
 }

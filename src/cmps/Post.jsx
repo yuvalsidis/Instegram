@@ -7,18 +7,17 @@ import { PostComments } from "./PostComments"
 import { PostLikes } from "./PostLikes"
 // import { RandomImage } from "./RandomImage"
 
-export function Post({ post, onUpdatePost }) {
+export function Post({ post, onUpdatePost, loggedInUser}) {
 
     return (
         <>
             <PostHeader post={post} />
             <PostPhotos post={post} />
-            {/* <RandomImage /> */}
-            <PostActions post={post} onUpdatePost={onUpdatePost} />
+            {/* <PostActions post={post} onUpdatePost={onUpdatePost} /> */}
             <PostLikes post={post} />
             <PostDescription post={post} />
             <button className="view-comments-btn">View all {post.comments.length} comments</button>
-            <PostAddComment post={post} onUpdatePost={onUpdatePost} />
+            <PostAddComment post={post} onUpdatePost={onUpdatePost} loggedInUser={loggedInUser} />
         </>
     )
 }
