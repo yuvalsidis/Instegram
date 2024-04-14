@@ -13,7 +13,7 @@ import { Store } from '@mui/icons-material'
 
 
 export function AppHeader() {
-    const locationPathname= useLocation().pathname
+    const locationPathname = useLocation().pathname
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
 
     return (
@@ -22,16 +22,25 @@ export function AppHeader() {
                 <NavLink className='logo' to="/" exact="true">
                     <h1>Instegram</h1>
                 </NavLink>
-                <NavLink className={locationPathname === '/'? "clickedNavWeight" : ""} to="/" exact="true" >
-                    <img className='icon' src="/public/icons/Home.svg" alt="Home Icon" />
-                    <div> Home</div>    
+                <NavLink className={locationPathname === '/' ? "clickedNavWeight" : ""} to="/" exact="true" >
+                    {locationPathname === '/' ?
+                        <img className='icon' src="/public/icons/FilledHome.svg" alt="Filled Home Icon" />
+                        :
+                        <img className='icon' src="/public/icons/Home.svg" alt="Home Icon" />
+                    }
+                    <div> Home</div>
                 </NavLink>
                 <div>
                     <img className='icon' src="/public/icons/Search.svg" alt="Search Icon" />
                     <div>Search</div>
                 </div>
-                <NavLink className={locationPathname === '/explore'? "clickedNavWeight" : ""} to="/explore" exact="true">
-                    <ExploreOutlined />
+                <NavLink className={locationPathname === '/explore' ? "clickedNavWeight" : ""} to="/explore" exact="true">
+                    {locationPathname === '/explore' ?
+                        <img className='icon' src="/public/icons/FilledExplore.svg" alt="Filled Home Icon" />
+                        :
+                        <img className='icon' src="/public/icons/Explore.svg" alt="Home Icon" />
+                    }
+                    {/* <ExploreOutlined /> */}
                     <div>Explore</div>
                 </NavLink>
                 <NavLink to="/direct" exact="true">
@@ -46,11 +55,11 @@ export function AppHeader() {
                     <img className='icon' src="/public/icons/Create.svg" alt="Create Icon" />
                     <div>Create</div>
                 </div>
-                <NavLink to="/profile" exact="true">
-                    {loggedInUser?
-                     <img className='icon profilePreviewImg' src={loggedInUser.imgUrl} alt="Profile Icon" />
-                    :
-                    <img className='icon' src="/public/icons/User.svg" alt="Profile Icon" />
+                <NavLink className={locationPathname === '/profile' ? "clickedNavWeight" : ""} to="/profile" exact="true">
+                    {loggedInUser ?
+                        <img className='icon profilePreviewImg' src={loggedInUser.imgUrl} alt="Profile Icon" />
+                        :
+                        <img className='icon' src="/public/icons/User.svg" alt="Profile Icon" />
                     }
                     <div>Profile</div>
                 </NavLink>
