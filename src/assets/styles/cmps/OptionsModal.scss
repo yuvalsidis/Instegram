@@ -1,12 +1,21 @@
 .options-modal {
+    position: fixed;
     display: flex;
     flex-direction: column;
+    background-color: clr_bg;
     width: 400px;
-
-    .delete-btn{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    bottom: 0;
+    font-size: rem($system-14-font-size);
+    line-height: rem($system-14-line-height);
+    z-index: 9999;
+    
+    .delete-btn {
         color: $clr13;
+        font-weight: $font-weight-system-semibold;
+        font-size: rem($system-14-font-size);
+        line-height: rem($system-14-line-height);
     }
 }
-
-
-
