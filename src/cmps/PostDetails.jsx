@@ -8,7 +8,7 @@ import { PostLikes } from "./PostLikes"
 import { useLocation } from 'react-router-dom'
 import { utilService } from "../services/util.service"
 
-export function PostDetails({ post, onUpdatePost, isPostDetailsPage, isPostIdProfile, loggedInUser}) {
+export function PostDetails({ post, onUpdatePost, isPostDetailsPage, isPostIdProfile, loggedInUser, setIsOptionsModalOpen}) {
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
     
     if (!post) return
@@ -18,7 +18,7 @@ export function PostDetails({ post, onUpdatePost, isPostDetailsPage, isPostIdPro
                 <PostPhotos post={post} />
             </div>
             <div className="post-details-info">
-                <PostHeader post={post} isPostDetailsPage={isPostDetailsPage} isPostIdProfile={isPostIdProfile}/>
+                <PostHeader post={post} isPostDetailsPage={isPostDetailsPage} isPostIdProfile={isPostIdProfile}  setIsOptionsModalOpen={setIsOptionsModalOpen} />
                 <div className={isPostDetailsPage ? "post-details-content" : null}>
                     <PostDescription post={post} isPostDetailsPage={isPostDetailsPage} />
                     <PostComments post={post} />

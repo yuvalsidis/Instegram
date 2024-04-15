@@ -7,11 +7,11 @@ import { PostComments } from "./PostComments"
 import { PostLikes } from "./PostLikes"
 // import { RandomImage } from "./RandomImage"
 
-export function Post({ post, onUpdatePost, loggedInUser}) {
+export function Post({ post, onUpdatePost, loggedInUser, setIsOptionsModalOpen}) {
 
     return (
         <>
-            <PostHeader post={post} />
+            <PostHeader post={post} setIsOptionsModalOpen={setIsOptionsModalOpen}/>
             <PostPhotos post={post} />
             <PostActions post={post} onUpdatePost={onUpdatePost} loggedInUser={loggedInUser}/>
             <PostLikes post={post} />

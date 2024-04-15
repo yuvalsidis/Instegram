@@ -6,6 +6,7 @@ import { removePost, addPost, updatePost, loadPosts } from "../store/post.action
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { LOADING_DONE, LOADING_START } from "../store/system.reducer"
 import { store } from "../store/store"
+import { OptionsModal } from "./OptionsModal"
 
 
 export function PostIndex() {
@@ -13,6 +14,7 @@ export function PostIndex() {
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
+    const [isOptionsModalOpen, setIsOptionsModalOpen] = useState(false)
 
     useEffect(() => {
         onLoadPosts()
@@ -51,7 +53,8 @@ export function PostIndex() {
     if (isLoading) return <div>Loading</div>
     return (
         <div className="post-index">
-            <PostList posts={posts} onUpdatePost={onUpdatePost} loggedInUser={loggedInUser} />
+            <PostList posts={posts} onUpdatePost={onUpdatePost} loggedInUser={loggedInUser} setIsOptionsModalOpen={setIsOptionsModalOpen} />
+            {isOptionsModalOpen? <OptionsModal setIsOptionsModalOpen={setIsOptionsModalOpen}/> : ""}
         </div>
     )
 }

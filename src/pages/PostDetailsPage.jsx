@@ -8,11 +8,13 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useSelector } from "react-redux"
 import { store } from "../store/store"
 import { removePost, addPost, updatePost, loadPosts } from "../store/post.actions"
+import { OptionsModal } from "../cmps/OptionsModal"
 
 export function PostDetailsPage() {
     const [post, SetPost] = useState(null)
     const [postLoading, setPostLoading] = useState(true);
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
+    const [isOptionsModalOpen, setIsOptionsModalOpen] = useState(false)
     const isPostDetailsPage = true
     const { postId, userId} = useParams()
 
@@ -63,7 +65,15 @@ export function PostDetailsPage() {
     if (postLoading) return <div>Loading</div>
     if (post) return (
         <section className="post-details-page">
-            <PostDetails post={post} onUpdatePost={onUpdatePost} isPostDetailsPage={isPostDetailsPage} isPostIdProfile={loggedInUser._id === userId ? true : false} loggedInUser = {loggedInUser} />
+            <PostDetails 
+            post={post} 
+            onUpdatePost={onUpdatePost} 
+            isPostDetailsPage={isPostDetailsPage} 
+            isPostIdProfile={loggedInUser._id === userId ? true : false} 
+            loggedInUser = {loggedInUser} 
+            setIsOptionsModalOpen={setIsOptionsModalOpen} 
+            />
+            {isOptionsModalOpen? <OptionsModal setIsOptionsModalOpen={setIsOptionsModalOpen}/> : ""}
         </section>
     )
     else {

@@ -20,7 +20,7 @@ export function OptionsModal({ setIsOptionsModalOpen }) {
 
     return (
         <section className="options-modal">
-            
+
             <div className="options-modal-container">
                 {locationPathname.includes('profile') && (
                     <>

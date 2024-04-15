@@ -4,9 +4,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useState } from "react";
 import { OptionsModal } from "./OptionsModal";
 
-export function PostHeader({ post, isPostDetailsPage, isPostIdProfile}) {
-    const [isOptionsModalOpen, setIsOptionsModalOpen] = useState(false)
-
+export function PostHeader({ post, isPostDetailsPage, isPostIdProfile, setIsOptionsModalOpen}) {
     const navigate = useNavigate()
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
 
@@ -31,7 +29,6 @@ export function PostHeader({ post, isPostDetailsPage, isPostIdProfile}) {
                 {isPostIdProfile ? "" : <button className="follow-btn" >Follow</button>}
             </div>
             <MoreHorizIcon className="more-horiz-icon" style={{ width: '20px', height: '20px' }} onClick={handleClickOnOptions} />
-            {isOptionsModalOpen? <OptionsModal setIsOptionsModalOpen={setIsOptionsModalOpen}/> : ""}
         </div>
     )
 }
