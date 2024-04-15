@@ -6,7 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { ExplorePage } from './pages/ExplorePage';
 import { PostDetailsPage } from './pages/PostDetailsPage';
 import { ProfilePage } from './pages/ProfilePage';
-import { followersPage } from './pages/FollowersPage';
+import { FollowersPage } from './pages/FollowersPage';
 
 export function App() {
     return (
@@ -27,7 +27,7 @@ export function App() {
                     </Route>
                     <Route path='/profile/:userId' element={<ProfilePage />}>
                         <Route path='p/:postId' element={<PostDetailsPage />} />
-                        <Route path='followers/:userId' element={<followersPage/>} />
+                        <Route path='followers' element={<FollowersPage/>} />
                     </Route>
                 </Routes>
 
