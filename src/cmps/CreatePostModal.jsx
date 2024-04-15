@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImgUploader } from './ImgUploader';
+
 import { CreateModalHeader } from './CreateModalHeader';
 import { CreateModalContent } from './CreateModalContent';
 
@@ -8,19 +8,15 @@ export function CreatePostModal() {
 
   const handleImageUploaded = (url) => {
     setUploadedImages([...uploadedImages, url])
-    console.log('handleImageUploaded function was called')
-    // return <ImgUploader />
+    console.log('handleImageUploaded function was called:', uploadedImages)
   }
 
 
   return (
       <div className="create-modal-container" >
-        
           <CreateModalHeader uploadedImages={uploadedImages} />
-          <CreateModalContent ImgUploader={ImgUploader}
-                              handleImageUploaded={handleImageUploaded}
+          <CreateModalContent handleImageUploaded={handleImageUploaded}
                               uploadedImages={uploadedImages} /> 
-         
       </div>
   )
 }
