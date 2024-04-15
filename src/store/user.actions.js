@@ -22,6 +22,7 @@ export async function loadUsers() {
 export async function loadUserById(userId){
     try{
         const user = await userService.getById(userId)
+        return user
     } catch (err){
         console.log('UserActions: err in get user by Id', err)
     }
