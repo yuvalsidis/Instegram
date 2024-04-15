@@ -1,5 +1,5 @@
 
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { PostDetails } from "../cmps/PostDetails"
 import { postService } from "../services/post.service.local"
 import { useState, useEffect } from "react"
@@ -10,7 +10,9 @@ import { store } from "../store/store"
 import { removePost, addPost, updatePost, loadPosts } from "../store/post.actions"
 import { OptionsModal } from "../cmps/OptionsModal"
 
+
 export function PostDetailsPage() {
+    const navigate = useNavigate()
     const [post, SetPost] = useState(null)
     const [postLoading, setPostLoading] = useState(true);
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
@@ -62,6 +64,18 @@ export function PostDetailsPage() {
             })
     }
 
+    function onRemovePost(){
+        removePost(postId)
+        .then((updatedPost) => {
+            showSuccessMsg('Post updated successfully')
+            SetPost(updatedPost)
+            navigate(`/profile/${userId}`)
+        })
+        .catch((err) => {
+            showErrorMsg('Error occured when updating posts', err)
+        })
+    }
+
     if (postLoading) return <div>Loading</div>
     if (post) return (
         <section className="post-details-page">
@@ -73,7 +87,7 @@ export function PostDetailsPage() {
             loggedInUser = {loggedInUser} 
             setIsOptionsModalOpen={setIsOptionsModalOpen} 
             />
-            {isOptionsModalOpen? <OptionsModal setIsOptionsModalOpen={setIsOptionsModalOpen}/> : ""}
+            {isOptionsModalOpen? <OptionsModal setIsOptionsModalOpen={setIsOptionsModalOpen} onRemovePost={onRemovePost}/> : ""}
         </section>
     )
     else {

@@ -2,7 +2,7 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 
-export function OptionsModal({ setIsOptionsModalOpen }) {
+export function OptionsModal({ setIsOptionsModalOpen, onRemovePost }) {
     const locationPathname = useLocation().pathname
 
 
@@ -18,13 +18,18 @@ export function OptionsModal({ setIsOptionsModalOpen }) {
         setIsOptionsModalOpen(false)
     }
 
+    function handleClickOnDeleteBtn(){
+        onRemovePost()
+    }
+
+    onRemovePost
     return (
         <section className="options-modal">
 
             <div className="options-modal-container">
                 {locationPathname.includes('profile') && (
                     <>
-                        <button className='delete-btn'>Delete</button>
+                        <button className='delete-btn' onClick={handleClickOnDeleteBtn}>Delete</button>
                         <button className='cancel-btn' onClick={handleClickOnCancelBtn}>Cancel</button>
                     </>
                 )}
