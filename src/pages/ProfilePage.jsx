@@ -85,8 +85,8 @@ export function ProfilePage() {
         <section className="profile-page main">
             <div className="profile-main-content-container">
                 <UserInfo watchedUser={watchedUser} loggedInUser={loggedInUser} />
-                <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser} />
-                <UserContent posts={posts} watchedUser={watchedUser} loggedInUser={loggedInUser} />
+                <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser} setFilterBy={setFilterBy}/>
+                <UserContent posts={posts} watchedUser={watchedUser} loggedInUser={loggedInUser}/>
             </div>
             <Outlet />
         </section>

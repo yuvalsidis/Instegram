@@ -15,7 +15,7 @@ export function PostIndex() {
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
     const [isOptionsModalOpen, setIsOptionsModalOpen] = useState(false)
-
+    
     useEffect(() => {
         onLoadPosts()
     }, [filterBy])
@@ -53,7 +53,12 @@ export function PostIndex() {
     if (isLoading) return <div>Loading</div>
     return (
         <div className="post-index">
-            <PostList posts={posts} onUpdatePost={onUpdatePost} loggedInUser={loggedInUser} setIsOptionsModalOpen={setIsOptionsModalOpen} />
+            <PostList 
+            posts={posts} 
+            onUpdatePost={onUpdatePost} 
+            loggedInUser={loggedInUser} 
+            setIsOptionsModalOpen={setIsOptionsModalOpen} 
+            />
             {isOptionsModalOpen? <OptionsModal setIsOptionsModalOpen={setIsOptionsModalOpen}/> : ""}
         </div>
     )
