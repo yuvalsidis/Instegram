@@ -6,18 +6,41 @@ import { PostDetails } from "./PostDetails"
 export function PostActions({ post, onUpdatePost, isPostDetailsPage, loggedInUser }) {
     const navigate = useNavigate()
     const isLiked = post.likedBy.some(likedUser => (likedUser._id === loggedInUser._id))
-  
+    const isSaved = post.savedBy.some(savedBy => (savedBy._id === loggedInUser._id))
+
     function handleClickOnLikePost(value) {
-        let updatedLikedPost  = []
-        if(value) {
-            updatedLikedPost = {...post, likedBy : [...post.likedBy, {_id : loggedInUser._id, firstname : loggedInUser.firstname, 
-            lastname : loggedInUser.lastname, imgUrl : loggedInUser.imgUrl}]}
+        let updatedLikedPost = []
+        if (value) {
+            updatedLikedPost = {
+                ...post, likedBy: [...post.likedBy, {
+                    _id: loggedInUser._id, firstname: loggedInUser.firstname,
+                    lastname: loggedInUser.lastname, imgUrl: loggedInUser.imgUrl
+                }]
+            }
         }
-        else{
-            updatedLikedPost = {...post, likedBy : post.likedBy.filter(likedUser => (likedUser._id != loggedInUser._id))}
+        else {
+            updatedLikedPost = { ...post, likedBy: post.likedBy.filter(likedUser => (likedUser._id != loggedInUser._id)) }
         }
-    
+
         onUpdatePost(updatedLikedPost)
+    }
+
+    
+    function handleClickOnSavedPost(value) {
+        let updatedSavedPost = []
+        if (value) {
+            updatedSavedPost = {
+                ...post, savedBy: [...post.savedBy, {
+                    _id: loggedInUser._id, firstname: loggedInUser.firstname,
+                    lastname: loggedInUser.lastname, imgUrl: loggedInUser.imgUrl
+                }]
+            }
+        }
+        else {
+            updatedSavedPost = { ...post, savedBy: post.savedBy.filter(savedUser => (savedUser._id != loggedInUser._id)) }
+        }
+
+        onUpdatePost(updatedSavedPost)
     }
 
     function handleClickOnComment() {
@@ -30,7 +53,7 @@ export function PostActions({ post, onUpdatePost, isPostDetailsPage, loggedInUse
     }
 
     function handleClickOnSavePost() {
-        console.log('clicked save post')
+
     }
 
 
@@ -39,12 +62,12 @@ export function PostActions({ post, onUpdatePost, isPostDetailsPage, loggedInUse
             <div className="post-actions-btns">
                 <div>
                     {isLiked ? (
-                        <img className='icon' src="/public/icons/RedLike.svg" alt="Liked Icon" onClick={()=> handleClickOnLikePost(false)}/>
+                        <img className='icon' src="/public/icons/RedLike.svg" alt="Liked Icon" onClick={() => handleClickOnLikePost(false)} />
                     ) : (
-                        <img className='icon' src="/public/icons/Like.svg" alt="Like Icon" onClick={()=> handleClickOnLikePost(true)}/>
+                        <img className='icon' src="/public/icons/Like.svg" alt="Like Icon" onClick={() => handleClickOnLikePost(true)} />
                     )}
                 </div>
-                <div onClick={isPostDetailsPage? handleClickOnComment : null}>
+                <div onClick={isPostDetailsPage ? null : handleClickOnComment}>
                     <img className='icon' src="/public/icons/Comment.svg" alt="Comment Icon" />
                 </div>
                 <div onClick={handleClickOnSharePost}>
@@ -52,7 +75,11 @@ export function PostActions({ post, onUpdatePost, isPostDetailsPage, loggedInUse
                 </div>
             </div>
             <div className="post-actions-secondary-btns" onClick={handleClickOnSavePost}>
-                <img className='icon' src="/public/icons/Bookmark.svg" alt="Bookmark Icon" />
+                {isSaved ? (
+                    <img className='icon' src="/public/icons/BlackBookmark.svg" alt="black Bookmark Icon" onClick={() => handleClickOnSavedPost(false)} />
+                ) : (
+                    <img className='icon' src="/public/icons/Bookmark.svg" alt="bookmark Icon" onClick={() => handleClickOnSavedPost(true)} />
+                )}
             </div>
             {/* <PostShare/>  will be the in modal*/}
             {/* <PostDetails/> opptional with nav link*/}
