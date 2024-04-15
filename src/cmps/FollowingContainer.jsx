@@ -1,3 +1,4 @@
+import { FollowerList } from "./FollowersList"
 
 export function FollowingContainer({ userLoaded }) {
 
