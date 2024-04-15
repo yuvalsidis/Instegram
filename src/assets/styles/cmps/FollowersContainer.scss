@@ -1,4 +1,4 @@
-.followers-container{
+.followers-container {
     display: flex;
     flex-direction: column;
     background-color: $clr_bg;
@@ -7,4 +7,44 @@
     height: 400px;
     font-size: rem($system-14-font-size);
     line-height: rem($system-14-line-height);
+
+    .followers-container-header {
+        position: relative;
+        display: flex;
+        height: 42px;
+        align-items: center;
+        justify-content: center;
+        font-size: rem($system-16-font-size);
+        line-height: rem($system-16-line-height);
+        font-weight: $font-weight-system-semibold;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+        .exit-logo-container {
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            width: 18px;
+            height: 18px;
+
+            :hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .filterbar-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 48px;
+
+        .filter-bar-input {
+            height: 32px;
+            width: 368px;
+            padding: 3px 16px;
+            border-radius: 8px;
+            background-color: $clr5;
+            border: none;
+        }
+    }
 }
