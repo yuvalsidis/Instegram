@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { FollowersContainer } from "../cmps/FollowersContainer"
+import { FollowingContainer } from "../cmps/FollowingContainer"
 
 export function FollowersPage() {
 
@@ -14,6 +15,7 @@ export function FollowersPage() {
     return (
         <section className="followers-page">
             <FollowersContainer />
+            <FollowingContainer/>
         </section>
     )
 }
