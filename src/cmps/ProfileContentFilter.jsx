@@ -8,7 +8,7 @@ export function ProfileContentFilter({ watchedUser, loggedInUser,setFilterBy }) 
         switch (filterType) {
             case 'posts':
                 setActiveFilter('posts')
-                setFilterBy((prevFilterBy) => ({...prevFilterBy, savedBy_id : ""}))
+                setFilterBy((prevFilterBy) => ({...prevFilterBy, savedBy_id : ''}))
                 break
             case 'saved':
                 setActiveFilter('saved')

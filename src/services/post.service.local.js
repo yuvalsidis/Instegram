@@ -23,16 +23,22 @@ window.cs = postService
 
 
 async function query(filterBy) {
-    console.log('filterByInQUERY',filterBy)
+    console.log('filterByInQUERY', filterBy)
+    
     let posts = await storageService.query(STORAGE_KEY)
-    if(!filterBy._id){
+    if (filterBy.savedBy_id) {
+        posts = posts.filter(post => (post.savedBy.some(savedByUser => savedByUser._id === filterBy.savedBy_id)))
+        return posts
+    }
+    if (!filterBy._id) {
         posts = posts.filter(post => post.by._id != filterBy.loggedInUser_id)
         return posts
-    } 
-    if(filterBy._id){
+    }
+    if (filterBy._id) {
         posts = posts.filter(post => post.by._id === filterBy._id)
         return posts
     }
+
 }
 
 function getById(postId) {
@@ -57,7 +63,7 @@ async function save(post) {
 }
 
 function getDefualtFilterBy() {
-    return { _id: '', saved: '', loggedInUser_id: '', savedBy_id: ''}
+    return { _id: '', saved: '', loggedInUser_id: '', savedBy_id: '' }
 }
 
 async function addPostMsg(postId, txt) {
@@ -131,7 +137,7 @@ function getEmptyPost() {
             },
             {
                 _id: "u106",
-                firstname: "lior", 
+                firstname: "lior",
                 lastname: "mory",
                 imgUrl: "http://some-img"
             }

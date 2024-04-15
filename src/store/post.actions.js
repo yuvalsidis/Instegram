@@ -27,6 +27,7 @@ export function getActionUpdatePost(post) {
 
 
 export async function loadPosts(filterBy) {
+    console.log('filterByloadpost',filterBy)
     try {
         const posts = await postService.query(filterBy)
         // console.log('posts from DB:', posts)
