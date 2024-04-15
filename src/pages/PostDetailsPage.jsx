@@ -21,16 +21,13 @@ export function PostDetailsPage() {
     const { postId, userId} = useParams()
 
     useEffect(() => {
-        // Add class to body to disable scrolling
-        document.body.classList.add("no-scroll");
-        onGetPost();
 
-        // Clean up effect
+        document.body.classList.add("no-scroll")
+        onGetPost();
         return () => {
-            // Remove class from body to enable scrolling
-            document.body.classList.remove("no-scroll");
-        };
-    }, []);
+            document.body.classList.remove("no-scroll")
+        }
+    }, [])
 
     
     useEffect(() => {
