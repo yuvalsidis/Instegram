@@ -57,7 +57,7 @@ async function save(post) {
 }
 
 function getDefualtFilterBy() {
-    return { _id: '', saved: '', loggedInUser_id: ''}
+    return { _id: '', saved: '', loggedInUser_id: '', savedBy_id: ''}
 }
 
 async function addPostMsg(postId, txt) {
@@ -135,6 +135,14 @@ function getEmptyPost() {
                 lastname: "mory",
                 imgUrl: "http://some-img"
             }
+        ],
+        savedBy: [
+            {
+                _id: "u105",
+                firstname: "Bob",
+                lastname: "habanay",
+                imgUrl: "http://some-img"
+            },
         ],
         tags: ["fun", "romantic"]
     }
