@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FollowingContainer } from "../cmps/FollowingContainer"
 import { useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
-import { loadUser } from "../store/user.actions"
+import { loadUserById } from "../store/user.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { store } from "../store/store"
 
@@ -27,10 +27,10 @@ export function FollowingPage() {
     }, [])
      
     function onLoadUser() {
-        loadUser(userId)
-            .then((user) => {
+        loadUserById(userId)
+            .then((fetchedUser) => {
                 showSuccessMsg('User loaded successfully')
-                setFullUser(user)
+                setFullUser(fetchedUser)
             })
             .catch((err) => {
                 showErrorMsg('Error occured by loading user', err)
@@ -43,7 +43,7 @@ export function FollowingPage() {
 
     return (
         <section className="following-page">
-            <FollowingContainer fullUser={fullUser} />
+            <FollowingContainer fullUser={fullUser} isWatchedUser={isWatchedUser}/>
         </section>
     )
 }

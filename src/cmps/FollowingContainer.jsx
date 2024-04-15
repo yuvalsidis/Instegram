@@ -1,6 +1,6 @@
 import { FollowerList } from "./FollowersList"
 
-export function FollowingContainer({ userLoaded }) {
+export function FollowingContainer({ fullUser, isWatchedUser }) {
 
 
     return (
@@ -16,6 +16,7 @@ export function FollowingContainer({ userLoaded }) {
             <div className="filterbar-container">
                 <input className="filter-bar-input" type="text" placeholder="Search"></input>
             </div>
+            <FollowerList fullUser={fullUser} isWatchedUser={isWatchedUser} />
         </div >
     )
 }
