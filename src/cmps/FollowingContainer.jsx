@@ -12,6 +12,9 @@ export function FollowingContainer({ userLoaded }) {
                     <img src="/public/icons/ExitBlack.svg" alt="Exit Black Icon" />
                 </div>
             </div>
+            <div className="filterbar-container">
+                <input className="filter-bar-input" type="text" placeholder="Search"></input>
+            </div>
         </div >
     )
 }

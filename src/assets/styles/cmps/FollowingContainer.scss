@@ -18,13 +18,28 @@
         line-height: rem($system-16-line-height);
         font-weight: $font-weight-system-semibold;
         border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+        .exit-logo-container{
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            width: 18px;
+            height: 18px;
+        }
     }
 
-    .exit-logo-container{
-        position: absolute;
-        right: 20px;
-        top: 12px;
-        width: 18px;
-        height: 18px;
+    .filterbar-container{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 48px;
+         .filter-bar-input{
+            height: 32px;
+            width: 368px;
+            padding: 3px 16px;
+            border-radius: 8px;
+            background-color: $clr5;
+            border: none;
+         }
     }
 }
