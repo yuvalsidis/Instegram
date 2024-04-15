@@ -1,5 +1,8 @@
 .follower-preview {
     height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 32px 16px;
 
     .user-img-container {
         width: 56px;
@@ -9,15 +12,48 @@
         height: 44px;
         width: 44px;
     }
-    
-    .user-names{
+
+    .user-names {
         width: 180px;
         display: flex;
         flex-direction: column;
-        > *{
+
+        >* {
             margin: 0px;
         }
     }
-    // user-names
-    // follow-btn-action
+
+    button {
+        border-radius: 8px;
+    }
+
+    .follow-btn-container {
+        width: 113px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .following-btn {
+        font-size: rem($system-14-font-size);
+        line-height: rem($system-14-line-height);
+        font-weight: $font-weight-system-semibold;
+        background-color: $clr5;
+        color: $clr1 ;
+        padding: 7px 16px;
+    }
+
+    .username-p,
+    .firstname-secondname-p {
+        font-size: rem($system-14-font-size);
+        line-height: rem($system-14-line-height);
+    }
+
+    .username-p {
+        color: $clr1;
+        font-weight: $font-weight-system-semibold;
+    }
+
+    .firstname-secondname-p {
+        color: $clr4;
+    }
 }
