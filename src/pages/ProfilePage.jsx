@@ -26,7 +26,6 @@ export function ProfilePage() {
     
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
 
-    console.log('imgimgimgimg',loggedInUser.imgUrl)
     const { userId } = useParams()
     let defaultUserId = userId || null;
 
@@ -72,12 +71,6 @@ export function ProfilePage() {
                 showErrorMsg('there was a problem with loading user', err)
             })
     }
-
-
-    console.log('Logged in user : ', loggedInUser)
-    console.log('watched user choosed: ', watchedUser)
-    console.log('fitlerBy in profile', filterBy)
-    console.log('posts', posts)
 
     if (isLoadingUsers) return <div>Loading User</div>
     if (!loggedInUser) return <div>Logged in to continue</div>
