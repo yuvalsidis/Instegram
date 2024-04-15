@@ -21,7 +21,9 @@ export function ProfilePage() {
     const posts = useSelector(storeState => storeState.postModule.posts)
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
-    const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
+    const [isLoadingPosts, setIsLoadingPosts] = useState(true)
+    const isLoadingUsers = useSelector(storeState => storeState.systemModule.isLoading)
+    
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
 
     console.log('imgimgimgimg',loggedInUser.imgUrl)
@@ -46,12 +48,11 @@ export function ProfilePage() {
 
 
     function onLoadPosts() {
-        store.dispatch({ type: LOADING_START, })
+        setIsLoadingPosts(true)
         loadPosts(filterBy)
             .then(() => {
                 showSuccessMsg('Posts loaded successfully')
-                store.dispatch({ type: LOADING_DONE, }
-                )
+                setIsLoadingPosts(false)
                 setPostsLoaded(true)
             })
             .catch((err) => {
@@ -78,15 +79,15 @@ export function ProfilePage() {
     console.log('fitlerBy in profile', filterBy)
     console.log('posts', posts)
 
-    if (isLoading) return <div>Loading User</div>
+    if (isLoadingUsers) return <div>Loading User</div>
     if (!loggedInUser) return <div>Logged in to continue</div>
-    if(!postsLoaded) return <div>Loading</div>
+
     return (
         <section className="profile-page main">
             <div className="profile-main-content-container">
                 <UserInfo watchedUser={watchedUser} loggedInUser={loggedInUser} />
-                <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser} setFilterBy={setFilterBy}/>
-                <UserContent posts={posts} watchedUser={watchedUser} loggedInUser={loggedInUser}/>
+                <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser} setFilterBy={setFilterBy} filterBy={filterBy}/>
+                <UserContent posts={posts} watchedUser={watchedUser} loggedInUser={loggedInUser} isLoadingPosts={isLoadingPosts}/>
             </div>
             <Outlet />
         </section>

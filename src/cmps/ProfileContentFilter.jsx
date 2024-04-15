@@ -1,24 +1,18 @@
 import GridOnIcon from '@mui/icons-material/GridOn';
 import { useState } from 'react';
 
-export function ProfileContentFilter({ watchedUser, loggedInUser,setFilterBy }) {
-    const [activeFilter, setActiveFilter] = useState('posts')
+export function ProfileContentFilter({ watchedUser, loggedInUser,setFilterBy, filterBy}) {
+    const activeFilter = filterBy.savedBy_id? 'saved' : 'posts'
 
     function handleClickOnFilter(filterType) {
         switch (filterType) {
             case 'posts':
-                setActiveFilter('posts')
                 setFilterBy((prevFilterBy) => ({...prevFilterBy, savedBy_id : ''}))
                 break
             case 'saved':
-                setActiveFilter('saved')
                 setFilterBy((prevFilterBy) => ({...prevFilterBy, savedBy_id : loggedInUser._id}))
                 break
-            default:
-                setActiveFilter('posts')
-                break
         }
-
     }
 
     console.log('activeFilter', activeFilter)
