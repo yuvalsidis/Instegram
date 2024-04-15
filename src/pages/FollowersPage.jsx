@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { FollowersContainer } from "../cmps/FollowersContainer"
+
 export function FollowersPage() {
+
     useEffect(() => {
         document.body.classList.add("no-scroll")
         return () => {

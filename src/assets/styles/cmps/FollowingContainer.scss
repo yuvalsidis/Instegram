@@ -1,0 +1,10 @@
+.following-container{
+    display: flex;
+    flex-direction: column;
+    background-color: $clr_bg;
+    border-radius: 1rem;
+    width: 400px;
+    height: 400px;
+    font-size: rem($system-14-font-size);
+    line-height: rem($system-14-line-height);
+}
