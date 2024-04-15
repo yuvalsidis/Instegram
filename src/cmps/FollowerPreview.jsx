@@ -2,8 +2,8 @@
 export function FollowerPreview({user, isWatchedUser}) {
     return (
         <>
-            <div className="user-img">
-                  <img src={user.imgUrl} alt="profile-img"></img>
+            <div className="user-img-container">
+                  <img className="profilePreviewImg user-img" src={user.imgUrl} alt="profile-img"></img>
             </div>
             <div className="user-names">
                  <p>{user.username}</p>
