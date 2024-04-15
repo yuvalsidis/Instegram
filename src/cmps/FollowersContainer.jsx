@@ -1,7 +1,7 @@
 
 export function FollowersContainer() {
     return (
-        <div className="">
+        <div className="followers-container">
 
         </div>
     )
