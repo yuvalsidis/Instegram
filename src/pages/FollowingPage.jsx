@@ -27,7 +27,6 @@ export function FollowingPage() {
     }, [])
      
     function onLoadUser() {
-        console.log('hi im here!!!!!!!!!!!!')
         loadUser(userId)
             .then((user) => {
                 showSuccessMsg('User loaded successfully')
