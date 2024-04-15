@@ -1,5 +1,17 @@
+import { useNavigate } from "react-router-dom"
 
-export function UserStats({ watchedUser, loggedInUser }) {
+export function UserStats({ watchedUser, loggedInUser}) {
+    const navigate = useNavigate()
+
+    function handleClickOnFollowers(){
+        console.log('clicked on followers')
+        watchedUser? navigate(`/profile/${watchedUser._id}/followers`) : navigate(`/profile/${loggedInUser._id}/followers`)
+    }
+    function handleClickOnFollowing(){
+        console.log('clicked on following')
+        watchedUser? navigate(`/profile/${watchedUser._id}/followers`) : navigate(`/profile/${loggedInUser._id}/followers`)
+    }
+
     return (
         <div className="user-stats">
             {watchedUser ?
@@ -7,10 +19,10 @@ export function UserStats({ watchedUser, loggedInUser }) {
                     <div className="post-stats-container">
                         <p className="post-stat"> <span>{watchedUser.info.posts}</span> posts</p>
                     </div>
-                    <div className="post-stats-container">
+                    <div className="post-stats-container" onClick={handleClickOnFollowers}>
                         <p className="followers-stat"><span>{watchedUser.info.followers.length}</span> followers</p>
                     </div>
-                    <div className="post-stats-container">
+                    <div className="post-stats-container" onClick={handleClickOnFollowing}>
                         <p className="following-stat"><span>{watchedUser.info.following.length}</span> following</p>
                     </div>
                 </>
@@ -19,11 +31,11 @@ export function UserStats({ watchedUser, loggedInUser }) {
                     <div className="post-stats-container">
                         <p className="post-stat"><span>{loggedInUser.info.posts}</span> posts</p>
                     </div>
-                    <div className="post-stats-container">
-                        <p className="followers-stat"><span>{loggedInUser.info.followers.length}</span> followers</p>
+                    <div className="post-stats-container" onClick={handleClickOnFollowers}>
+                        <p className="followers-stat" ><span>{loggedInUser.info.followers.length}</span> followers</p>
                     </div>
-                    <div className="post-stats-container">
-                        <p className="following-stat"><span>{loggedInUser.info.following.length}</span> following</p>
+                    <div className="post-stats-container" onClick={handleClickOnFollowing}>
+                        <p className="following-stat" ><span>{loggedInUser.info.following.length}</span> following</p>
                     </div>
 
                 </>
