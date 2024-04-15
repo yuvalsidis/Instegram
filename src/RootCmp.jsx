@@ -7,6 +7,7 @@ import { ExplorePage } from './pages/ExplorePage';
 import { PostDetailsPage } from './pages/PostDetailsPage';
 import { ProfilePage } from './pages/ProfilePage';
 import { FollowersPage } from './pages/FollowersPage';
+import { FollowingPage } from './pages/FollowingPage';
 
 export function App() {
     return (
@@ -28,6 +29,7 @@ export function App() {
                     <Route path='/profile/:userId' element={<ProfilePage />}>
                         <Route path='p/:postId' element={<PostDetailsPage />} />
                         <Route path='followers' element={<FollowersPage/>} />
+                        <Route path='following' element={<FollowingPage/>} />
                     </Route>
                 </Routes>
 

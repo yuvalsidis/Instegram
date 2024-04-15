@@ -2,7 +2,6 @@ import {useLocation,useNavigate} from "react-router-dom"
 
 export function PostPreview({ post, user_id}) {
 
-    console.log('asdasdasddddddd!@#!@#!@#!@#!@#!@#',user_id)
     const navigate = useNavigate()
     const location = useLocation()
 
