@@ -1,0 +1,25 @@
+.img-preview {
+    position: relative;
+  }
+  
+  .rotate-btns {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    
+    display: flex;
+    justify-content: space-between; 
+    
+    width: 100%;
+  }
+
+  .rotate-left,
+  .rotate-right {
+    margin: 0 10px; 
+  }
+  
+  .upload-more-btn {
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+  }
