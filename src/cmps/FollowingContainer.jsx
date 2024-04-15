@@ -1,7 +1,12 @@
 import { FollowerList } from "./FollowersList"
+import { useNavigate, useParams } from "react-router-dom"
 
 export function FollowingContainer({ fullUser, isWatchedUser }) {
-
+    const navigate = useNavigate()
+    
+    function handleClickOnExit(){
+        isWatchedUser? navigate(`/profile/${fullUser._id}`) : navigate(`/profile`)
+    }
 
     return (
         <div className="following-container">
@@ -9,7 +14,7 @@ export function FollowingContainer({ fullUser, isWatchedUser }) {
                 <div>
                     <p>Following</p>
                 </div>
-                <div className="exit-logo-container">
+                <div className="exit-logo-container" onClick={handleClickOnExit}>
                     <img src="/public/icons/ExitBlack.svg" alt="Exit Black Icon" />
                 </div>
             </div>
