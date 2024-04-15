@@ -9,7 +9,15 @@
         height: 44px;
         width: 44px;
     }
-
+    
+    .user-names{
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+        > *{
+            margin: 0px;
+        }
+    }
     // user-names
     // follow-btn-action
 }
