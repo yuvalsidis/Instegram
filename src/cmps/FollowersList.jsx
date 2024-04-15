@@ -9,7 +9,7 @@ export function FollowerList({fullUser, isWatchedUser}){
              {
                 fullUser.info.following.map(user => (
                     <div key={`follower-${user.id}`} className="follower-preview">
-                              <FollowerPreview/>
+                              <FollowerPreview user={user} isWatchedUser={isWatchedUser}/>
                     </div>
                 ))
              }
