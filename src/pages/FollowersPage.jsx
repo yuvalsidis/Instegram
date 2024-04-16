@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { loadUserById } from "../store/user.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { store } from "../store/store"
-
+import { userService } from "../services/user.service";
 export function FollowersPage() {
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
@@ -36,6 +36,19 @@ export function FollowersPage() {
             })
 
     }
+
+    async function onUpdateUsers(loggedInUserToUpdate, userToUpdate) {
+
+        try {
+            await userService.update(loggedInUser._id, loggedInUserToUpdate)
+            await userService.update(userId, userToUpdate)
+            showSuccessMsg('Following page: Success update users')
+        }
+        catch (err) {
+            showErrorMsg('Following page: Error by update users', err)
+        }
+    }
+
     
     console.log('User in follow page', fullUser)
     console.log('is watched user? ', isWatchedUser)
