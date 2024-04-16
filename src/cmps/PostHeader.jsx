@@ -4,25 +4,25 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useState } from "react";
 import { OptionsModal } from "./OptionsModal";
 
-export function PostHeader({ post, isPostDetailsPage, isPostIdProfile, setIsOptionsModalOpen}) {
+export function PostHeader({ post, isPostDetailsPage, isPostIdProfile, setIsOptionsModalOpen }) {
     const navigate = useNavigate()
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
 
-    function handleClickPostHeaderName() {
+    function handleClickOnNav() {
         navigate(`/profile/${post.by._id}`)
     }
 
-    function handleClickOnOptions(){
+    function handleClickOnOptions() {
         setIsOptionsModalOpen(true)
     }
-    
+
     return (
         <div className={isPostDetailsPage ? "page-post-header" : "post-header"}>
             <div>
-                <img src={post.by.imgUrl} className="profilePreviewImg"></img>
+                <img src={post.by.imgUrl} className="profilePreviewImg" onClick={handleClickOnNav}></img>
             </div>
             <div className="post-header-main">
-                <button className="post-header-name" onClick={handleClickPostHeaderName}>{post.by.fullName}</button>
+                <button className="post-header-name" onClick={handleClickOnNav}>{post.by.fullName}</button>
                 {isPostIdProfile ? "" : <div className="dot">•</div>}
                 {isPostDetailsPage ? null : <p className="passed-time">{timeSinceCreation}</p>}
                 {isPostDetailsPage ? null : <div className="dot">•</div>}

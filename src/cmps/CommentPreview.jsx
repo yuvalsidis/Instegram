@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
 import { utilService } from "../services/util.service";
+import { useNavigate, useParams } from "react-router-dom"
 
-export function CommentPreview({ comment }) {
+export function CommentPreview({ comment, loggedInUser }) {
     const [translatedText, setTranslatedText] = useState('');
     const [isTranslatedToHebrew, setIsTranslatedToHebrew] = useState(false);
     const timeSinceCreation = utilService.getTimeSinceCreation(comment.createdAt)
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate()
 
+    function handleOnNav() {
+           comment.by._id === loggedInUser._id?  navigate(`/profile`) : navigate(`/profile/${comment.by._id}`)
+    }
+  
+      
     useEffect(() => {
         async function translateText() {
             setLoading(true); // Set loading state to true before fetching translation
@@ -35,11 +42,11 @@ export function CommentPreview({ comment }) {
     return (
         <>
             <div>
-                <img src={comment.by.imgUrl} className="profilePreviewImg"></img>
+                <img src={comment.by.imgUrl} className="profilePreviewImg" onClick={handleOnNav}></img>
             </div>
             <div>
                 <p>
-                    <span className="post-comment-fullname">{comment.by.fullName} </span>
+                    <span className="post-comment-fullname" onClick={handleOnNav}>{comment.by.fullName} </span>
                     {loading ? 'Loading...' : translatedText}
                 </p>
                 <div className="post-comment-under-details">
