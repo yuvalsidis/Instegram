@@ -1,6 +1,6 @@
 import { FollowerList } from "./FollowersList"
 import { useNavigate, useParams } from "react-router-dom"
-import { removeFollowerModal } from "./RemoveFollowerModal"
+import { RemoveFollowerModalContainer } from "./RemoveFollowerModalContainer"
 
 export function FollowersContainer({ fullUser, isWatchedUser, loggedInUser}) {
     const navigate = useNavigate()
@@ -23,7 +23,7 @@ export function FollowersContainer({ fullUser, isWatchedUser, loggedInUser}) {
                 <input className="filter-bar-input" type="text" placeholder="Search"></input>
             </div>
             <FollowerList fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} />
-            <removeFollowerModal/>
+            <RemoveFollowerModalContainer/>
         </div >
     )
 }
