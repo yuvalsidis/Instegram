@@ -1,5 +1,7 @@
 
-export function RemoveFollowerModal(){
+export function RemoveFollowerModal({isWatchedUser}){
+    console.log(isWatchedUser)
+    
     return (
         <section className="remove-follower-modal">
             <h1>Hi</h1>

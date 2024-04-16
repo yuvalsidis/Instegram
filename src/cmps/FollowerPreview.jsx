@@ -1,7 +1,8 @@
+import { RemoveFollowerModalContainer } from "./RemoveFollowerModalContainer"
 
 export function FollowerPreview({ user, isWatchedUser, loggedInUser }) {
     const isloggedInUserFollowUser = loggedInUser.info.following.some(userFollowing => userFollowing._id === user._id)
-
+    
     return (
         <>
             <div className="user-img-container">
@@ -36,6 +37,8 @@ export function FollowerPreview({ user, isWatchedUser, loggedInUser }) {
                     </div>
                 </>
             }
+             <RemoveFollowerModalContainer  isWatchedUser={isWatchedUser}/>
         </>
+        
     )
 }

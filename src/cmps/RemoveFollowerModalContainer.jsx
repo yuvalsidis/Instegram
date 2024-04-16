@@ -1,9 +1,9 @@
 import { RemoveFollowerModal } from "./RemoveFollowerModal"
 
-export function RemoveFollowerModalContainer(){
+export function RemoveFollowerModalContainer({isWatchedUser}){
     return (
         <section className="remove-follower-modal-container">
-            <RemoveFollowerModal/>
+            <RemoveFollowerModal isWatchedUser={isWatchedUser}/>
         </section>
     )
 }
