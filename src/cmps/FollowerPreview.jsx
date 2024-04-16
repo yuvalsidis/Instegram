@@ -1,6 +1,6 @@
 
-export function FollowerPreview({ user, isWatchedUser, loggedInUser}) {
-    
+export function FollowerPreview({ user, isWatchedUser, loggedInUser }) {
+    const isloggedInUserFollowUser = loggedInUser.info.following.some(userFollowing => userFollowing._id === user._id)
 
     return (
         <>
@@ -13,10 +13,22 @@ export function FollowerPreview({ user, isWatchedUser, loggedInUser}) {
             </div>
             {isWatchedUser ?
                 <>
-                    <div className="follow-btn-container">
-                        <button className="following-btn">Following</button>
-                    </div>
+                    {isloggedInUserFollowUser ?
+                        <>
+                            <div className="follow-btn-container">
+                                <button className="following-btn">Following</button>
+                            </div>
+                        </>
+                        :
+                        <>
+                            <div className="follow-btn-container">
+                                <button className="follow-btn">Follow</button>
+                            </div>
+                        </>
+
+                    }
                 </>
+
                 :
                 <>
                     <div className="follow-btn-container">

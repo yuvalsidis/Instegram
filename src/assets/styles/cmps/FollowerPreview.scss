@@ -56,4 +56,12 @@
     .firstname-secondname-p {
         color: $clr4;
     }
+
+    .follow-btn {
+        background-color: $clr12;
+        color: $clr_bg ;
+        padding: 7px 16px;
+        font-weight: $font-weight-system-semibold;
+
+    }
 }
