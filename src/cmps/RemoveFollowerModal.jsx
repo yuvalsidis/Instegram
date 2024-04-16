@@ -10,6 +10,10 @@ export function RemoveFollowerModal({isWatchedUser ,user}){
                 <p className="question">Remove follower?</p>
                 <p className="details">{`instegram won't tell ${user.username} they were removed from your followers`}</p>
             </div>
+            <div className="remove-follower-modal-btns">
+                <button className="unfollow-n-remove-btn">Remove</button>
+                <button className="cancel-btn">Cancel</button>
+            </div>
         </section>
     )
 }
