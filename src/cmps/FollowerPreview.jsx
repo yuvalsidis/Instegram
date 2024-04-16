@@ -1,8 +1,14 @@
 import { RemoveFollowerModalContainer } from "./RemoveFollowerModalContainer"
+import { useState } from "react"
 
-export function FollowerPreview({ user, isWatchedUser, loggedInUser }) {
+export function FollowerPreview({ user, isWatchedUser, loggedInUser, userId }) {
+    const [isRemoveFollowerModalOpen, setIsRemoveFollowerModalOpen] = useState(false) 
     const isloggedInUserFollowUser = loggedInUser.info.following.some(userFollowing => userFollowing._id === user._id)
     
+    function handleClickOnRemoveNFollowing(){
+        setIsRemoveFollowerModalOpen(true)
+    }
+
     return (
         <>
             <div className="user-img-container">
@@ -17,7 +23,7 @@ export function FollowerPreview({ user, isWatchedUser, loggedInUser }) {
                     {isloggedInUserFollowUser ?
                         <>
                             <div className="follow-btn-container">
-                                <button className="following-btn">Following</button>
+                                <button className="following-btn" onClick={handleClickOnRemoveNFollowing}>Following</button>
                             </div>
                         </>
                         :
@@ -33,11 +39,12 @@ export function FollowerPreview({ user, isWatchedUser, loggedInUser }) {
                 :
                 <>
                     <div className="follow-btn-container">
-                        <button className="following-btn">Remove</button>
+                        <button className="following-btn" onClick={handleClickOnRemoveNFollowing}>Remove</button>
                     </div>
                 </>
             }
-             <RemoveFollowerModalContainer  isWatchedUser={isWatchedUser} user={user}/>
+            {isRemoveFollowerModalOpen && <RemoveFollowerModalContainer  isWatchedUser={isWatchedUser} user={user} userId={userId} setIsRemoveFollowerModalOpen={setIsRemoveFollowerModalOpen}/>}
+        
         </>
         
     )
