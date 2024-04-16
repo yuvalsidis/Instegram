@@ -1,11 +1,18 @@
 import { useLocation } from 'react-router-dom'
+import { useNavigate, useParams } from "react-router-dom"
 
 export function RemoveFollowerModal({ isWatchedUser, user, userId, setIsRemoveFollowerModalOpen, onUpdateUsers, loggedInUser, fullUser }) {
     const location = useLocation()
+    const navigate = useNavigate()
+
     console.log(onUpdateUsers)
 
     function handleClickOnCancel() {
         setIsRemoveFollowerModalOpen(false)
+    }
+
+    function handleOnClickPhoto(){
+        user._id === loggedInUser._id?  navigate('/profile') : navigate(`/profile/${user._id}`)
     }
 
     function handleClickOnRemove() {
@@ -56,8 +63,8 @@ export function RemoveFollowerModal({ isWatchedUser, user, userId, setIsRemoveFo
 
                 <>
                     <section className="remove-follower-modal">
-                        <div className="user-img-container">
-                            <img className="profilePreviewImg user-img" src={user.imgUrl} alt="profile-img"></img>
+                        <div className="user-img-container" >
+                            <img className="profilePreviewImg user-img" onClick={handleOnClickPhoto} src={user.imgUrl} alt="profile-img"></img>
                         </div>
                         <div className="remove-follower-modal-desc">
                             <p className="question">Remove follower?</p>
@@ -73,7 +80,7 @@ export function RemoveFollowerModal({ isWatchedUser, user, userId, setIsRemoveFo
                 <>
                     <section className="remove-follower-modal remove-follower-modal-adjustment">
                         <div className="user-img-container">
-                            <img className="profilePreviewImg user-img" src={user.imgUrl} alt="profile-img"></img>
+                            <img className="profilePreviewImg user-img" onClick={handleOnClickPhoto} src={user.imgUrl} alt="profile-img"></img>
                         </div>
                         <div className="remove-follower-modal-desc">
                             <p className="details">{`If you change your mind, you'll have to request to follow ${user.username} again.`}</p>
