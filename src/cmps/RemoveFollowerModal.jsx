@@ -1,14 +1,9 @@
 import { useLocation } from 'react-router-dom'
 
-export function RemoveFollowerModal({ isWatchedUser, user, userId, setIsRemoveFollowerModalOpen}) {
+export function RemoveFollowerModal({ isWatchedUser, user, userId, setIsRemoveFollowerModalOpen }) {
 
-    function handleClickOnCancel(){
-        if(locationPathname.includes('followers')){
-            setIsRemoveFollowerModalOpen(false)
-        }
-        else{
-            setIsRemoveFollowerModalOpen(false)
-        }
+    function handleClickOnCancel() {
+        setIsRemoveFollowerModalOpen(false)
     }
     return (
         <>
