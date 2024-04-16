@@ -14,7 +14,7 @@
         width: 368px;
         height: 88px;
         justify-content: center;
-        margin: 32px 8px;
+        margin: 32px 16px;
 
         .user-img {
             height: 88px;
@@ -28,6 +28,7 @@
         justify-content: center;
         text-align: center;
         margin-left: 30px;
+        
 
         .question {
             font-size: rem($system-24-font-size);
@@ -41,9 +42,35 @@
             font-size: rem($system-14-font-size);
             line-height: rem($system-14-line-height);
             margin: 0px;
-            padding: 16px 0px 0px;
+            padding: 8px 0px 0px;
             width: 336px;
             color: $clr4;
+        }
+    }
+
+    .remove-follower-modal-btns {
+        margin-top: 26px;
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+
+        .unfollow-n-remove-btn {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: rem($system-14-font-size);
+            line-height: rem($system-14-line-height);
+            font-weight: $font-weight-system-bold;
+            height: 48px;
+            padding: 4px 8px;
+            color: $clr13;
+
+        }
+
+        .cancel-btn {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: rem($system-14-font-size);
+            line-height: rem($system-14-line-height);
+            height: 48px;
+            padding: 4px 8px;
         }
     }
 
