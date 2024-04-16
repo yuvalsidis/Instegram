@@ -1,6 +1,15 @@
+import { useLocation } from 'react-router-dom'
 
-export function RemoveFollowerModal({ isWatchedUser, user }) {
+export function RemoveFollowerModal({ isWatchedUser, user, userId, setIsRemoveFollowerModalOpen}) {
 
+    function handleClickOnCancel(){
+        if(locationPathname.includes('followers')){
+            setIsRemoveFollowerModalOpen(false)
+        }
+        else{
+            setIsRemoveFollowerModalOpen(false)
+        }
+    }
     return (
         <>
             {isWatchedUser ?
@@ -14,7 +23,7 @@ export function RemoveFollowerModal({ isWatchedUser, user }) {
                         </div>
                         <div className="remove-follower-modal-btns">
                             <button className="unfollow-n-remove-btn">Unfollow</button>
-                            <button className="cancel-btn">Cancel</button>
+                            <button className="cancel-btn" onClick={handleClickOnCancel}>Cancel</button>
                         </div>
                     </section>
                 </>
@@ -30,7 +39,7 @@ export function RemoveFollowerModal({ isWatchedUser, user }) {
                         </div>
                         <div className="remove-follower-modal-btns">
                             <button className="unfollow-n-remove-btn">Remove</button>
-                            <button className="cancel-btn">Cancel</button>
+                            <button className="cancel-btn" onClick={handleClickOnCancel}>Cancel</button>
                         </div>
                     </section>
                 </>
