@@ -15,10 +15,14 @@
         justify-content: center;
         margin: 32px 16px;
 
-        .user-img {
+        .user-img {            
             height: 88px;
             width: 88px;
+            &:hover{
+                cursor: pointer;
+            }
         }
+
     }
 
     .remove-follower-modal-desc {
