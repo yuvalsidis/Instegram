@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { loadUserById } from "../store/user.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { store } from "../store/store"
-
+import { userService } from "../services/user.service";
 
 export function FollowingPage() {
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
@@ -21,11 +21,11 @@ export function FollowingPage() {
         }
     }, [])
 
-    useEffect(() =>{
+    useEffect(() => {
         onLoadUser()
-        setIsWatchedUser(userId === loggedInUser._id? false : true)
+        setIsWatchedUser(userId === loggedInUser._id ? false : true)
     }, [])
-     
+
     function onLoadUser() {
         loadUserById(userId)
             .then((fetchedUser) => {
@@ -37,13 +37,25 @@ export function FollowingPage() {
             })
 
     }
-    
-    console.log('User in follow page', fullUser)
-    console.log('is watched user? ', isWatchedUser)
 
-    return (
-        <section className="following-page">
-            <FollowingContainer fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} userId={userId}/>
-        </section>
-    )
+    async function onUpdateUsers(loggedInUserToUpdate, userToUpdate) {
+
+        try {
+            await userService.update(loggedInUser._id, loggedInUserToUpdate)
+            await userService.update(userId, userToUpdate)
+            showSuccessMsg('Following page: Success update users')
+        }
+        catch (err) {
+            showErrorMsg('Following page: Error by update users', err)
+        }
+    }
+
+console.log('User in follow page', fullUser)
+console.log('is watched user? ', isWatchedUser)
+
+return (
+    <section className="following-page">
+        <FollowingContainer fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} userId={userId} />
+    </section>
+)
 }
