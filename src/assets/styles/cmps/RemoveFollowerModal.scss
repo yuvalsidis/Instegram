@@ -8,7 +8,6 @@
     height: 346px;
     font-size: rem($system-14-font-size);
     line-height: rem($system-14-line-height);
-
     .user-img-container {
         display: flex;
         width: 368px;
@@ -76,3 +75,7 @@
 
     // profilePreviewImg user-img
 }
+
+.remove-follower-modal-adjustment{
+    height: 321px;
+ }
