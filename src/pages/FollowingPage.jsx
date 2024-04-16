@@ -38,10 +38,10 @@ export function FollowingPage() {
 
     }
 
-    async function onUpdateUsers(updatedFullUser, updateUserOnAct) {
+    async function onUpdateUsers(updateLoggedInUser, updateUserOnAct) {
 
         try {
-            await userService.update(updatedFullUser._id, updatedFullUser)
+            await userService.update(updateLoggedInUser._id, updateLoggedInUser)
             await userService.update(updateUserOnAct._id, updateUserOnAct)
             showSuccessMsg('Following page: Success update users')
         }
