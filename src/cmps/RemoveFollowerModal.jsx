@@ -56,7 +56,7 @@ export function RemoveFollowerModal({ isWatchedUser, user, userId, setIsRemoveFo
         setIsRemoveFollowerModalOpen(false)
 
     }
-
+   
     return (
         <>
             {location.pathname.includes('followers') && !isWatchedUser ?

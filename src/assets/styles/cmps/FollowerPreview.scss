@@ -9,7 +9,11 @@
         .user-img {
             height: 44px;
             width: 44px;
+            &:hover{
+                cursor: pointer;
+            }
         }
+        
     }
 
     .user-names {
