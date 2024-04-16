@@ -43,7 +43,7 @@ export function FollowingPage() {
 
     return (
         <section className="following-page">
-            <FollowingContainer fullUser={fullUser} isWatchedUser={isWatchedUser}/>
+            <FollowingContainer fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser}/>
         </section>
     )
 }
