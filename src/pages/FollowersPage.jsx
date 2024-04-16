@@ -43,7 +43,7 @@ export function FollowersPage() {
 
     return (
         <section className="followers-page">
-             <FollowersContainer fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser}/>
+             <FollowersContainer fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} userId={userId}/>
         </section>
     )
 }
