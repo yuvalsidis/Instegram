@@ -38,11 +38,11 @@ export function FollowingPage() {
 
     }
 
-    async function onUpdateUsers(loggedInUserToUpdate, userToUpdate) {
+    async function onUpdateUsers(updatedFullUser, updateUserOnAct) {
 
         try {
-            await userService.update(loggedInUser._id, loggedInUserToUpdate)
-            await userService.update(userId, userToUpdate)
+            await userService.update(updatedFullUser._id, updatedFullUser)
+            await userService.update(updateUserOnAct._id, updateUserOnAct)
             showSuccessMsg('Following page: Success update users')
         }
         catch (err) {
@@ -50,12 +50,13 @@ export function FollowingPage() {
         }
     }
 
+
 console.log('User in follow page', fullUser)
 console.log('is watched user? ', isWatchedUser)
 
 return (
     <section className="following-page">
-        <FollowingContainer fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} userId={userId} />
+        <FollowingContainer fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} userId={userId}  onUpdateUsers={ onUpdateUsers}/>
     </section>
 )
 }

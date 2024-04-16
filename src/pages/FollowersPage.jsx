@@ -6,6 +6,7 @@ import { loadUserById } from "../store/user.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { store } from "../store/store"
 import { userService } from "../services/user.service";
+
 export function FollowersPage() {
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
@@ -37,11 +38,11 @@ export function FollowersPage() {
 
     }
 
-    async function onUpdateUsers(loggedInUserToUpdate, userToUpdate) {
+    async function onUpdateUsers(updatedFullUser, updateUserOnAct) {
 
         try {
-            await userService.update(loggedInUser._id, loggedInUserToUpdate)
-            await userService.update(userId, userToUpdate)
+            await userService.update(updatedFullUser._id, updatedFullUser)
+            await userService.update(updateUserOnAct._id, updateUserOnAct)
             showSuccessMsg('Following page: Success update users')
         }
         catch (err) {
@@ -56,7 +57,7 @@ export function FollowersPage() {
 
     return (
         <section className="followers-page">
-             <FollowersContainer fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} userId={userId}/>
+             <FollowersContainer fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} userId={userId} onUpdateUsers={onUpdateUsers}/>
         </section>
     )
 }

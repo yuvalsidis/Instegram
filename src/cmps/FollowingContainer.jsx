@@ -1,7 +1,7 @@
 import { FollowerList } from "./FollowersList"
 import { useNavigate, useParams } from "react-router-dom"
  
-export function FollowingContainer({ fullUser, isWatchedUser, loggedInUser, userId }) {
+export function FollowingContainer({ fullUser, isWatchedUser, loggedInUser, userId ,onUpdateUsers}) {
     const navigate = useNavigate()
     
     function handleClickOnExit(){
@@ -21,7 +21,7 @@ export function FollowingContainer({ fullUser, isWatchedUser, loggedInUser, user
             <div className="filterbar-container">
                 <input className="filter-bar-input" type="text" placeholder="Search"></input>
             </div>
-            <FollowerList fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} userId={userId}/>
+            <FollowerList fullUser={fullUser} isWatchedUser={isWatchedUser} loggedInUser={loggedInUser} userId={userId} onUpdateUsers={onUpdateUsers}/>
         </div >
     )
 }

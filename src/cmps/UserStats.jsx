@@ -5,9 +5,11 @@ export function UserStats({ watchedUser, loggedInUser}) {
 
     function handleClickOnFollowers(){
         console.log('clicked on followers')
+        console.log('asdasdas', watchedUser)
         watchedUser? navigate(`/profile/${watchedUser._id}/followers`) : navigate(`/profile/${loggedInUser._id}/followers`)
     }
     function handleClickOnFollowing(){
+        console.log('asdasdas', watchedUser)
         console.log('clicked on following')
         watchedUser? navigate(`/profile/${watchedUser._id}/following`) : navigate(`/profile/${loggedInUser._id}/following`)
     }
