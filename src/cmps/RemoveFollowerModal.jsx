@@ -1,10 +1,11 @@
 
-export function RemoveFollowerModal({isWatchedUser}){
-    console.log(isWatchedUser)
-    
+export function RemoveFollowerModal({isWatchedUser ,user}){
+
     return (
         <section className="remove-follower-modal">
-            <h1>Hi</h1>
+             <div className="user-img-container">
+                <img className="profilePreviewImg user-img" src={user.imgUrl} alt="profile-img"></img>
+            </div>
         </section>
     )
 }

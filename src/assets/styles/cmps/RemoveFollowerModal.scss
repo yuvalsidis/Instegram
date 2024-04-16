@@ -1,4 +1,4 @@
-.remove-follower-modal{
+.remove-follower-modal {
     background-color: $clr_bg;
     display: flex;
     flex-direction: column;
@@ -8,4 +8,19 @@
     height: 346px;
     font-size: rem($system-14-font-size);
     line-height: rem($system-14-line-height);
+
+    .user-img-container {
+        display: flex;
+        width: 368px;
+        height: 88px;
+        justify-content: center;
+        margin: 32px 8px;
+        .user-img {
+            height: 88px;
+            width: 88px;
+        }
+    }
+
+
+    // profilePreviewImg user-img
 }

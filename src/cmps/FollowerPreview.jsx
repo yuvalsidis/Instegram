@@ -37,7 +37,7 @@ export function FollowerPreview({ user, isWatchedUser, loggedInUser }) {
                     </div>
                 </>
             }
-             <RemoveFollowerModalContainer  isWatchedUser={isWatchedUser}/>
+             <RemoveFollowerModalContainer  isWatchedUser={isWatchedUser} user={user}/>
         </>
         
     )
