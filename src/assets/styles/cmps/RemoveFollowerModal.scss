@@ -15,12 +15,37 @@
         height: 88px;
         justify-content: center;
         margin: 32px 8px;
+
         .user-img {
             height: 88px;
             width: 88px;
         }
     }
 
+    .remove-follower-modal-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-left: 30px;
+
+        .question {
+            font-size: rem($system-24-font-size);
+            line-height: rem($system-24-line-height);
+            font-weight: $font-weight-system-bold;
+            width: 336px;
+            margin: 0px;
+        }
+
+        .details {
+            font-size: rem($system-14-font-size);
+            line-height: rem($system-14-line-height);
+            margin: 0px;
+            padding: 16px 0px 0px;
+            width: 336px;
+            color: $clr4;
+        }
+    }
 
     // profilePreviewImg user-img
 }
