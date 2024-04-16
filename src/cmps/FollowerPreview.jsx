@@ -19,9 +19,9 @@ export function FollowerPreview({ user, isWatchedUser, loggedInUser, userId, onU
     }
 
     async function handleClickOnFollow() {
-        console.log('hi!!!!!', user._id)
         try {
-            userToUpdate = await userService.getById(user._id)
+            console.log('hi!!!!!', user._id)
+            const userToUpdate = await userService.getById(user._id)
             const updatedLoggedInUser = {
                 ...loggedInUser,
                 info: {
@@ -57,28 +57,9 @@ export function FollowerPreview({ user, isWatchedUser, loggedInUser, userId, onU
             onUpdateUsers(updatedLoggedInUser, updatedUserOnAct)
         }
         catch (err) {
-            console.log('couldnt fetch user to follow or unfollow from service')
+            console.log('couldnt fetch user to follow or unfollow from service', err)
         }
     }
-    // function handleClickOnUnfollow() {
-    //     const updatedLoggedInUser = {
-    //         ...loggedInUser,
-    //         info: {
-    //             ...loggedInUser.info,
-    //             following: loggedInUser.info.following.filter(followingUser => followingUser._id !== user._id)
-    //         }
-    //     }
-    //     const updateUserOnAct = {
-    //         ...user,
-    //         info: {
-    //             ...user.info,
-    //             followers: fullUser.info.followers.filter(followUser => followUser._id !== loggedInUser._id)
-    //         }
-    //     }
-    //     onUpdateUsers(updatedLoggedInUser, updateUserOnAct)
-    //     setIsRemoveFollowerModalOpen(false)
-
-    // }
 
     return (
         <>
