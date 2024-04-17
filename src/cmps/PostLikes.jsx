@@ -1,14 +1,15 @@
 
 export function PostLikes({ post, isPostDetailsPage}) {
 
-    function addCommasToNumber(number) {
-        // Convert the number to a string with commas
+    function addCommas(number) {
+        // Convert the number to an integer to remove the fractional part
+        number = Math.trunc(number);
         return number.toLocaleString();
     }
-
+    
     return (
         <div className={isPostDetailsPage? "page-post-likes" : "post-likes"}>
-            <p><span>{ addCommasToNumber(post.demodata.likes)}</span> likes</p>
+            <p><span>{  addCommas(post.demodata.likes)}</span> likes</p>
         </div>
     )
 }

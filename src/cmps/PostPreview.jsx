@@ -15,6 +15,7 @@ export function PostPreview({ post, user_id}) {
     }
 
     function formatNumber(num) {
+        num = Math.trunc(num); // Remove the fractional part
         if (num < 10000) {
             return num.toLocaleString(); 
         } else if (num < 1000000) {
@@ -23,7 +24,6 @@ export function PostPreview({ post, user_id}) {
             return (num / 1000000).toFixed(1) + 'M'; 
         }
     }
-
     return (
         <>
             <img onClick={handleClickOnImg} className="post-preview-img" src={post.imgUrl}></img>

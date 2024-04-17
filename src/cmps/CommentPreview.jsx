@@ -39,6 +39,7 @@ export function CommentPreview({ comment, loggedInUser }) {
     };
 
     function formatCommentLikes(num) {
+        num = Math.trunc(num); // Remove the fractional part
         if (num < 1000) {
             return num.toLocaleString(); // Use commas for numbers up to 999
         } else if (num < 1000000) {

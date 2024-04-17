@@ -9,20 +9,36 @@ export function PostActions({ post, onUpdatePost, isPostDetailsPage, loggedInUse
     const isSaved = post.savedBy.some(savedBy => (savedBy._id === loggedInUser._id))
 
     function handleClickOnLikePost(value) {
-        let updatedLikedPost = []
+        let updatedLikedPost = {};
         if (value) {
             updatedLikedPost = {
-                ...post, likedBy: [...post.likedBy, {
-                    _id: loggedInUser._id, firstname: loggedInUser.firstname,
-                    lastname: loggedInUser.lastname, imgUrl: loggedInUser.imgUrl
-                }]
-            }
+                ...post,
+                demodata: {
+                    ...post.demodata,
+                    likes: post.demodata.likes + 1
+                },
+                likedBy: [
+                    ...post.likedBy,
+                    {
+                        _id: loggedInUser._id,
+                        firstname: loggedInUser.firstname,
+                        lastname: loggedInUser.lastname,
+                        imgUrl: loggedInUser.imgUrl
+                    }
+                ]
+            };
+        } else {
+            const updatedLikes = post.demodata.likes > 0 ? post.demodata.likes - 1 : 0;
+            updatedLikedPost = {
+                ...post,
+                demodata: {
+                    ...post.demodata,
+                    likes: updatedLikes
+                },
+                likedBy: post.likedBy.filter(likedUser => likedUser._id !== loggedInUser._id)
+            };
         }
-        else {
-            updatedLikedPost = { ...post, likedBy: post.likedBy.filter(likedUser => (likedUser._id != loggedInUser._id)) }
-        }
-
-        onUpdatePost(updatedLikedPost)
+        onUpdatePost(updatedLikedPost);
     }
 
     
@@ -75,11 +91,13 @@ export function PostActions({ post, onUpdatePost, isPostDetailsPage, loggedInUse
                 </div>
             </div>
             <div className="post-actions-secondary-btns" onClick={handleClickOnSavePost}>
+
                 {isSaved ? (
                     <img className='icon' src="/public/icons/BlackBookmark.svg" alt="black Bookmark Icon" onClick={() => handleClickOnSavedPost(false)} />
                 ) : (
                     <img className='icon' src="/public/icons/Bookmark.svg" alt="bookmark Icon" onClick={() => handleClickOnSavedPost(true)} />
                 )}
+
             </div>
             {/* <PostShare/>  will be the in modal*/}
             {/* <PostDetails/> opptional with nav link*/}
