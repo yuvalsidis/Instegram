@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 export function FollowerList({ fullUser, isWatchedUser, loggedInUser, userId, onUpdateUsers}) {
    const location = useLocation()
-   if (!fullUser) return <div>Loading</div>
+   if (!fullUser) return null
 
    return (
       <div className="follower-list">

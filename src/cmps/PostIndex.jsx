@@ -50,7 +50,7 @@ export function PostIndex() {
 
     console.log('posts in PostIndex',posts)
 
-    if (isLoading) return <div>Loading</div>
+    if (isLoading) return null
     return (
         <div className="post-index">
             <PostList 

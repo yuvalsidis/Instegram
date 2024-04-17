@@ -72,9 +72,8 @@ export function ProfilePage() {
             })
     }
 
-    if (isLoadingUsers) return <div>Loading User</div>
-    if (!loggedInUser) return <div>Logged in to continue</div>
-
+    if (isLoadingUsers) return null
+ 
     return (
         <section className="profile-page main">
             <div className="profile-main-content-container">

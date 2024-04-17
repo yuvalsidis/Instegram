@@ -73,7 +73,7 @@ export function PostDetailsPage() {
         })
     }
 
-    if (postLoading) return <div>Loading</div>
+   
     if (post) return (
         <section className="post-details-page">
             <PostDetails 

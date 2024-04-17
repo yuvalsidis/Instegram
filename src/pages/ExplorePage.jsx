@@ -37,7 +37,6 @@ export function ExplorePage(){
     }
 
 
-    if (isLoading) return <div>Loading Posts</div>
     return (
         <section className="explore-page">
             <ExplorePostList posts={posts}/>

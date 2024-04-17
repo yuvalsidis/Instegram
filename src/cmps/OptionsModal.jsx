@@ -22,7 +22,7 @@ export function OptionsModal({ setIsOptionsModalOpen, onRemovePost }) {
         onRemovePost()
     }
 
-    onRemovePost
+    
     return (
         <section className="options-modal">
 
