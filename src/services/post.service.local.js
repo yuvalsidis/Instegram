@@ -24,7 +24,7 @@ window.cs = postService
 
 async function query(filterBy) {
     console.log('filterByInQUERY', filterBy)
-    
+
     let posts = await storageService.query(STORAGE_KEY)
     if (filterBy.savedBy_id) {
         posts = posts.filter(post => (post.savedBy.some(savedByUser => savedByUser._id === filterBy.savedBy_id)))
@@ -98,6 +98,10 @@ function getEmptyPost() {
             lat: 11.11,
             lng: 22.22,
             name: "Tel Aviv"
+        },
+        demodata: {
+            likes: utilService.getRandomNumberInRange(1000, 1000000, 10, 1000),
+            comments: utilService.getRandomIntInclusive(10 ,1000, 5000, 10300),
         },
         comments: [
             {
@@ -185,7 +189,7 @@ function _createPost(users) {
 
 
     post.comments = []
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
         post.comments.push(_createComment())
     }
 
@@ -197,6 +201,7 @@ function _createComment() {
     var comment = {
         id: utilService.makeId(),
         createdAt: new Date(),
+        demodatalikes: utilService.getRandomNumberInRange(30, 100, 800, 2500),
         by: {
             _id: utilService.makeId(),
             fullName: utilService.getRandomName(),

@@ -8,6 +8,10 @@ import { PostLikes } from "./PostLikes"
 // import { RandomImage } from "./RandomImage"
 
 export function Post({ post, onUpdatePost, loggedInUser, setIsOptionsModalOpen}) {
+    function addCommasToNumber(number) {
+        // Convert the number to a string with commas
+        return number.toLocaleString();
+    }
 
     return (
         <>
@@ -16,7 +20,7 @@ export function Post({ post, onUpdatePost, loggedInUser, setIsOptionsModalOpen})
             <PostActions post={post} onUpdatePost={onUpdatePost} loggedInUser={loggedInUser}/>
             <PostLikes post={post} />
             <PostDescription post={post} />
-            <button className="view-comments-btn">View all {post.comments.length} comments</button>
+            <button className="view-comments-btn">View all {addCommasToNumber(post.demodata.comments)} comments</button>
             <PostAddComment post={post} onUpdatePost={onUpdatePost} loggedInUser={loggedInUser} />
         </>
     )

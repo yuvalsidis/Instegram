@@ -73,7 +73,7 @@ export function PostDetailsPage() {
         })
     }
 
-   
+    if (!post) return null
     if (post) return (
         <section className="post-details-page">
             <PostDetails 

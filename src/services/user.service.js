@@ -123,7 +123,23 @@ async function _createUsers() {
                 await userService.signup(_createUser('Noa', 'Cohen', '123', false, 'noacohen', 'noacohen@gmail.com', '/public/img/8.png')),
                 await userService.signup(_createUser('Amir', 'Yomtov', '123', false, 'amiryomtov', 'amiryomtov@gmail.com', '/public/img/9.png')),
                 await userService.signup(_createUser('Doron', 'Peretz', '123', false, 'doronperetz', 'doronperetz@gmail.com', '/public/img/10.png')),
+                await userService.signup(_createUser('David', 'Cohen', '123', false, 'davidcohen', 'davidcohen@gmail.com', '/public/img/11.png')),
+                await userService.signup(_createUser('Ron', 'Levi', '123', false, 'ronlevi', 'ronlevi@gmail.com', '/public/img/12.png')),
+                await userService.signup(_createUser('Sharon', 'Mizrachi', '123', false, 'sharonmizrachi', 'sharonmizrachi@gmail.com', '/public/img/13.png')),
+                await userService.signup(_createUser('Yael', 'Peretz', '123', false, 'yaelperetz', 'yaelperetz@gmail.com', '/public/img/14.png')),
+                await userService.signup(_createUser('Avi', 'Sabach', '123', false, 'avisabach', 'avisabach@gmail.com', '/public/img/15.png')),
+                await userService.signup(_createUser('Maya', 'Levi', '123', false, 'mayalevi', 'mayalevi@gmail.com', '/public/img/16.png')),
+                await userService.signup(_createUser('Daniel', 'Cohen', '123', false, 'danielcohen', 'danielcohen@gmail.com', '/public/img/17.png')),
+                await userService.signup(_createUser('Or', 'Mizrahi', '123', false, 'ormizrahi', 'ormizrahi@gmail.com', '/public/img/18.png')),
+                await userService.signup(_createUser('Neta', 'Peretz', '123', false, 'netaperetz', 'netaperetz@gmail.com', '/public/img/19.png')),
+                await userService.signup(_createUser('Roni', 'Sabach', '123', false, 'ronisabach', 'ronisabach@gmail.com', '/public/img/20.png')),
+                await userService.signup(_createUser('Gal', 'Cohen', '123', false, 'galcohen', 'galcohen@gmail.com', '/public/img/21.png')),
+                await userService.signup(_createUser('Shira', 'Levi', '123', false, 'shiralevi', 'shiralevi@gmail.com', '/public/img/22.png')),
+                await userService.signup(_createUser('Yoni', 'Mizrahi', '123', false, 'yonimizrahi', 'yonimizrahi@gmail.com', '/public/img/23.png')),
+                await userService.signup(_createUser('May', 'Cohen', '123', false, 'maycohen', 'maycohen@gmail.com', '/public/img/24.png')),
+                await userService.signup(_createUser('Galit', 'Levi', '123', false, 'galitlevi', 'galitlevi@gmail.com', '/public/img/25.png')),
                 await userService.signup(_createUser('Eyal', 'Sabach', '123', false, 'eyalsabah', 'eyalsabah@gmail.com', '/public/img/7.png'))
+
             ]);
             try {
                 let updatedUsers = await storageService.query('user');
@@ -155,6 +171,8 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
         isAdmin,
         imgUrl,
         info: {
+            demodatafollowers: utilService.getRandomIntInclusive(300,1500),
+            demodataFollowing: utilService.getRandomIntInclusive(300,1500),
             posts: '13',
             followers: [
 

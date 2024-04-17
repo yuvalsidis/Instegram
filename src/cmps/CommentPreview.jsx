@@ -38,6 +38,15 @@ export function CommentPreview({ comment, loggedInUser }) {
         setIsTranslatedToHebrew(!isTranslatedToHebrew);
     };
 
+    function formatCommentLikes(num) {
+        if (num < 1000) {
+            return num.toLocaleString(); // Use commas for numbers up to 999
+        } else if (num < 1000000) {
+            return (num / 1000).toFixed(1) + 'K'; // Abbreviate with 'K' for numbers between 1,000 and 999,999
+        } else {
+            return (num / 1000000).toFixed(1) + 'M'; // Abbreviate with 'M' for numbers equal to or greater than 1,000,000
+        }
+    }
 
     return (
         <>
@@ -51,8 +60,8 @@ export function CommentPreview({ comment, loggedInUser }) {
                 </p>
                 <div className="post-comment-under-details">
                     <p className="passed-time post-details-passed-time">{timeSinceCreation}</p>
-                    {(comment.likedBy.length > 0 && comment.likedBy.length < 10) ? <p className="comment-likes">{comment.likedBy.length} like</p> : null}
-                    {(comment.likedBy.length > 10) ? <p className="comment-likes" >{comment.likedBy.length} likes</p> : null}
+                    {(comment.demodatalikes > 0 && comment.demodatalikes < 10) ? <p className="comment-likes">{formatCommentLikes(comment.likedBy.length)} like</p> : null}
+                    {(comment.demodatalikes > 10) ? <p className="comment-likes" >{formatCommentLikes(comment.demodatalikes)} likes</p> : null}
                     <button className="translate-btn" onClick={toggleTranslation}>
                         {isTranslatedToHebrew ? "See orginal" : "See translation"}
                     </button>

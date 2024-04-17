@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined';
+import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined'
 
-import { postService } from '../services/post.service.local';
-import { utilService } from '../services/util.service';
+import { postService } from '../services/post.service.local'
+import { utilService } from '../services/util.service'
 
 
 export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedInUser }) {
@@ -16,7 +16,7 @@ export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedIn
 
         // Check if the scroll height decreased
         if (textarea.scrollHeight < textarea.offsetHeight) {
-            textarea.style.height = `${textarea.scrollHeight}px`;
+            textarea.style.height = `${textarea.scrollHeight}px`
         }
 
         setComment({
@@ -32,19 +32,19 @@ export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedIn
     }
 
     return (
-        <div className={isPostDetailsPage ? "page-post-add-comment" : "post-add-comment"}>
+        <div className={isPostDetailsPage ? 'page-post-add-comment' : 'post-add-comment'}>
             {isPostDetailsPage ?
                 <>
                     <div className='emoji-icon-container'>
                         <SentimentSatisfiedOutlinedIcon className="emoji-icon" />
                     </div>
                     <textarea
-                        className="post-add-comment-textarea"
+                        className='post-add-comment-textarea'
                         value={comment.txt}
                         onChange={handleChange}
-                        placeholder="Add a comment..."
+                        placeholder='Add a comment...'
                     />
-                    <button className={comment.txt ? "post-comment-btn" : "post-comment-btn-after"} onClick={() => handleClickPostBtn()}>Post</button>
+                    <button className={comment.txt ? 'post-comment-btn' : 'post-comment-btn-after'} onClick={() => handleClickPostBtn()}>Post</button>
                 </>
                 :
                 <>

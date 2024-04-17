@@ -10,6 +10,7 @@ export const utilService = {
     getRandomSentence,
     generatePostDescription,
     getTimeSinceCreation,
+    getRandomNumberInRange
 }
 
 function makeId(length = 6) {
@@ -124,6 +125,16 @@ function getRandomSentence() {
     const sentence = sentences[getRandomIntInclusive(0, sentences.length - 1)]
     return sentence
 }
+
+function getRandomNumberInRange(range1Start, range1End, range2Start, range2End) {
+    // Generate random numbers within each range
+    const randomNumber1 = Math.random() * (range1End - range1Start + 1) + range1Start;
+    const randomNumber2 = Math.random() * (range2End - range2Start + 1) + range2Start;
+    
+    // Randomly choose between the two numbers
+    return Math.random() < 0.5 ? randomNumber1 : randomNumber2;
+}
+
 
 function generatePostDescription() {
     const descriptions = [

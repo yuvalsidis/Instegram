@@ -13,7 +13,7 @@ export function UserStats({ watchedUser, loggedInUser}) {
         console.log('clicked on following')
         watchedUser? navigate(`/profile/${watchedUser._id}/following`) : navigate(`/profile/${loggedInUser._id}/following`)
     }
-
+    
     return (
         <div className="user-stats">
             {watchedUser ?
@@ -22,10 +22,10 @@ export function UserStats({ watchedUser, loggedInUser}) {
                         <p className="post-stat"> <span>{watchedUser.info.posts}</span> posts</p>
                     </div>
                     <div className="post-stats-container" onClick={handleClickOnFollowers}>
-                        <p className="followers-stat"><span>{watchedUser.info.followers.length}</span> followers</p>
+                        <p className="followers-stat"><span>{watchedUser.info.demodatafollowers}</span> followers</p>
                     </div>
                     <div className="post-stats-container" onClick={handleClickOnFollowing}>
-                        <p className="following-stat"><span>{watchedUser.info.following.length}</span> following</p>
+                        <p className="following-stat"><span>{watchedUser.info.demodataFollowing}</span> following</p>
                     </div>
                 </>
                 :
@@ -34,10 +34,10 @@ export function UserStats({ watchedUser, loggedInUser}) {
                         <p className="post-stat"><span>{loggedInUser.info.posts}</span> posts</p>
                     </div>
                     <div className="post-stats-container" onClick={handleClickOnFollowers}>
-                        <p className="followers-stat" ><span>{loggedInUser.info.followers.length}</span> followers</p>
+                        <p className="followers-stat" ><span>{loggedInUser.info.demodatafollowers}</span> followers</p>
                     </div>
                     <div className="post-stats-container" onClick={handleClickOnFollowing}>
-                        <p className="following-stat" ><span>{loggedInUser.info.following.length}</span> following</p>
+                        <p className="following-stat" ><span>{loggedInUser.info.demodataFollowing}</span> following</p>
                     </div>
 
                 </>
