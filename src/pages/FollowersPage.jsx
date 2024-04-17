@@ -13,6 +13,7 @@ export function FollowersPage() {
     const [isWatchedUser, setIsWatchedUser] = useState(false)
     const [fullUser, setFullUser] = useState(null)
     const { userId } = useParams()
+    const {rerender, setRerender} = useState(false) 
 
     useEffect(() => {
         document.body.classList.add("no-scroll")
@@ -24,7 +25,7 @@ export function FollowersPage() {
     useEffect(() =>{
         onLoadUser()
         setIsWatchedUser(userId === loggedInUser._id? false : true)
-    }, [])
+    }, [rerender])
      
     function onLoadUser() {
         loadUserById(userId)
@@ -44,6 +45,7 @@ export function FollowersPage() {
             await userService.update(updatedFullUser._id, updatedFullUser)
             await userService.update(updateUserOnAct._id, updateUserOnAct)
             showSuccessMsg('Following page: Success update users')
+            // setRerender(true)
         }
         catch (err) {
             showErrorMsg('Following page: Error by update users', err)

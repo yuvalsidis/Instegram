@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined';
 
 import { postService } from '../services/post.service.local';
@@ -61,4 +61,5 @@ export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedIn
             }
         </div>
     );
+
 }

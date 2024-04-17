@@ -1,7 +1,7 @@
 import { FollowerPreview } from "./FollowerPreview"
 import { useLocation } from 'react-router-dom'
 
-export function FollowerList({ fullUser, isWatchedUser, loggedInUser, userId, onUpdateUsers }) {
+export function FollowerList({ fullUser, isWatchedUser, loggedInUser, userId, onUpdateUsers}) {
    const location = useLocation()
    if (!fullUser) return <div>Loading</div>
 
@@ -11,7 +11,7 @@ export function FollowerList({ fullUser, isWatchedUser, loggedInUser, userId, on
             <>
                {
                   fullUser.info.following.map(user => (
-                     <div key={`following-${user.id}`} className="follower-preview">
+                     <div key={`following-${user._id}`} className="follower-preview">
                         <FollowerPreview 
                         user={user}
                         isWatchedUser={isWatchedUser} 
@@ -29,7 +29,7 @@ export function FollowerList({ fullUser, isWatchedUser, loggedInUser, userId, on
             <>
                {
                   fullUser.info.followers.map(user => (
-                     <div key={`follower-${user.id}`} className="follower-preview">
+                     <div key={`follower-${user._id}`} className="follower-preview">
                         <FollowerPreview 
                         user={user} 
                         isWatchedUser={isWatchedUser} 

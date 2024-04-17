@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { useNavigate, useParams } from "react-router-dom"
 import { userService } from "../services/user.service"
 
-export function FollowerPreview({ user, isWatchedUser, loggedInUser, userId, onUpdateUsers, fullUser }) {
+export function FollowerPreview({ user, isWatchedUser, loggedInUser, userId, onUpdateUsers, fullUser}) {
     const [isRemoveFollowerModalOpen, setIsRemoveFollowerModalOpen] = useState(false)
     const isloggedInUserFollowUser = loggedInUser.info.following.some(userFollowing => userFollowing._id === user._id)
     const location = useLocation()
