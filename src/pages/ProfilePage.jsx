@@ -71,8 +71,6 @@ export function ProfilePage() {
                 showErrorMsg('there was a problem with loading user', err)
             })
     }
-
-    if (isLoadingUsers) return null
  
     return (
         <section className="profile-page main">

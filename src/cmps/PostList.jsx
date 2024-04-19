@@ -1,6 +1,8 @@
 import { Post } from "./Post"
 
 export function PostList({ posts, onUpdatePost, loggedInUser ,setIsOptionsModalOpen}) {
+
+    if(!posts) return null
     return (
         <ul className="post-list">
             {posts.map(post => (

@@ -184,9 +184,6 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
             following: [
 
             ],
-            posts: [
-
-            ]
         }
     }
 }
