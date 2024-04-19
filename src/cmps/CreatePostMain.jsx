@@ -9,6 +9,7 @@ export function CreatePostMain({postStage ,setPostStage}){
               null
               }`}>
                <CreatePostMainContent postStage={postStage} setPostStage={setPostStage}/>
+               {postStage === 3 && <CreatePostMainFilter/>}
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import { useState, useRef } from "react"
 
+
 export function CreatePostMainContent({ postStage, setPostStage }) {
     const fileInputRef = useRef(null)
     const [imageUrl, setImageUrl] = useState(null)
@@ -25,7 +26,7 @@ export function CreatePostMainContent({ postStage, setPostStage }) {
         <div className="create-post-main-content">
             {imageUrl ?
                 <>
-                    <img className="create-post-img" src={imageUrl} alt="couldnt fetch img"></img>
+                    <img className="create-post-img create-post-filter" src={imageUrl} alt="couldnt fetch img"></img>
                 </>
                 :
                 <>

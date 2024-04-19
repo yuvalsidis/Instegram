@@ -1,11 +1,15 @@
 .create-post-main{
     position: relative;
-    display: flex;
-    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
     align-items: center;
     justify-content: center;
     display: flex;
     text-align: center;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    border-bottom-left-radius: 1rem;
 
     .drag-photos-p{
         font-size: rem($system-20-font-size);
@@ -38,5 +42,4 @@
 
 .create-post-main-layout-three{
     flex-direction: row;  
-    
 }
