@@ -45,9 +45,7 @@
 @import "cmps/PostDetails.scss";
 @import "cmps/CommentPreview.scss";
 
-
-
-//user profile
+//user profile Cmps
 @import "cmps/UserInfo.scss";
 @import "cmps/UserAction.scss";
 @import "cmps/UserStats.scss";
@@ -55,13 +53,10 @@
 @import "cmps/UserContent.scss";
 @import "cmps/UserPostList.scss";
 
-
-
-//options modal
+//options modal Cmps
 @import "cmps/OptionsModal.scss";
 
-
-//followers page
+//followers page Cnps
 @import "cmps/FollowersPage.scss";
 @import "cmps/FollowingPage.scss";
 @import "cmps/FollowersContainer.scss";
@@ -71,4 +66,7 @@
 
 //Remove follower modal
 @import "cmps/RemoveFollowerModalContainer.scss";
-@import "cmps/RemoveFollowerModal.scss"
+@import "cmps/RemoveFollowerModal.scss";
+
+//Create Post Cmps
+@import "cmps/CreatePostContainer.scss";
