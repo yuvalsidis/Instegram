@@ -1,11 +1,13 @@
 import { useState, useRef } from "react"
 
 
-export function CreatePostMainContent({ postStage, setPostStage }) {
+export function CreatePostMainContent({ postStage, setPostStage, filterStyles }) {
     const fileInputRef = useRef(null)
     const [imageUrl, setImageUrl] = useState(null)
 
     let fileInputChange = null
+
+    console.log('filterStyles', )
 
     function handleFileInputChange(event) {
         fileInputChange = event.target.files[0]
@@ -26,7 +28,7 @@ export function CreatePostMainContent({ postStage, setPostStage }) {
         <div className="create-post-main-content">
             {imageUrl ?
                 <>
-                    <img className="create-post-img create-post-filter" src={imageUrl} alt="couldnt fetch img"></img>
+                    <img yl src={imageUrl} style={filterStyles} alt="couldnt fetch img"></img>
                 </>
                 :
                 <>
