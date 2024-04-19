@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router';
+import { useState } from 'react';
 import routes from './routes';
 import { AppHeader } from './cmps/AppHeader';
 import { HomePage } from './pages/HomePage';
@@ -8,6 +9,7 @@ import { PostDetailsPage } from './pages/PostDetailsPage';
 import { ProfilePage } from './pages/ProfilePage';
 import { FollowersPage } from './pages/FollowersPage';
 import { FollowingPage } from './pages/FollowingPage';
+import { CreatePostContainer } from './cmps/CreatePostContainer';
 
 export function App() {
     const [isCreatePostOpen, setIsCreatePostOpen] = useState(false)
@@ -34,7 +36,7 @@ export function App() {
                         <Route path='following' element={<FollowingPage/>} />
                     </Route>
                 </Routes>
-
+                {isCreatePostOpen && <CreatePostContainer/>}
             </main>
         </div>
     );
