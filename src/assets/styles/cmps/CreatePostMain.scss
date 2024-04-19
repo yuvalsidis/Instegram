@@ -1,7 +1,5 @@
 .create-post-main{
     position: relative;
-    display: grid;
-    grid-template-columns: 60% 40%;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -40,5 +38,6 @@
 }
 
 .create-post-main-layout-three{
-   
+    display: grid;
+    grid-template-columns: 60% 40%;
 }
