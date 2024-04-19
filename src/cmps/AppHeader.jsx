@@ -18,6 +18,7 @@ export function AppHeader({setIsCreatePostOpen}) {
 
     function handleClickOnCreate(){
         setIsCreatePostOpen(true)
+        console.log('open')
     }
         
    

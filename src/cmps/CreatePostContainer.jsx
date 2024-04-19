@@ -1,4 +1,5 @@
 import { CreatePost } from "./CreatePost"
+import { useEffect } from "react"
 
 export function CreatePostContainer(){
 
@@ -9,7 +10,7 @@ export function CreatePostContainer(){
         }
     }, [])
 
-    
+
     return (
         <section className="create-post-container">
              <CreatePost/>
