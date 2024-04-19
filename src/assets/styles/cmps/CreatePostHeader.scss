@@ -3,4 +3,9 @@
     line-height: rem($system-16-line-height);
     font-weight: $font-weight-system-semibold;
     height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
