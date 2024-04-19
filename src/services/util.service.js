@@ -10,7 +10,8 @@ export const utilService = {
     getRandomSentence,
     generatePostDescription,
     getTimeSinceCreation,
-    getRandomNumberInRange
+    getRandomNumberInRange,
+    generatePostDescriptionSpanish
 }
 
 function makeId(length = 6) {
@@ -138,20 +139,6 @@ function getRandomNumberInRange(range1Start, range1End, range2Start, range2End) 
 
 function generatePostDescription() {
     const descriptions = [
-        // Three words
-        "Life is beautiful",
-        "Dream big dreams",
-        "Love conquers all",
-
-        // Ten words
-        "Chasing dreams, one step at a time, towards tomorrow.",
-        "Lost in thought, finding solace in the gentle breeze.",
-        "Sunset whispers secrets, painting the sky with hues of gold.",
-
-        // Four words
-        "Chasing dreams, finding happiness.",
-        "Lost in thought, wandering aimlessly.",
-        "Sunsets bring peace.",
 
         // Fifteen words
         "Underneath the starlit sky, dreams take flight on wings of hope, reaching for the infinite expanse above.",
@@ -173,8 +160,27 @@ function generatePostDescription() {
         "Embracing solitude, finding solace in the silence of the night, where thoughts wander and dreams take flight, amidst the stars that shine brightly in the dark expanse above, guiding the way to new horizons and endless possibilities.",
         "The rhythm of life: a symphony of moments, each a melody, harmonizing in the grand orchestration of existence, weaving tales of love and loss, hope and despair, laughter and tears, in the tapestry of time, where every thread is a story waiting to be told."
     ];
-
     const description = descriptions[getRandomIntInclusive(0, descriptions.length - 1)]
     console.log( description)
     return description;
 }
+
+
+function generatePostDescriptionSpanish(){
+    const descriptions = [
+    
+        // Fifty words
+        "Perdido en la magia de una tarde bañada por el sol, persiguiendo sueños a través de campos dorados, capturando momentos que duran toda una vida, en un abrir y cerrar de ojos, bajo la mirada vigilante de mil estrellas, pintando historias en el lienzo del cielo, donde los sueños cobran vida.",
+        "Bajo las luces de la ciudad, las sombras bailan al ritmo de la vida, tejiendo cuentos de amor y anhelo, susurros de secretos compartidos en momentos de silencio, en medio del bullicio y ajetreo de una ciudad vibrante, donde los sueños vuelan en las alas de la imaginación.",
+        "Huellas en la arena, rastros de una historia escrita por las olas, secretos susurrados de la brisa marina, resonando a través de los corredores del tiempo, llevando recuerdos de aventuras pasadas, hacia el horizonte desconocido, donde el mar se encuentra con el cielo, y los sueños se fusionan con la realidad.",
+    
+        // Thirty-five words
+        "Perdido en un mundo de libros, donde cada página guarda una nueva aventura, y cada palabra pinta un cuadro vívido, capturando la imaginación y avivando los sueños, en los momentos tranquilos de soledad, donde las historias cobran vida y la realidad se desvanece.",
+        "Abrazando la soledad, encontrando consuelo en el silencio de la noche, donde los pensamientos vagan y los sueños vuelan, entre las estrellas que brillan intensamente en la oscuridad por encima, guiando el camino hacia nuevos horizontes y posibilidades infinitas.",
+        "El ritmo de la vida: una sinfonía de momentos, cada uno una melodía, armonizando en la gran orquestación de la existencia, tejiendo cuentos de amor y pérdida, esperanza y desesperación, risas y lágrimas, en el tapiz del tiempo, donde cada hilo es una historia esperando ser contada."
+    ];
+    const description = descriptions[getRandomIntInclusive(0, descriptions.length - 1)]
+    console.log( description)
+    return description;
+}
+    

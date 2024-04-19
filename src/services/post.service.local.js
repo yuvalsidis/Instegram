@@ -161,37 +161,41 @@ function getEmptyPost() {
 async function _createPosts() {
     let users = await storageService.query('user')
     let posts = await storageService.query(STORAGE_KEY)
-
+    
     if (users.length > 0) {
         if (!posts || !posts.length) {
             console.log('No posts found, generating some...')
+
             for (let i = 0; i < users.length; i++) {
-                if (users[i].firstname === 'Leo') {
-                    for (let j = 1; j < 20; j++) {
-                        _createPost(users[i], j)
+                if (users[i].lastname === 'Messi') {
+                    for (let j = 1; j <= 20; j++) {
+                        posts.push(_createPost(users[i], j));
                     }
                 }
                 else if (users[i].firstname === 'Yuval') {
-                    for (let j = 0; j < 10; j++) {
-                        _createPost(users[i], j)
+                    for (let j = 1; j <= 22; j++) {
+                        posts.push(_createPost(users[i], j));
                     }
                 }
                 else if (users[i].firstname === 'Eyal') {
-                    for (let j = 0; j < 10; j++) {
-                        _createPost(users[i], j)
+                    for (let j = 1; j <= 18; j++) {
+                        posts.push(_createPost(users[i], j));
                     }
                 }
                 else if (users[i].firstname === 'Sagi') {
-                    for (let j = 1; j < 20; j++) {
-                        _createPost(users[i], j)
+                    for (let j = 1; j <= 20; j++) {
+                        posts.push(_createPost(users[i], j));
                     }
                 }
-                else {
-                    for (let j = 0; j < 3; j++) {
-                        posts.push(_createPost(users[i]))
-                    }
-                }
-            }   
+                // else {
+                //     for (let j = 0; j < 1; j++) {
+                //         posts.push(_createPost(users[i], j));
+                //     }
+                // }
+            }
+
+            await Promise.all(posts); // Wait for all post creation promises to resolve
+            
             shuffleArray(posts)
             utilService.saveToStorage(STORAGE_KEY, posts)
             console.log('Done generating posts')
@@ -208,18 +212,39 @@ function shuffleArray(array) {
   }
 
 function _createPost(user, idx) {
+    console.log('jajajajaja',user,idx)
     let post = getEmptyPost()
-
     console.log('user', user)
-    post._id = utilService.makeId()
-    post.txt = utilService.generatePostDescription()
-    post.imgUrl = getRandomImage()
+    if(user.firstname === 'Eyal'){
+        console.log('hiiiiiiiiiiiiiiiiiiii')
+        post.imgUrl =  `/public/demodataimg/eyal/${idx}.jpg`
+    }
+    else if(user.firstname === 'Leo'){
+        post.imgUrl =  `/public/demodataimg/leo/${idx}.jpg`
+    }
+    else if(user.firstname === 'Yuval'){
+        post.imgUrl =  `/public/demodataimg/yuval/${idx}.jpg`
+    }
+    
+    else if(user.firstname === 'Sagi'){
+        post.imgUrl =  `/public/demodataimg/sagi/${idx}.jpg`
+    }
+    else{
+        console.log('hiiiiiiiiiiiiiiiiiiii2222')
+        post.imgUrl = getRandomImage()
+    }
 
+    post._id = utilService.makeId()
+    if(user.firstname === 'Leo'){
+        post.txt = utilService.generatePostDescriptionSpanish()
+    }
+    else{
+        post.txt = utilService.generatePostDescription()
+    }
 
     post.by._id = user._id
     post.by.fullName = user.username
     post.by.imgUrl = user.imgUrl
-
 
     post.comments = []
     for (let i = 0; i < 20; i++) {
@@ -229,7 +254,7 @@ function _createPost(user, idx) {
     return post
 }
 
-function _createComment() {
+function _createComment(user) {
 
     var comment = {
         id: utilService.makeId(),
