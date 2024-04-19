@@ -12,9 +12,15 @@ import { useLocation } from 'react-router-dom'
 import { Store } from '@mui/icons-material'
 
 
-export function AppHeader() {
+export function AppHeader({handleIsCreatePostOpen}) {
     const locationPathname = useLocation().pathname
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
+
+    function handleClickOnCreate(){
+        handleIsCreatePostOpen(true)
+    }
+        
+   
 
     return (
         <header className="app-header full">
@@ -54,7 +60,7 @@ export function AppHeader() {
                     <img className='icon' src="/public/icons/Like.svg" alt="Nofication Icon" />
                     <div>Notification</div>
                 </div>
-                <div>
+                <div onClick={handleClickOnCreate}>
                     <img className='icon' src="/public/icons/Create.svg" alt="Create Icon" />
                     <div>Create</div>
                 </div>

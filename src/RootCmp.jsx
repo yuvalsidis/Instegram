@@ -10,9 +10,15 @@ import { FollowersPage } from './pages/FollowersPage';
 import { FollowingPage } from './pages/FollowingPage';
 
 export function App() {
+    const [isCreatePostOpen, setIsCreatePostOpen] = useState(false)
+    
+    function handleIsCreatePostOpen(value){
+        setIsCreatePostOpen(value)
+    }
+
     return (
         <div className='app main-container'>
-            <AppHeader />
+            <AppHeader handleIsCreatePostOpen = {handleIsCreatePostOpen} />
             <main className='main'>
                 <Routes>
 
