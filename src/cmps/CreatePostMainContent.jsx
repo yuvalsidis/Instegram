@@ -1,36 +1,51 @@
 import { useState, useRef } from "react"
 
-export function CreatePostMainContent({postStage, setPostStage}) {
+export function CreatePostMainContent({ postStage, setPostStage }) {
     const fileInputRef = useRef(null)
+    const [imageUrl, setImageUrl] = useState(null)
+
     let fileInputChange = null
 
-    function handleFileInputChange(event){
-         fileInputChange = event.target.files[0]
-         console.log(fileInputChange)
-         setPostStage(3)     
+    function handleFileInputChange(event) {
+        fileInputChange = event.target.files[0]
+        if (fileInputChange) {
+            const imgUrl = URL.createObjectURL(fileInputChange)
+            console.log('object imgUrl look like this : ', imgUrl)
+            setImageUrl(imgUrl)
+        }
+        console.log(fileInputChange)
+        setPostStage(3)
     }
 
-    function handleClickOnSelectFromComputer(){
+    function handleClickOnSelectFromComputer() {
         fileInputRef.current.click()
     }
 
     return (
         <div className="create-post-main-content">
-            <div>
-                <img className="create-post-icon" src="/public/icons/CreatePost.svg" alt="Create Post Icon" />
-            </div>
-            <div className="drag-photos-p">
-                <p>Drag photos and videos here</p>
-            </div>
-            <div>
-                <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleFileInputChange}
-                style={{display: "none"}}
-                />
-                <button className="select-from-computer-btn" onClick={handleClickOnSelectFromComputer}>Select from computer</button>
-            </div>
+            {imageUrl ?
+                <>
+                    <img className="create-post-img" src={imageUrl} alt="couldnt fetch img"></img>
+                </>
+                :
+                <>
+                    <div>
+                        <img className="create-post-icon" src="/public/icons/CreatePost.svg" alt="Create Post Icon" />
+                    </div>
+                    <div className="drag-photos-p">
+                        <p>Drag photos and videos here</p>
+                    </div>
+                    <div>
+                        <input
+                            type="file"
+                            ref={fileInputRef}
+                            onChange={handleFileInputChange}
+                            style={{ display: "none" }}
+                        />
+                        <button className="select-from-computer-btn" onClick={handleClickOnSelectFromComputer}>Select from computer</button>
+                    </div>
+                </>
+            }
         </div>
     )
 }
