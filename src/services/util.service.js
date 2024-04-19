@@ -11,7 +11,8 @@ export const utilService = {
     generatePostDescription,
     getTimeSinceCreation,
     getRandomNumberInRange,
-    generatePostDescriptionSpanish
+    generatePostDescriptionSpanish,
+    formatNumber
 }
 
 function makeId(length = 6) {
@@ -76,9 +77,9 @@ function getRandomName() {
 
 function getTimeSinceCreation(creationTime) {
     const creationTimeNumber = new Date(creationTime);
-    
+
     const now = new Date();
-    const elapsedTimeInSeconds = Math.floor((now - creationTimeNumber ) / 1000);
+    const elapsedTimeInSeconds = Math.floor((now - creationTimeNumber) / 1000);
 
     if (elapsedTimeInSeconds < 60) {
         return `${elapsedTimeInSeconds}s`;
@@ -102,27 +103,27 @@ function getTimeSinceCreation(creationTime) {
 
 function getRandomSentence() {
     const sentences = ['Amazing photo',
-    'Looks wonderful',
-    'Wow!!',
-    'You are the best!',
-    'Miss youuuuu',
-    'What a frame!',
-    'I can look at this all day',
-    'This picture is amazing',
-    'You are talented my friend',
-    'Very inspiring',
-    'This looks great',
-    'I love it!',
-    'Like!',
-    'Wowww!!',
-    'Awesome',
-    'Love this pic!',
-    'Very nice',
-    'Cool pic',
-    '❤️',
-    'Wow! 🚀',
-    'I love it 😍',
-    'Perfect 👍🏽👍🏽👍🏽']
+        'Looks wonderful',
+        'Wow!!',
+        'You are the best!',
+        'Miss youuuuu',
+        'What a frame!',
+        'I can look at this all day',
+        'This picture is amazing',
+        'You are talented my friend',
+        'Very inspiring',
+        'This looks great',
+        'I love it!',
+        'Like!',
+        'Wowww!!',
+        'Awesome',
+        'Love this pic!',
+        'Very nice',
+        'Cool pic',
+        '❤️',
+        'Wow! 🚀',
+        'I love it 😍',
+        'Perfect 👍🏽👍🏽👍🏽']
     const sentence = sentences[getRandomIntInclusive(0, sentences.length - 1)]
     return sentence
 }
@@ -131,7 +132,7 @@ function getRandomNumberInRange(range1Start, range1End, range2Start, range2End) 
     // Generate random numbers within each range
     const randomNumber1 = Math.random() * (range1End - range1Start + 1) + range1Start;
     const randomNumber2 = Math.random() * (range2End - range2Start + 1) + range2Start;
-    
+
     // Randomly choose between the two numbers
     return Math.random() < 0.5 ? randomNumber1 : randomNumber2;
 }
@@ -140,11 +141,7 @@ function getRandomNumberInRange(range1Start, range1End, range2Start, range2End) 
 function generatePostDescription() {
     const descriptions = [
 
-        // Fifteen words
-        "Underneath the starlit sky, dreams take flight on wings of hope, reaching for the infinite expanse above.",
-        "Footprints in the sand, traces of a story written by the waves, whispered secrets of the ocean breeze.",
-        "Drifting through the cosmos, chasing stars in the night sky, finding solace in the vastness of the universe.",
-
+       
         // Twenty words
         "Reflections on life's twists and turns, finding beauty in imperfections, embracing the journey with an open heart.",
         "Whispers of the past, echoes of memories long cherished, lingering in the quiet corners of the mind.",
@@ -166,21 +163,32 @@ function generatePostDescription() {
 }
 
 
-function generatePostDescriptionSpanish(){
+function generatePostDescriptionSpanish() {
     const descriptions = [
-    
+
         // Fifty words
         "Perdido en la magia de una tarde bañada por el sol, persiguiendo sueños a través de campos dorados, capturando momentos que duran toda una vida, en un abrir y cerrar de ojos, bajo la mirada vigilante de mil estrellas, pintando historias en el lienzo del cielo, donde los sueños cobran vida.",
         "Bajo las luces de la ciudad, las sombras bailan al ritmo de la vida, tejiendo cuentos de amor y anhelo, susurros de secretos compartidos en momentos de silencio, en medio del bullicio y ajetreo de una ciudad vibrante, donde los sueños vuelan en las alas de la imaginación.",
         "Huellas en la arena, rastros de una historia escrita por las olas, secretos susurrados de la brisa marina, resonando a través de los corredores del tiempo, llevando recuerdos de aventuras pasadas, hacia el horizonte desconocido, donde el mar se encuentra con el cielo, y los sueños se fusionan con la realidad.",
-    
+
         // Thirty-five words
         "Perdido en un mundo de libros, donde cada página guarda una nueva aventura, y cada palabra pinta un cuadro vívido, capturando la imaginación y avivando los sueños, en los momentos tranquilos de soledad, donde las historias cobran vida y la realidad se desvanece.",
         "Abrazando la soledad, encontrando consuelo en el silencio de la noche, donde los pensamientos vagan y los sueños vuelan, entre las estrellas que brillan intensamente en la oscuridad por encima, guiando el camino hacia nuevos horizontes y posibilidades infinitas.",
         "El ritmo de la vida: una sinfonía de momentos, cada uno una melodía, armonizando en la gran orquestación de la existencia, tejiendo cuentos de amor y pérdida, esperanza y desesperación, risas y lágrimas, en el tapiz del tiempo, donde cada hilo es una historia esperando ser contada."
     ];
     const description = descriptions[getRandomIntInclusive(0, descriptions.length - 1)]
-    console.log( description)
+    console.log(description)
     return description;
 }
-    
+
+
+function formatNumber(num) {
+    num = Math.trunc(num); // Remove the fractional part
+    if (num < 10000) {
+        return num.toLocaleString(); 
+    } else if (num < 1000000) {
+        return (num / 1000).toFixed(1) + 'K'; 
+    } else {
+        return (num / 1000000).toFixed(1) + 'M'; 
+    }
+}

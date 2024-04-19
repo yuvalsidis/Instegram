@@ -3,6 +3,17 @@ import { UserStats } from "./UserStats"
 
 
 export function UserInfo({ watchedUser, loggedInUser }) {
+    
+    function formatNumber(num) {
+        num = Math.trunc(num); // Remove the fractional part
+        if (num < 10000) {
+            return num.toLocaleString(); 
+        } else if (num < 1000000) {
+            return (num / 1000).toFixed(1) + 'K'; 
+        } else {
+            return (num / 1000000).toFixed(1) + 'M'; 
+        }
+    }
 
     return (
         <div className="user-info">

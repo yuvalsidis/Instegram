@@ -216,7 +216,6 @@ function _createPost(user, idx) {
     let post = getEmptyPost()
     console.log('user', user)
     if(user.firstname === 'Eyal'){
-        console.log('hiiiiiiiiiiiiiiiiiiii')
         post.imgUrl =  `/public/demodataimg/eyal/${idx}.jpg`
     }
     else if(user.firstname === 'Leo'){
@@ -230,12 +229,11 @@ function _createPost(user, idx) {
         post.imgUrl =  `/public/demodataimg/sagi/${idx}.jpg`
     }
     else{
-        console.log('hiiiiiiiiiiiiiiiiiiii2222')
         post.imgUrl = getRandomImage()
     }
 
     post._id = utilService.makeId()
-    if(user.firstname === 'Leo'){
+    if(user.lastname === 'Messi'){
         post.txt = utilService.generatePostDescriptionSpanish()
     }
     else{
