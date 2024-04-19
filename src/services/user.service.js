@@ -138,7 +138,11 @@ async function _createUsers() {
                 await userService.signup(_createUser('Yoni', 'Mizrahi', '123', false, 'yonimizrahi', 'yonimizrahi@gmail.com', '/public/img/23.png')),
                 await userService.signup(_createUser('May', 'Cohen', '123', false, 'maycohen', 'maycohen@gmail.com', '/public/img/24.png')),
                 await userService.signup(_createUser('Galit', 'Levi', '123', false, 'galitlevi', 'galitlevi@gmail.com', '/public/img/25.png')),
+                await userService.signup(_createUser('Leo', 'Messi', '123', false, 'leomessi', 'leomessi@gmail.com', '/public/img/26.png')), //different img for demo datas
+                await userService.signup(_createUser('Yuval', 'Sidis', '123', false, 'yuvallsidis', 'yuvallsidis@gmail.com', '/public/img/27.png')),
+                await userService.signup(_createUser('Sagi', 'Aivas', '123', false, 'sagiaivas', 'sagiaivas@gmail.com', '/public/img/28.png')),
                 await userService.signup(_createUser('Eyal', 'Sabach', '123', false, 'eyalsabah', 'eyalsabah@gmail.com', '/public/img/7.png'))
+
 
             ]);
             try {
@@ -171,8 +175,8 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
         isAdmin,
         imgUrl,
         info: {
-            demodatafollowers: utilService.getRandomIntInclusive(300,1500),
-            demodataFollowing: utilService.getRandomIntInclusive(300,1500),
+            demodatafollowers: utilService.getRandomIntInclusive(300, 1500),
+            demodataFollowing: utilService.getRandomIntInclusive(300, 1500),
             posts: '13',
             followers: [
 
@@ -186,7 +190,7 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
 
 async function createFollows(userToUpdate, updatedUsers) {
     const updatedUser = { ...userToUpdate };
-    const randomIteration = utilService.getRandomIntInclusive(0, updatedUsers.length - 1)
+    const randomIteration = utilService.getRandomIntInclusive(10, updatedUsers.length - 1)
     for (var i = 0; i <= randomIteration; i++) {
         if (updatedUsers[i]._id != updatedUser._id) {
             const updateUserFollowing = { ...updatedUsers[i] }

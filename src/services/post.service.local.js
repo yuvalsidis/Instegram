@@ -101,7 +101,7 @@ function getEmptyPost() {
         },
         demodata: {
             likes: utilService.getRandomNumberInRange(1000, 1000000, 10, 1000),
-            comments: utilService.getRandomIntInclusive(10 ,1000, 5000, 10300),
+            comments: utilService.getRandomIntInclusive(10, 1000, 5000, 10300),
         },
         comments: [
             {
@@ -165,18 +165,51 @@ async function _createPosts() {
     if (users.length > 0) {
         if (!posts || !posts.length) {
             console.log('No posts found, generating some...')
-            for (let i = 0; i < 140; i++) {
-                posts.push(_createPost(users))
-            }
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].firstname === 'Leo') {
+                    for (let j = 1; j < 20; j++) {
+                        _createPost(users[i], j)
+                    }
+                }
+                else if (users[i].firstname === 'Yuval') {
+                    for (let j = 0; j < 10; j++) {
+                        _createPost(users[i], j)
+                    }
+                }
+                else if (users[i].firstname === 'Eyal') {
+                    for (let j = 0; j < 10; j++) {
+                        _createPost(users[i], j)
+                    }
+                }
+                else if (users[i].firstname === 'Sagi') {
+                    for (let j = 1; j < 20; j++) {
+                        _createPost(users[i], j)
+                    }
+                }
+                else {
+                    for (let j = 0; j < 3; j++) {
+                        posts.push(_createPost(users[i]))
+                    }
+                }
+            }   
+            shuffleArray(posts)
             utilService.saveToStorage(STORAGE_KEY, posts)
             console.log('Done generating posts')
         }
     }
 }
 
-function _createPost(users) {
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1)); // Generate random index from 0 to i
+      [array[i], array[j]] = [array[j], array[i]]; // Swap elements at i and j
+    }
+    return array;
+  }
+
+function _createPost(user, idx) {
     let post = getEmptyPost()
-    let user = users[utilService.getRandomIntInclusive(0, users.length - 1)]
+
     console.log('user', user)
     post._id = utilService.makeId()
     post.txt = utilService.generatePostDescription()
@@ -234,7 +267,7 @@ function getEmptyComment() {
         createdAt: "",
         by: {
             _id: "",
-            fullName: "Lior Yo",
+            fullName: "",
             // imgUrl: "https://api.unsplash.com/photos/random"
             imgUrl: getRandomImage()
         },

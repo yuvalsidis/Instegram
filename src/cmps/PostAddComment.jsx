@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined'
 
 import { postService } from '../services/post.service.local'
-import { utilService } from '../services/util.service'
-
 
 export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedInUser }) {
     const [comment, setComment] = useState(postService.getEmptyComment())
@@ -14,7 +12,6 @@ export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedIn
         const newHeight = `${textarea.scrollHeight}px`
         textarea.style.height = newHeight
 
-        // Check if the scroll height decreased
         if (textarea.scrollHeight < textarea.offsetHeight) {
             textarea.style.height = `${textarea.scrollHeight}px`
         }
