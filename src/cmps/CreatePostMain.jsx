@@ -11,6 +11,7 @@ export function CreatePostMain({postStage ,setPostStage}){
         <div className={`create-post-main ${
             postStage === 1? `create-post-main-layout-one` :
             postStage === 3? `create-post-main-layout-three`: 
+            postStage === 4? `create-post-main-layout-four`:
               null
               }`}>
                <CreatePostMainContent postStage={postStage} setPostStage={setPostStage} filterStyles={filterStyles}/>
