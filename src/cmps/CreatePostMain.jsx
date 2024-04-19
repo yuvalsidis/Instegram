@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { CreatePostMainContent } from "./CreatePostMainContent"
 import { CreatePostMainFilter } from "./CreatePostMainFilter"
-import { useState } from "react";
+import { CreatePostNewPost } from "./CreatePostNewPost";
+
 
 export function CreatePostMain({postStage ,setPostStage}){
     const [filterStyles, setFilterStyles] = useState({});
@@ -13,6 +15,7 @@ export function CreatePostMain({postStage ,setPostStage}){
               }`}>
                <CreatePostMainContent postStage={postStage} setPostStage={setPostStage} filterStyles={filterStyles}/>
                {postStage === 3 && <CreatePostMainFilter  setFilterStyles={ setFilterStyles}/>}
+               {postStage === 4 && <CreatePostNewPost/>}
         </div>
     )
 }
