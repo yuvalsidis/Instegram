@@ -85,7 +85,7 @@ async function addPostMsg(postId, txt) {
 function getEmptyPost() {
     return {
         _id: "",
-        txt: "Best trip ever",
+        txt: "",
         imgUrl: "http://some-img",
 
         createdAt: new Date(),

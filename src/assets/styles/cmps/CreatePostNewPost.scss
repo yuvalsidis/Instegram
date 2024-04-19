@@ -25,4 +25,15 @@
             font-weight: $font-weight-system-semibold;
         }
     }
+
+    .post-add-description-textarea{
+        font-size: rem($system-16-font-size);
+        line-height: rem($system-16-line-height);
+        padding: 0px 16px;
+        width: 100%;
+        height: 168px;
+        resize: none;
+        border: none;
+        outline: none;
+    }
 }

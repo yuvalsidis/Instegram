@@ -2,7 +2,7 @@ import { CreatePostHeader } from "./CreatePostHeader"
 import { CreatePostMain } from "./CreatePostMain"
 
 export function CreatePost({postStage, setPostStage}){
-
+       
 
    return (
     <div className={`create-post ${

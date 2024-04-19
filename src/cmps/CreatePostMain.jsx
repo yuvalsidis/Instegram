@@ -6,6 +6,7 @@ import { CreatePostNewPost } from "./CreatePostNewPost";
 
 export function CreatePostMain({postStage ,setPostStage}){
     const [filterStyles, setFilterStyles] = useState({});
+    const [imageUrl, setImageUrl] = useState(null)
 
     return (
         <div className={`create-post-main ${
@@ -14,9 +15,9 @@ export function CreatePostMain({postStage ,setPostStage}){
             postStage === 4? `create-post-main-layout-four`:
               null
               }`}>
-               <CreatePostMainContent postStage={postStage} setPostStage={setPostStage} filterStyles={filterStyles}/>
+               <CreatePostMainContent postStage={postStage} setPostStage={setPostStage} filterStyles={filterStyles} imageUrl={imageUrl} setImageUrl={setImageUrl}/>
                {postStage === 3 && <CreatePostMainFilter  setFilterStyles={ setFilterStyles}/>}
-               {postStage === 4 && <CreatePostNewPost/>}
+               {postStage === 4 && <CreatePostNewPost imageUrl={imageUrl}/>}
         </div>
     )
 }

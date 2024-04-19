@@ -1,9 +1,8 @@
 import { useState, useRef } from "react"
 
 
-export function CreatePostMainContent({ postStage, setPostStage, filterStyles }) {
+export function CreatePostMainContent({ postStage, setPostStage, filterStyles,  imageUrl, setImageUrl }) {
     const fileInputRef = useRef(null)
-    const [imageUrl, setImageUrl] = useState(null)
 
     let fileInputChange = null
 
