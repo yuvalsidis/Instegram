@@ -12,12 +12,12 @@ import { useLocation } from 'react-router-dom'
 import { Store } from '@mui/icons-material'
 
 
-export function AppHeader({handleIsCreatePostOpen}) {
+export function AppHeader({setIsCreatePostOpen}) {
     const locationPathname = useLocation().pathname
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
 
     function handleClickOnCreate(){
-        handleIsCreatePostOpen(true)
+        setIsCreatePostOpen(true)
     }
         
    
