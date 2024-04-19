@@ -6,4 +6,23 @@
     padding: 0px 8px;
     align-items: center;
     overflow-y: scroll;
+
+    .profile-info-container{
+        display: flex;
+        align-items: center;
+        height: 60px;
+        width: 100%;
+        padding: 0px 16px;
+        img{
+            width: 28px;
+            height: 28px;
+        }
+        
+        p{
+            margin-left: 10px;
+            font-size: rem($system-14-font-size);
+            line-height: rem($system-14-line-height);
+            font-weight: $font-weight-system-semibold;
+        }
+    }
 }
