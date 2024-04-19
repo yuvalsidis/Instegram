@@ -212,9 +212,7 @@ function shuffleArray(array) {
   }
 
 function _createPost(user, idx) {
-    console.log('jajajajaja',user,idx)
     let post = getEmptyPost()
-    console.log('user', user)
     if(user.firstname === 'Eyal'){
         post.imgUrl =  `/public/demodataimg/eyal/${idx}.jpg`
     }
@@ -233,7 +231,8 @@ function _createPost(user, idx) {
     }
 
     post._id = utilService.makeId()
-    if(user.lastname === 'Messi'){
+    if(user.firstname === 'Leo'){
+        console.log('jajajajajaxjsjdaskdasjkldasjlkdalksd',user) 
         post.txt = utilService.generatePostDescriptionSpanish()
     }
     else{

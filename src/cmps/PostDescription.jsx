@@ -10,23 +10,25 @@ export function PostDescription({ post, isPostDetailsPage }) {
     const timeSinceCreation = utilService.getTimeSinceCreation(post.createdAt)
 
     useEffect(() => {
-        async function translateText() {
-            setLoading(true); // Set loading state to true before fetching translation
-            try {
-                const targetLanguage = isTranslatedToHebrew ? 'iw' : 'en';
-                const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(post.txt)}`);
-                const data = await response.json();
-                const translatedText = data[0][0][0];
-                setTranslatedText(translatedText);
-            } catch (error) {
-                console.error('Translation error:', error);
-            } finally {
-                setLoading(false); 
-            }
+    async function translateText() {
+        setLoading(true); // Set loading state to true before fetching translation
+        try {
+            const targetLanguage = isTranslatedToHebrew ? 'iw' : 'en';
+            const sourceLanguage = 'es'; // Spanish language code
+            const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLanguage}&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(post.txt)}`);
+            const data = await response.json();
+            const translatedText = data[0][0][0];
+            setTranslatedText(translatedText);
+        } catch (error) {
+            console.error('Translation error:', error);
+        } finally {
+            setLoading(false); 
         }
+    }
 
-        translateText();
-    }, [post.txt, isTranslatedToHebrew]);
+    translateText();
+}, [post.txt, isTranslatedToHebrew]);
+
 
     const toggleExpanded = () => {
         setExpanded(!expanded);
