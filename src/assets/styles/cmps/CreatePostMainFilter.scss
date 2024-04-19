@@ -36,6 +36,14 @@
            color: $clr2;
         }
      }
+    .filter-preview{
+        &:hover{
+            cursor: pointer;;
+        }
+    }
+    .filter-border{
+        outline: 3px solid $clr12;
+    }
 
     .create-post-main-filter-img{
         width: 88px;

@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export function CreatePostMainFilter({setFilterStyles}) {
+export function CreatePostMainFilter({ setFilterStyles }) {
+    const [selectedFilter, setSelectedFilter] = useState(null)
 
-    // Define the CSS styles for each filter
     const filterStylesMap = {
         Aden: {
             filter: 'contrast(85%) brightness(120%) saturate(85%) sepia(0%)',
@@ -53,11 +53,10 @@ export function CreatePostMainFilter({setFilterStyles}) {
             transition: 'filter 0.1s ease-in-out',
         },
     };
-    
-    // Function to handle filter click
+
     const handleFilterClick = (filterName) => {
-        // Update the state with styles for the clicked filter
         setFilterStyles(filterStylesMap[filterName])
+        setSelectedFilter(filterName)
     };
 
     return (
@@ -65,8 +64,16 @@ export function CreatePostMainFilter({setFilterStyles}) {
             <div className="create-post-main-filter-title">Filters</div>
             <div className="filter-list">
                 {Object.keys(filterStylesMap).map((filterName) => (
-                    <div key={filterName} className="filter-preview" onClick={() => handleFilterClick(filterName)}>
-                        <img className="create-post-main-filter-img" src={`/public/filterimg/${filterName}.jpg`} alt={`${filterName} img`} />
+                    <div
+                        key={filterName}
+                        className={`filter-preview`}
+                        onClick={() => handleFilterClick(filterName)}
+                    >
+                        <img 
+                            className={`create-post-main-filter-img ${selectedFilter === filterName ? 'selected filter-border' : ''}`}
+                            src={`/public/filterimg/${filterName}.jpg`}
+                            alt={`${filterName} img`}
+                        />
                         <p>{filterName}</p>
                     </div>
                 ))}
