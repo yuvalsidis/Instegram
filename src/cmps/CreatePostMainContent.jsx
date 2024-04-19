@@ -1,12 +1,13 @@
 import { useState, useRef } from "react"
 
-export function CreatePostMainContent() {
+export function CreatePostMainContent({postStage, setPostStage}) {
     const fileInputRef = useRef(null)
     let fileInputChange = null
 
     function handleFileInputChange(event){
          fileInputChange = event.target.files[0]
-         console.log(fileInputChange)     
+         console.log(fileInputChange)
+         setPostStage(3)     
     }
 
     function handleClickOnSelectFromComputer(){

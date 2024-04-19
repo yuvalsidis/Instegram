@@ -5,15 +5,16 @@
     border-radius: 1rem;
     display: flex;
     align-items: center;
-  
+    transition: width 0.8s ease-in-out, height 0.8s ease-in-out;
 }
+
 
 .create-post-layout-one{
     width: 660px;
     height: 705px;
 }
 
-.create-post-main-layout-three{  
+.create-post-layout-three{  
     width: 1000px;
     height: 705px;
 }

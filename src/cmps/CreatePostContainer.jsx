@@ -1,7 +1,8 @@
 import { CreatePost } from "./CreatePost"
-import { useEffect } from "react"
+import { useEffect, useState} from "react"
 
 export function CreatePostContainer(){
+    const [postStage, setPostStage] = useState(1)
 
     useEffect(() => {
         document.body.classList.add("no-scroll")
@@ -13,7 +14,7 @@ export function CreatePostContainer(){
 
     return (
         <section className="create-post-container">
-             <CreatePost/>
+             <CreatePost setPostStage={setPostStage} postStage={postStage}/>
         </section>
     )
 }
