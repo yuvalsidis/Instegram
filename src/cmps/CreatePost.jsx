@@ -10,7 +10,7 @@ export function CreatePost({postStage, setPostStage}){
         postStage === 3 ? 'create-post-layout-three' : 
         null
         }`}>
-        <CreatePostHeader/>
+        <CreatePostHeader postStage={postStage}/>
         <CreatePostMain postStage={postStage} setPostStage={setPostStage}/>
     </div>
    )   

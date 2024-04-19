@@ -8,4 +8,23 @@
     justify-content: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     width: 100%;
+    
+    .create-post-header-title{
+       flex-grow: 1;
+       text-align: center;
+    }
+
+    .previous-icon-container{
+        width: 24px;
+        height: 24px;
+        margin-left: 10px;
+    }
+
+    .create-post-header-btns{
+        font-size: rem($system-14-font-size);
+        line-height: rem($system-14-line-height);
+        font-weight: $font-weight-system-semibold;
+        color: $clr12;
+        padding: 16px;
+    }
 }
