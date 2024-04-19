@@ -3,8 +3,17 @@
     flex-direction: column;
     background-color: $clr_bg;
     border-radius: 1rem;
-    width: 660px;
-    height: 705px;
     display: flex;
     align-items: center;
+  
+}
+
+.create-post-layout-one{
+    width: 660px;
+    height: 705px;
+}
+
+.create-post-main-layout-three{  
+    width: 1000px;
+    height: 705px;
 }
