@@ -175,13 +175,16 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
         isAdmin,
         imgUrl,
         info: {
-            demodatafollowers: (lastname === 'Messi')?  502000000 : utilService.getRandomIntInclusive(300, 1500) ,
+            demodatafollowers: (lastname === 'Messi')?  5023330000 : utilService.getRandomIntInclusive(300, 1500) ,
             demodataFollowing: (lastname === 'Messi')?  314  :utilService.getRandomIntInclusive(300, 1500),
             posts: '13',
             followers: [
 
             ],
             following: [
+
+            ],
+            posts: [
 
             ]
         }
@@ -191,7 +194,7 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
 async function createFollows(userToUpdate, updatedUsers) {
     const updatedUser = { ...userToUpdate };
     const randomIteration = utilService.getRandomIntInclusive(10, updatedUsers.length - 1)
-    for (var i = 0; i <= randomIteration; i++) {
+    for (var i = 0; i <= updatedUsers.length; i++) {
         if (updatedUsers[i]._id != updatedUser._id) {
             const updateUserFollowing = { ...updatedUsers[i] }
             updatedUser.info.followers.push(
