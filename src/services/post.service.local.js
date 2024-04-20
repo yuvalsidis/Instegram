@@ -22,23 +22,35 @@ export const postService = {
 window.cs = postService
 
 
-async function query(filterBy) {
-    console.log('filterByInQUERY', filterBy)
+async function query(filterBy, sortBy) {
+    console.log('filterByInQUERY', filterBy);
 
-    let posts = await storageService.query(STORAGE_KEY)
+    let posts = await storageService.query(STORAGE_KEY);
+
     if (filterBy.savedBy_id) {
-        posts = posts.filter(post => (post.savedBy.some(savedByUser => savedByUser._id === filterBy.savedBy_id)))
-        return posts
-    }
-    if (!filterBy._id) {
-        posts = posts.filter(post => post.by._id != filterBy.loggedInUser_id)
-        return posts
-    }
-    if (filterBy._id) {
-        posts = posts.filter(post => post.by._id === filterBy._id)
-        return posts
+        posts = posts.filter(post => post.savedBy.some(savedByUser => savedByUser._id === filterBy.savedBy_id));
+        return posts;
     }
 
+    if (!filterBy._id) {
+        posts = posts.filter(post => post.by._id != filterBy.loggedInUser_id);
+        return posts;
+    }
+
+    if (filterBy._id) {
+        posts = posts.filter(post => post.by._id === filterBy._id);
+        return posts;
+    }
+
+    if (sortBy.desc === -1) {
+        posts.sort((a, b) => {
+            if (a.createdAt > b.createdAt) return -1;
+            if (a.createdAt < b.createdAt) return 1;
+            return 0;
+        });
+    }
+
+    return posts;
 }
 
 function getById(postId) {
