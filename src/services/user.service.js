@@ -176,7 +176,7 @@ function _createUser(firstname, lastname, password, isAdmin = false, username, e
         isAdmin,
         imgUrl,
         info: {
-            demodatafollowers: (lastname === 'Messi')?  5023330000 : utilService.getRandomIntInclusive(300, 1500) ,
+            demodatafollowers: (lastname === 'Messi')?  502333000 : utilService.getRandomIntInclusive(300, 1500) ,
             demodataFollowing: (lastname === 'Messi')?  314  :utilService.getRandomIntInclusive(300, 1500),
             posts: '13',
             followers: [

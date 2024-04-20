@@ -31,14 +31,13 @@ async function query(filterBy, sortBy) {
     if (filterBy.savedBy_id) {
         posts = posts.filter(post => post.savedBy.some(savedByUser => savedByUser._id === filterBy.savedBy_id));
     }
-
-    if (!filterBy._id) {
+    else if (!filterBy._id) {
         posts = posts.filter(post => post.by._id != filterBy.loggedInUser_id);
     }
-    else{
+    else {
         posts = posts.filter(post => post.by._id === filterBy._id);
     }
-    if(sortBy){
+    if (sortBy) {
         if (sortBy.desc === -1) {
             posts.sort((a, b) => {
                 if (a.createdAt > b.createdAt) return -1;
