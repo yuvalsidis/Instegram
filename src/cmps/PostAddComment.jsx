@@ -5,7 +5,7 @@ import { postService } from '../services/post.service.local'
 
 export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedInUser }) {
     const [comment, setComment] = useState(postService.getEmptyComment())
-
+    
     const handleChange = (event) => {
         const textarea = event.target
         textarea.style.height = 'auto'
