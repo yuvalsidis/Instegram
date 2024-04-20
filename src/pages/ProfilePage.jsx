@@ -6,7 +6,7 @@ import { UserInfo } from "../cmps/UserInfo"
 import { UserContent } from "../cmps/UserContent"
 import { useSelector } from "react-redux"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
-import { LOADING_DONE, LOADING_START } from "../store/system.reducer"
+import { LOADING_DONE, LOADING_START, POST_NOT_CREATED} from "../store/system.reducer"
 import { utilService } from "../services/util.service"
 import { store } from "../store/store"
 import { loadUser } from "../store/user.actions"
@@ -21,15 +21,15 @@ export function ProfilePage() {
     const posts = useSelector(storeState => storeState.postModule.posts)
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
+    const isPostCreated = useSelector(storeState => storeState.systemModule.isPostCreated)
     const [isLoadingPosts, setIsLoadingPosts] = useState(true)
     const isLoadingUsers = useSelector(storeState => storeState.systemModule.isLoading)
-    
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
     const [sortBy, setSortBy] = useState(postService.getDefaultSortBy)
-
+ 
     const { userId } = useParams()
     let defaultUserId = userId || null;
-
+    console.log('ispostcreated>?????????????????', isPostCreated)
     if (userId === loggedInUser._id) {
         defaultUserId = null
     }
@@ -41,11 +41,13 @@ export function ProfilePage() {
         if (watchedUser) setFilterBy((prevFilterBy) => ({ ...prevFilterBy, _id: watchedUser._id }))
         else setFilterBy((prevFilterBy) => ({ ...prevFilterBy, _id: loggedInUser._id }))
         setSortBy((prevSortBy) => ({...prevSortBy, desc: -1}))
-    }, [watchedUser, loggedInUser])
+        store.dispatch({type : POST_NOT_CREATED,})
+
+    }, [watchedUser, loggedInUser, isPostCreated])
 
     useEffect(() => {
         onLoadPosts()
-    }, [filterBy])
+    }, [filterBy, sortBy])
 
 
     function onLoadPosts() {
@@ -73,8 +75,6 @@ export function ProfilePage() {
                 showErrorMsg('there was a problem with loading user', err)
             })
     }
-
-    console.log(sortBy)
  
     return (
         <section className="profile-page main">

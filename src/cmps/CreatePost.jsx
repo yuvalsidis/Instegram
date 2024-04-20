@@ -4,6 +4,8 @@ import { CreatePostHeader } from "./CreatePostHeader"
 import { CreatePostMain } from "./CreatePostMain"
 import { uploadService } from "../services/upload.service"
 import { addPost } from "../store/post.actions"
+import { store } from "../store/store"
+import { POST_CREATED } from "../store/system.reducer"
 
 export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen }) {
     const [newPost, setNewPost] = useState(postService.getEmptyPost())
@@ -39,13 +41,14 @@ export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen }) {
     }
 
     async function onSharePost() {
-        const sharedPost = { ...newPost, imgUrl: imgUrl.url}
+        const sharedPost = { ...newPost, imgUrl: imgUrl.url }
         try {
             const newPost = await addPost(sharedPost)
-            console.log('CreatePost: upload post successfully', newPost )
+            console.log('CreatePost: upload post successfully', newPost)
             setIsCreatePostOpen(false)
+            store.dispatch({ type: POST_CREATED, })
         }
-        catch(err){
+        catch (err) {
             console.log('CreatePost: error occur by share post')
         }
     }

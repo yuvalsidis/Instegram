@@ -16,7 +16,7 @@ export function App() {
 
     return (
         <div className='app main-container'>
-            <AppHeader setIsCreatePostOpen = {setIsCreatePostOpen} />
+            <AppHeader setIsCreatePostOpen={setIsCreatePostOpen} />
             <main className='main'>
                 <Routes>
 
@@ -30,13 +30,13 @@ export function App() {
                     <Route path='/' element={<HomePage />}>
                         <Route path='p/:postId' element={<PostDetailsPage />} />
                     </Route>
-                    <Route path='/profile/:userId' element={<ProfilePage />}>
+                    <Route path='/profile/:userId' element={<ProfilePage/>}>
                         <Route path='p/:postId' element={<PostDetailsPage />} />
-                        <Route path='followers' element={<FollowersPage/>} />
-                        <Route path='following' element={<FollowingPage/>} />
+                        <Route path='followers' element={<FollowersPage />} />
+                        <Route path='following' element={<FollowingPage />} />
                     </Route>
                 </Routes>
-                {isCreatePostOpen && <CreatePostContainer  setIsCreatePostOpen={setIsCreatePostOpen}/>}
+                {isCreatePostOpen && <CreatePostContainer setIsCreatePostOpen={setIsCreatePostOpen}/>}
             </main>
         </div>
     );
