@@ -6,12 +6,12 @@ import { utilService } from "../services/util.service"
 
 export function CreatePostNewPost({setNewPost, newPost}) {
   const loggedInUser = useSelector(storeState => storeState.userModule.user)
-  const newId = utilService.makeId()
+ 
 
   const handleChange = (event) => {
 
     setNewPost({
-      ...newPost, _id: newId, imgUrl: "", txt: event.target.value, createdAt: new Date(),
+      ...newPost, imgUrl: "", txt: event.target.value, createdAt: new Date(),
       by: { fullName: (loggedInUser.firstname + ' ' + loggedInUser.lastname), imgUrl: loggedInUser.imgUrl, _id: loggedInUser._id, }
     })
   }
