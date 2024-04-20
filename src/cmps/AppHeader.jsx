@@ -27,9 +27,10 @@ export function AppHeader({setIsCreatePostOpen}) {
         <header className="app-header full">
             <nav>
                 <NavLink to="/" exact="true">
-                    <h1>
-                        <img className='logo'  src="/public/icons/instagramBig.svg" alt="Instagram Big Icon" />
-                    </h1>
+                    <h1 className='instegram-logo'>Yuvigram</h1>
+                    {/* <h1>
+                      <img className='logo'  src="/public/icons/instagramBig.svg" alt="Instagram Big Icon" />
+                    </h1> */}
 
                 </NavLink>
                 <NavLink className={locationPathname === '/' ? "clickedNavWeight" : ""} to="/" exact="true" >
