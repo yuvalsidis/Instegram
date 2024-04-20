@@ -63,7 +63,7 @@ async function save(post) {
 }
 
 function getDefualtFilterBy() {
-    return { _id: '', saved: '', loggedInUser_id: '', savedBy_id: '', creationTime: ''}
+    return { _id: '', saved: '', loggedInUser_id: '', savedBy_id: '', createdAt: ''}
 }
 
 async function addPostMsg(postId, txt) {
