@@ -5,10 +5,12 @@
     
     > :nth-child(10n + 3) { 
         grid-row: span 2; 
+        height: 100%;
     }
     
     > :nth-child(10n + 6) { 
         grid-row: span 2; 
+        height: 100%;
     }
 
     img {
