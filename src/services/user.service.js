@@ -139,9 +139,10 @@ async function _createUsers() {
                 await userService.signup(_createUser('May', 'Cohen', '123', false, 'maycohen', 'maycohen@gmail.com', '/public/img/24.png')),
                 await userService.signup(_createUser('Galit', 'Levi', '123', false, 'galitlevi', 'galitlevi@gmail.com', '/public/img/25.png')),
                 await userService.signup(_createUser('Leo', 'Messi', '123', false, 'leomessi', 'leomessi@gmail.com', `/public/demodataimg/leo/${3}.jpg`)), //different img for demo datas
-                await userService.signup(_createUser('Yuval', 'Sidis', '123', false, 'yuvalsidis', 'yuvalsidis@gmail.com', `/public/demodataimg/yuval/${17}.jpg`)),
                 await userService.signup(_createUser('Sagi', 'Aivas', '123', false, 'sagiaivas', 'sagiaivas@gmail.com', `/public/demodataimg/sagi/${7}.jpg`)),
-                await userService.signup(_createUser('Eyal', 'Sabach', '123', false, 'eyalsabah', 'eyalsabah@gmail.com', `/public/demodataimg/eyal/${14}.jpg`))
+                await userService.signup(_createUser('Eyal', 'Sabach', '123', false, 'eyalsabah', 'eyalsabah@gmail.com', `/public/demodataimg/eyal/${14}.jpg`)),
+                await userService.signup(_createUser('Yuval', 'Sidis', '123', false, 'yuvalsidis', 'yuvalsidis@gmail.com', `/public/demodataimg/yuval/${17}.jpg`))
+
 
 
             ]);
