@@ -36,7 +36,7 @@ export function App() {
                         <Route path='following' element={<FollowingPage/>} />
                     </Route>
                 </Routes>
-                {isCreatePostOpen && <CreatePostContainer/>}
+                {isCreatePostOpen && <CreatePostContainer  setIsCreatePostOpen={setIsCreatePostOpen}/>}
             </main>
         </div>
     );
