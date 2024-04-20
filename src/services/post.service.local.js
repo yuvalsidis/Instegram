@@ -63,9 +63,12 @@ async function save(post) {
 }
 
 function getDefualtFilterBy() {
-    return { _id: '', saved: '', loggedInUser_id: '', savedBy_id: '', createdAt: ''}
+    return { _id: '', saved: '', loggedInUser_id: '', savedBy_id: '' }
 }
 
+function getDefaultSortBy() {
+    return { desc: '1' }
+}
 async function addPostMsg(postId, txt) {
     // Later, this is all done by the backend
     const post = await getById(postId)
@@ -161,7 +164,7 @@ function getEmptyPost() {
 async function _createPosts() {
     let users = await storageService.query('user')
     let posts = await storageService.query(STORAGE_KEY)
-    
+
     if (users.length > 0) {
         if (!posts || !posts.length) {
             console.log('No posts found, generating some...')
@@ -195,7 +198,7 @@ async function _createPosts() {
             }
 
             await Promise.all(posts); // Wait for all post creation promises to resolve
-            
+
             shuffleArray(posts)
             utilService.saveToStorage(STORAGE_KEY, posts)
             console.log('Done generating posts')
@@ -205,37 +208,37 @@ async function _createPosts() {
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1)); // Generate random index from 0 to i
-      [array[i], array[j]] = [array[j], array[i]]; // Swap elements at i and j
+        const j = Math.floor(Math.random() * (i + 1)); // Generate random index from 0 to i
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements at i and j
     }
     return array;
-  }
+}
 
 function _createPost(user, idx) {
     let post = getEmptyPost()
-    if(user.firstname === 'Eyal'){
-        post.imgUrl =  `/public/demodataimg/eyal/${idx}.jpg`
+    if (user.firstname === 'Eyal') {
+        post.imgUrl = `/public/demodataimg/eyal/${idx}.jpg`
     }
-    else if(user.firstname === 'Leo'){
-        post.imgUrl =  `/public/demodataimg/leo/${idx}.jpg`
+    else if (user.firstname === 'Leo') {
+        post.imgUrl = `/public/demodataimg/leo/${idx}.jpg`
     }
-    else if(user.firstname === 'Yuval'){
-        post.imgUrl =  `/public/demodataimg/yuval/${idx}.jpg`
+    else if (user.firstname === 'Yuval') {
+        post.imgUrl = `/public/demodataimg/yuval/${idx}.jpg`
     }
-    
-    else if(user.firstname === 'Sagi'){
-        post.imgUrl =  `/public/demodataimg/sagi/${idx}.jpg`
+
+    else if (user.firstname === 'Sagi') {
+        post.imgUrl = `/public/demodataimg/sagi/${idx}.jpg`
     }
-    else{
+    else {
         post.imgUrl = getRandomImage()
     }
 
     post._id = utilService.makeId()
-    if(user.firstname === 'Leo'){
-        console.log('jajajajajaxjsjdaskdasjkldasjlkdalksd',user) 
+    if (user.firstname === 'Leo') {
+        console.log('jajajajajaxjsjdaskdasjkldasjlkdalksd', user)
         post.txt = utilService.generatePostDescriptionSpanish()
     }
-    else{
+    else {
         post.txt = utilService.generatePostDescription()
     }
 
