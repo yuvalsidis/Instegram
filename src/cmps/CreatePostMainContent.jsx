@@ -1,19 +1,16 @@
 import { useState, useRef } from "react"
 
 
-export function  CreatePostMainContent({ postStage, setPostStage, filterStyles,  imageUrl, setImageUrl }) {
+export function  CreatePostMainContent({ postStage, setPostStage, filterStyles,  imageUrl, setImageUrl, setFileInputChange }) {
     const fileInputRef = useRef(null)
-
-    let fileInputChange = null
-
+ 
     function handleFileInputChange(event) {
-        fileInputChange = event.target.files[0]
+        const fileInputChange = event.target.files[0]
         if (fileInputChange) {
             const imgUrl = URL.createObjectURL(fileInputChange)
-            console.log('object imgUrl look like this : ', imgUrl)
             setImageUrl(imgUrl)
+            setFileInputChange(fileInputChange)
         }
-        console.log(fileInputChange)
         setPostStage(3)
     }
 

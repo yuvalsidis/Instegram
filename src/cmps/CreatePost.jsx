@@ -4,15 +4,17 @@ import { CreatePostHeader } from "./CreatePostHeader"
 import { CreatePostMain } from "./CreatePostMain"
 
 
-export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen }) {
+export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen}) {
     const [newPost, setNewPost] = useState(postService.getEmptyPost())
     const [isPostShareClicked, setIsPostShareClick] = useState(null)
-     
-    if(isPostShareClicked){
+    const [fileInputChange, setFileInputChange] = useState(null)
+
+    if (isPostShareClicked) {
         setIsCreatePostOpen(false)
     }
-    
+
     console.log('new Post', newPost)
+    console.log('fileInputChange', fileInputChange)
 
     return (
         <div className={`create-post ${postStage === 1 ? 'create-post-layout-one' :
@@ -20,8 +22,20 @@ export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen }) {
                 postStage === 4 ? 'create-post-layout-four' :
                     null
             }`}>
-            <CreatePostHeader postStage={postStage} setPostStage={setPostStage} setNewPost={setNewPost} newPost={newPost} setIsPostShareClick={setIsPostShareClick}/>
-            <CreatePostMain postStage={postStage} setPostStage={setPostStage} setNewPost={setNewPost} newPost={newPost}/>
+            <CreatePostHeader
+                postStage={postStage}
+                setPostStage={setPostStage}
+                setNewPost={setNewPost}
+                newPost={newPost}
+                setIsPostShareClick={setIsPostShareClick}
+            />
+            <CreatePostMain
+                postStage={postStage} 
+                setPostStage={setPostStage}
+                setNewPost={setNewPost}
+                newPost={newPost}
+                setFileInputChange={setFileInputChange}
+            />
         </div>
     )
 }
