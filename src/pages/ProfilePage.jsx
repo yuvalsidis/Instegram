@@ -25,6 +25,7 @@ export function ProfilePage() {
     const isLoadingUsers = useSelector(storeState => storeState.systemModule.isLoading)
     
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
+    const [sortBy, setSortBy] = useState(postService.getDefaultSortBy)
 
     const { userId } = useParams()
     let defaultUserId = userId || null;
@@ -39,6 +40,7 @@ export function ProfilePage() {
     useEffect(() => {
         if (watchedUser) setFilterBy((prevFilterBy) => ({ ...prevFilterBy, _id: watchedUser._id }))
         else setFilterBy((prevFilterBy) => ({ ...prevFilterBy, _id: loggedInUser._id }))
+        setSortBy((prevSortBy) => ({...prevSortBy, desc: -1}))
     }, [watchedUser, loggedInUser])
 
     useEffect(() => {
@@ -48,7 +50,7 @@ export function ProfilePage() {
 
     function onLoadPosts() {
         setIsLoadingPosts(true)
-        loadPosts(filterBy)
+        loadPosts(filterBy, sortBy)
             .then(() => {
                 showSuccessMsg('Posts loaded successfully')
                 setIsLoadingPosts(false)
@@ -71,6 +73,8 @@ export function ProfilePage() {
                 showErrorMsg('there was a problem with loading user', err)
             })
     }
+
+    console.log(sortBy)
  
     return (
         <section className="profile-page main">

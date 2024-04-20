@@ -17,7 +17,8 @@ export const postService = {
     getEmptyComment,
     getRandomImage,
     getDefualtFilterBy,
-    addPostMsg
+    addPostMsg,
+    getDefaultSortBy
 }
 window.cs = postService
 
@@ -29,27 +30,23 @@ async function query(filterBy, sortBy) {
 
     if (filterBy.savedBy_id) {
         posts = posts.filter(post => post.savedBy.some(savedByUser => savedByUser._id === filterBy.savedBy_id));
-        return posts;
     }
 
     if (!filterBy._id) {
         posts = posts.filter(post => post.by._id != filterBy.loggedInUser_id);
-        return posts;
     }
-
-    if (filterBy._id) {
+    else{
         posts = posts.filter(post => post.by._id === filterBy._id);
-        return posts;
     }
-
-    if (sortBy.desc === -1) {
-        posts.sort((a, b) => {
-            if (a.createdAt > b.createdAt) return -1;
-            if (a.createdAt < b.createdAt) return 1;
-            return 0;
-        });
+    if(sortBy){
+        if (sortBy.desc === -1) {
+            posts.sort((a, b) => {
+                if (a.createdAt > b.createdAt) return -1;
+                if (a.createdAt < b.createdAt) return 1;
+                return 0;
+            });
+        }
     }
-
     return posts;
 }
 
@@ -79,7 +76,7 @@ function getDefualtFilterBy() {
 }
 
 function getDefaultSortBy() {
-    return { desc: '1' }
+    return { desc: 1 }
 }
 async function addPostMsg(postId, txt) {
     // Later, this is all done by the backend

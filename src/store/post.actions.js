@@ -26,10 +26,10 @@ export function getActionUpdatePost(post) {
 }
 
 
-export async function loadPosts(filterBy) {
+export async function loadPosts(filterBy, sortBy) {
     console.log('filterByloadpost',filterBy)
     try {
-        const posts = await postService.query(filterBy)
+        const posts = await postService.query(filterBy, sortBy)
         // console.log('posts from DB:', posts)
         store.dispatch({
             type: SET_POSTS,
