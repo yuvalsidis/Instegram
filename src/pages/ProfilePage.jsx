@@ -6,7 +6,7 @@ import { UserInfo } from "../cmps/UserInfo"
 import { UserContent } from "../cmps/UserContent"
 import { useSelector } from "react-redux"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
-import { LOADING_DONE, LOADING_START, POST_NOT_CREATED} from "../store/system.reducer"
+import { LOADING_DONE, LOADING_START, POST_NOT_CREATED } from "../store/system.reducer"
 import { utilService } from "../services/util.service"
 import { store } from "../store/store"
 import { loadUser } from "../store/user.actions"
@@ -15,7 +15,7 @@ import { ProfileContentFilter } from "../cmps/ProfileContentFilter"
 import { postService } from "../services/post.service.local"
 import { loadPosts } from "../store/post.actions"
 
- 
+
 export function ProfilePage() {
     const [postsLoaded, setPostsLoaded] = useState(false);
     const posts = useSelector(storeState => storeState.postModule.posts)
@@ -26,7 +26,8 @@ export function ProfilePage() {
     const isLoadingUsers = useSelector(storeState => storeState.systemModule.isLoading)
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
     const [sortBy, setSortBy] = useState(postService.getDefaultSortBy)
- 
+    const [isFirstRun, setIsFirstRun] = useState(true);
+
     const { userId } = useParams()
     let defaultUserId = userId || null;
     console.log('ispostcreated>?????????????????', isPostCreated)
@@ -40,13 +41,12 @@ export function ProfilePage() {
     useEffect(() => {
         if (watchedUser) setFilterBy((prevFilterBy) => ({ ...prevFilterBy, _id: watchedUser._id }))
         else setFilterBy((prevFilterBy) => ({ ...prevFilterBy, _id: loggedInUser._id }))
-        setSortBy((prevSortBy) => ({...prevSortBy, desc: -1}))
-        store.dispatch({type : POST_NOT_CREATED,})
-
+        setSortBy((prevSortBy) => ({ ...prevSortBy, desc: -1 }))
+        store.dispatch({ type: POST_NOT_CREATED, })
     }, [watchedUser, loggedInUser, isPostCreated])
 
     useEffect(() => {
-        onLoadPosts()
+        onLoadPosts();
     }, [filterBy, sortBy])
 
 
@@ -57,6 +57,7 @@ export function ProfilePage() {
                 showSuccessMsg('Posts loaded successfully')
                 setIsLoadingPosts(false)
                 setPostsLoaded(true)
+                setIsFirstRun(false);
             })
             .catch((err) => {
                 showErrorMsg('Error occured by loading posts', err)
@@ -75,13 +76,14 @@ export function ProfilePage() {
                 showErrorMsg('there was a problem with loading user', err)
             })
     }
- 
+
+    if(isFirstRun) return null
     return (
         <section className="profile-page main">
             <div className="profile-main-content-container">
                 <UserInfo watchedUser={watchedUser} loggedInUser={loggedInUser} />
-                <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser} setFilterBy={setFilterBy} filterBy={filterBy}/>
-                <UserContent posts={posts} watchedUser={watchedUser} loggedInUser={loggedInUser} isLoadingPosts={isLoadingPosts}/>
+                <ProfileContentFilter watchedUser={watchedUser} loggedInUser={loggedInUser} setFilterBy={setFilterBy} filterBy={filterBy} />
+                <UserContent posts={posts} watchedUser={watchedUser} loggedInUser={loggedInUser} isLoadingPosts={isLoadingPosts} />
             </div>
             <Outlet />
         </section>

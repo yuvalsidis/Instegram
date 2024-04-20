@@ -13,7 +13,8 @@ export function ExplorePage(){
     const [filterBy, setFilterBy] = useState(postService.getDefualtFilterBy)
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
     const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
-
+    const [isFirstRun, setIsFirstRun] = useState(true);
+   
     useEffect(() => {
         onLoadPosts()
     }, [filterBy])
@@ -29,6 +30,7 @@ export function ExplorePage(){
                 showSuccessMsg('Posts loaded successfully')
                 store.dispatch({ type: LOADING_DONE, }
                 )
+                setIsFirstRun(false)
             })
             .catch((err) => {
                 showErrorMsg('Error occured by loading posts', err)
@@ -36,7 +38,7 @@ export function ExplorePage(){
 
     }
 
-
+    if(isFirstRun) return null
     return (
         <section className="explore-page">
             <ExplorePostList posts={posts}/>
