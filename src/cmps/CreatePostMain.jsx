@@ -4,7 +4,7 @@ import { CreatePostMainFilter } from "./CreatePostMainFilter"
 import { CreatePostNewPost } from "./CreatePostNewPost";
 
 
-export function CreatePostMain({postStage ,setPostStage}){
+export function CreatePostMain({postStage ,setPostStage, setNewPost, newPost}){
     const [filterStyles, setFilterStyles] = useState({});
     const [imageUrl, setImageUrl] = useState(null)
 
@@ -15,9 +15,9 @@ export function CreatePostMain({postStage ,setPostStage}){
             postStage === 4? `create-post-main-layout-four`:
               null
               }`}>
-               <CreatePostMainContent postStage={postStage} setPostStage={setPostStage} filterStyles={filterStyles} imageUrl={imageUrl} setImageUrl={setImageUrl}/>
+               <CreatePostMainContent postStage={postStage} setPostStage={setPostStage} filterStyles={filterStyles} setImageUrl={setImageUrl} imageUrl={imageUrl}/>
                {postStage === 3 && <CreatePostMainFilter  setFilterStyles={ setFilterStyles}/>}
-               {postStage === 4 && <CreatePostNewPost imageUrl={imageUrl}/>}
+               {postStage === 4 && <CreatePostNewPost setNewPost={setNewPost} newPost={newPost}/>}
         </div>
     )
 }

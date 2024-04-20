@@ -1,12 +1,12 @@
 
-export function CreatePostHeader({ postStage, setPostStage }) {
+export function CreatePostHeader({ postStage, setPostStage,setNewPost, newPost, setIsPostShareClick}) {
 
     function handleClickOnNext(){
         setPostStage(4)
     }
     
     function handleClickOnShare(){
-       console.log('share img')
+        setIsPostShareClick(true)
     }
     
     function handleClickOnPrevious(){
