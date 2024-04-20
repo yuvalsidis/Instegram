@@ -9,7 +9,7 @@ export function  CreatePostMainContent({ postStage, setPostStage, filterStyles, 
         if (fileInputChange) {
             const imgUrl = URL.createObjectURL(fileInputChange)
             setImageUrl(imgUrl)
-            setFileInputChange(fileInputChange)
+            setFileInputChange(event)
         }
         setPostStage(3)
     }
