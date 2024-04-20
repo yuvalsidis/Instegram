@@ -3,6 +3,7 @@ import { postService } from "../services/post.service.local"
 import { CreatePostHeader } from "./CreatePostHeader"
 import { CreatePostMain } from "./CreatePostMain"
 import { uploadService } from "../services/upload.service"
+import { addPost } from "../store/post.actions"
 
 export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen }) {
     const [newPost, setNewPost] = useState(postService.getEmptyPost())
@@ -17,19 +18,35 @@ export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen }) {
         }
     }, [isPostShareClicked])
 
-    // if (isPostShareClicked) {
-    //     setIsCreatePostOpen(false)
-    // }
+    useEffect(() => {
+        if (imgUrl) {
+            onSharePost()
+        }
+    }, [imgUrl])
 
     async function onUploadImg() {
-        try {
-            const imageUrl = await uploadService.uploadImg(fileInputChange)
-            setImgUrl(imageUrl)
-            setIsImageUploaded(true)
-            console.log('CreatePost: upload image successfully')
+        if (isImageUploaded === false) {
+            try {
+                const imageUrl = await uploadService.uploadImg(fileInputChange)
+                setImgUrl(imageUrl)
+                setIsImageUploaded(true)
+                console.log('CreatePost: upload image successfully')
+            }
+            catch (err) {
+                console.log('CreatePost: error occur by upload image')
+            }
         }
-        catch (err) {
-            console.log('CreatePost: error occur by upload image in')
+    }
+
+    async function onSharePost() {
+        const sharedPost = { ...newPost, imgUrl: imgUrl.url}
+        try {
+            const newPost = await addPost(sharedPost)
+            console.log('CreatePost: upload post successfully', newPost )
+            setIsCreatePostOpen(false)
+        }
+        catch(err){
+            console.log('CreatePost: error occur by share post')
         }
     }
 
