@@ -6,7 +6,7 @@ export function UserPostList({ posts, user_id }) {
     return (
         <ul className="user-post-list"> 
             {
-                posts.map(post => (
+                posts.reverse().map(post => (
                     <li key={post._id} className="post-preview">
                         <PostPreview post={post} user_id={user_id}/>
                     </li>
