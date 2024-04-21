@@ -22,7 +22,7 @@ export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedIn
         })
     }
 
-    function handleClickPostBtn() {
+    function onAddComment() {
         const editedPost = { ...post, comments: [...post.comments, comment] }
         onUpdatePost(editedPost)
         setComment(postService.getEmptyComment())
@@ -41,7 +41,7 @@ export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedIn
                         onChange={handleChange}
                         placeholder='Add a comment...'
                     />
-                    <button className={comment.txt ? 'post-comment-btn' : 'post-comment-btn-after'} onClick={() => handleClickPostBtn()}>Post</button>
+                    <button className={comment.txt ? 'post-comment-btn' : 'post-comment-btn-after'} onClick={() => onAddComment()}>Post</button>
                 </>
                 :
                 <>
@@ -51,7 +51,7 @@ export function PostAddComment({ post, onUpdatePost, isPostDetailsPage, loggedIn
                         onChange={handleChange}
                         placeholder="Add a comment..."
                     />
-                    {comment.txt && <button className="post-comment-btn" onClick={() => handleClickPostBtn()}>Post</button>}
+                    {comment.txt && <button className="post-comment-btn" onClick={() => onAddComment()}>Post</button>}
                     <SentimentSatisfiedOutlinedIcon className="emoji-icon" />
                 </>
 
