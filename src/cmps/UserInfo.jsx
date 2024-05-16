@@ -5,13 +5,13 @@ import { UserStats } from "./UserStats"
 export function UserInfo({ watchedUser, loggedInUser }) {
     
     function formatNumber(num) {
-        num = Math.trunc(num); // Remove the fractional part
+        num = Math.trunc(num)
         if (num < 10000) {
-            return num.toLocaleString(); 
+            return num.toLocaleString() 
         } else if (num < 1000000) {
-            return (num / 1000).toFixed(1) + 'K'; 
+            return (num / 1000).toFixed(1) + 'K'
         } else {
-            return (num / 1000000).toFixed(1) + 'M'; 
+            return (num / 1000000).toFixed(1) + 'M' 
         }
     }
 

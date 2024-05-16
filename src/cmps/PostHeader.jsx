@@ -1,8 +1,8 @@
 import { utilService } from "../services/util.service"
 import { useNavigate } from "react-router-dom"
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { useState } from "react";
-import { OptionsModal } from "./OptionsModal";
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
+import { useState } from "react"
+import { OptionsModal } from "./OptionsModal"
 
 export function PostHeader({ post, isPostDetailsPage, isPostIdProfile, setIsOptionsModalOpen }) {
     const navigate = useNavigate()

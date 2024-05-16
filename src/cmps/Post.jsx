@@ -5,12 +5,10 @@ import { PostPhotos } from "./PostPhotos"
 import { PostActions } from "./PostActions"
 import { PostComments } from "./PostComments"
 import { PostLikes } from "./PostLikes"
-// import { RandomImage } from "./RandomImage"
 
 export function Post({ post, onUpdatePost, loggedInUser, setIsOptionsModalOpen}) {
     function addCommasToNumber(number) {
-        // Convert the number to a string with commas
-        return number.toLocaleString();
+        return number.toLocaleString()
     }
 
     return (

@@ -2,12 +2,6 @@
     box-sizing: border-box;
 }
 
-::selection {}
-
-html {
-// line-height:1.6; We need to adjust line height for all the html
-}
-
 body {
     background-color: $clr_bg;
     font-size: rem($system-14-font-size);
@@ -16,9 +10,8 @@ body {
 }
 
 img {
-    width: 100%; //ensure the the image will be pixel perfect
+    width: 100%; 
 }
-
 
 a {
     text-decoration: none;
@@ -29,9 +22,6 @@ a:hover {
     cursor: pointer;
 }
 
-// .logo {
-//     font-family: Sans_Head_Line;
-// }
 .logo {
     width: 105px;
     height: 32px;

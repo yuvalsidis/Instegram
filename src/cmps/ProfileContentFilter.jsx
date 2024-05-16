@@ -1,5 +1,5 @@
-import GridOnIcon from '@mui/icons-material/GridOn';
-import { useState } from 'react';
+import GridOnIcon from '@mui/icons-material/GridOn'
+import { useState } from 'react'
 
 export function ProfileContentFilter({ watchedUser, loggedInUser,setFilterBy, filterBy}) {
     const activeFilter = filterBy.savedBy_id? 'saved' : 'posts'

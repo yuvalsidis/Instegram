@@ -80,9 +80,6 @@ export function updatePost(post) {
         })
 }
 
-
-// Demo for Optimistic Mutation 
-// (IOW - Assuming the server call will work, so updating the UI first)
 export function onRemovepostOptimistic(postId) {
     store.dispatch({
         type: REMOVE_POST,

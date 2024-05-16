@@ -2,9 +2,8 @@
 export function PostLikes({ post, isPostDetailsPage}) {
 
     function addCommas(number) {
-        // Convert the number to an integer to remove the fractional part
-        number = Math.trunc(number);
-        return number.toLocaleString();
+        number = Math.trunc(number)
+        return number.toLocaleString()
     }
     
     return (

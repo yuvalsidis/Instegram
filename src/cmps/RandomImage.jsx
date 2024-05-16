@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { CloudinaryContext, createUploadWidget } from '@cloudinary/react';
-import storageService from '/src/services/async-storage.service.js'; 
+import { CloudinaryContext, createUploadWidget } from '@cloudinary/react'
+import storageService from '/src/services/async-storage.service.js'
 
 export const RandomImage = () => {
-  const [imageIds, setImageIds] = useState([]); // Store uploaded image IDs
-  const [imageUrl, setImageUrl] = useState(null); // Store random image URL for display
-  const [isLoading, setIsLoading] = useState(false); // Optional state for loading indicator during image fetch
+  const [imageIds, setImageIds] = useState([])
+  const [imageUrl, setImageUrl] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
-  // Function to handle image upload using Cloudinary's upload widget
   const handleImageUpload = async () => {
     setIsLoading(true); // Set loading indicator (optional)
     const uploadWidget = createUploadWidget({

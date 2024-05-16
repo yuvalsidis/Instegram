@@ -3,8 +3,8 @@ import { utilService } from "../services/util.service";
 import { useNavigate, useParams } from "react-router-dom"
 
 export function CommentPreview({ comment, loggedInUser }) {
-    const [translatedText, setTranslatedText] = useState('');
-    const [isTranslatedToHebrew, setIsTranslatedToHebrew] = useState(false);
+    const [translatedText, setTranslatedText] = useState('')
+    const [isTranslatedToHebrew, setIsTranslatedToHebrew] = useState(false)
     const timeSinceCreation = utilService.getTimeSinceCreation(comment.createdAt)
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
@@ -16,36 +16,36 @@ export function CommentPreview({ comment, loggedInUser }) {
       
     useEffect(() => {
         async function translateText() {
-            setLoading(true); // Set loading state to true before fetching translation
+            setLoading(true)
             try {
-                const targetLanguage = isTranslatedToHebrew ? 'iw' : 'en';
-                const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(comment.txt)}`);
-                const data = await response.json();
-                const translatedText = data[0][0][0];
-                setTranslatedText(translatedText);
+                const targetLanguage = isTranslatedToHebrew ? 'iw' : 'en'
+                const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(comment.txt)}`)
+                const data = await response.json()
+                const translatedText = data[0][0][0]
+                setTranslatedText(translatedText)
             } catch (error) {
-                console.error('Translation error:', error);
+                console.error('Translation error:', error)
             } finally {
                 setLoading(false);
             }
         }
 
         translateText();
-    }, [comment.txt, isTranslatedToHebrew]);
+    }, [comment.txt, isTranslatedToHebrew])
 
 
     const toggleTranslation = () => {
-        setIsTranslatedToHebrew(!isTranslatedToHebrew);
+        setIsTranslatedToHebrew(!isTranslatedToHebrew)
     };
 
     function formatCommentLikes(num) {
         num = Math.trunc(num); // Remove the fractional part
         if (num < 1000) {
-            return num.toLocaleString(); // Use commas for numbers up to 999
+            return num.toLocaleString()
         } else if (num < 1000000) {
-            return (num / 1000).toFixed(1) + 'K'; // Abbreviate with 'K' for numbers between 1,000 and 999,999
+            return (num / 1000).toFixed(1) + 'K'
         } else {
-            return (num / 1000000).toFixed(1) + 'M'; // Abbreviate with 'M' for numbers equal to or greater than 1,000,000
+            return (num / 1000000).toFixed(1) + 'M'
         }
     }
 

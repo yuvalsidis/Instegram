@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import { FollowersContainer } from "../cmps/FollowersContainer"
 import { useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import { loadUserById } from "../store/user.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { store } from "../store/store"
-import { userService } from "../services/user.service";
+import { userService } from "../services/user.service"
 
 export function FollowersPage() {
     const loggedInUser = useSelector(storeState => storeState.userModule.user)

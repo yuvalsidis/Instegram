@@ -1,5 +1,5 @@
 import {useLocation,useNavigate} from "react-router-dom"
-import { utilService } from "../services/util.service";
+import { utilService } from "../services/util.service"
 
 export function PostPreview({ post, user_id}) {
 
@@ -8,10 +8,10 @@ export function PostPreview({ post, user_id}) {
 
     function handleClickOnImg() {
         if(location.pathname.includes('explore')){
-            navigate(`/explore/p/${post._id}`);  
+            navigate(`/explore/p/${post._id}`)
         }
         if(location.pathname.includes('profile')){
-            navigate(`/profile/${user_id}/p/${post._id}`);  
+            navigate(`/profile/${user_id}/p/${post._id}`)
         }
     }
 

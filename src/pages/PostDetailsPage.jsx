@@ -40,7 +40,6 @@ export function PostDetailsPage() {
         postService.getById(postId)
             .then((matchedPost) => {
                 SetPost(matchedPost)
-                console.log('asdasdasdasd',matchedPost)
                 showSuccessMsg('Post load successfully')
                 setPostLoading(false)
             })

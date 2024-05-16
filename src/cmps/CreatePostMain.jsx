@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CreatePostMainContent } from "./CreatePostMainContent"
 import { CreatePostMainFilter } from "./CreatePostMainFilter"
-import { CreatePostNewPost } from "./CreatePostNewPost";
+import { CreatePostNewPost } from "./CreatePostNewPost"
 
 
 export function CreatePostMain({ postStage, setPostStage, setNewPost, newPost, setFileInputChange }) {
