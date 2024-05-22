@@ -6,6 +6,7 @@ import { uploadService } from "../services/upload.service"
 import { addPost } from "../store/post.actions"
 import { store } from "../store/store"
 import { POST_CREATED } from "../store/system.reducer"
+import { useDispatch } from "react-redux"
 
 export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen }) {
     const [newPost, setNewPost] = useState(postService.getEmptyPost())
@@ -13,7 +14,8 @@ export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen }) {
     const [fileInputChange, setFileInputChange] = useState(null)
     const [isImageUploaded, setIsImageUploaded] = useState(false)
     const [imgUrl, setImgUrl] = useState(null)
-
+    
+    store.getState()
     useEffect(() => {
         if (isPostShareClicked) {
             onUploadImg()
@@ -46,7 +48,7 @@ export function CreatePost({ postStage, setPostStage, setIsCreatePostOpen }) {
             const newPost = await addPost(sharedPost)
             console.log('CreatePost: upload post successfully', newPost)
             setIsCreatePostOpen(false)
-            store.dispatch({ type: POST_CREATED, })
+            useDispatch({ type: POST_CREATED, })
         }
         catch (err) {
             console.log('CreatePost: error occur by share post')
