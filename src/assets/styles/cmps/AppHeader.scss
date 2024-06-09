@@ -37,9 +37,10 @@
 
     .instegram-logo {
         margin-top: 10px;
-        font-family: instegram_logo;
+        font-family: instegram_logo !important; 
         font-weight: 100;
         font-size: rem($system-28-font-size);
         line-height: rem($system-28-line-height);
     }
 }
+
